@@ -6,24 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>dreem的博客</title>
+  <title>Linux权限管理 | dreem的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Linux权限123456789++++对于文件夹下的rwx权限	r：可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限；	w：表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件；	x：表示可以进入到该目录，即cd命令。	+++++对于文件的rw">
 <meta property="og:type" content="article">
-<meta property="og:title" content="dreem的博客">
+<meta property="og:title" content="Linux权限管理">
 <meta property="og:url" content="http://example.com/2022/09/20/Linux%E6%9D%83%E9%99%90/index.html">
 <meta property="og:site_name" content="dreem的博客">
 <meta property="og:description" content="Linux权限123456789++++对于文件夹下的rwx权限	r：可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限；	w：表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件；	x：表示可以进入到该目录，即cd命令。	+++++对于文件的rw">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-20T10:32:00.208Z">
-<meta property="article:modified_time" content="2022-09-20T10:31:55.594Z">
+<meta property="article:modified_time" content="2022-09-20T11:14:10.426Z">
 <meta property="article:author" content="dreem">
+<meta property="article:tag" content="os">
+<meta property="article:tag" content="linux权限介绍">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="dreem的博客" type="application/atom+xml">
   
   
-    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/myblog.png">
   
   <link rel="stylesheet" type="text/css" href="/./main.0cf68a.css">
   <style type="text/css">
@@ -47,7 +49,7 @@
 <div class="intrude-less">
 	<header id="header" class="inner">
 		<a href="/" class="profilepic">
-			<img src="" class="js-avatar">
+			<img src="/img/ava.jpg" class="js-avatar">
 		</a>
 		<hgroup>
 		  <h1 class="header-author"><a href="/"></a></h1>
@@ -59,7 +61,7 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+				<li><a href="/tags/%E7%9B%AE%E5%BD%95/">目录</a></li>
 	        
 			</ul>
 		</nav>
@@ -81,13 +83,15 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+					<a class="github" target="_blank" href="https://github.com/ddddreem" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+					<a class="qq" target="_blank" href="/1808457651" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+					<a class="weixin" target="_blank" href="/dreem_12" title="weixin"><i class="icon-weixin"></i></a>
 		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+					<a class="mail" target="_blank" href="/1808457651@qq.com" title="mail"><i class="icon-mail"></i></a>
+		        
+					<a class="google" target="_blank" href="/payreas@gmial.com" title="google"><i class="icon-google"></i></a>
 		        
 			</div>
 		</nav>
@@ -105,7 +109,7 @@
 	<div class="intrude-less">
 		<header id="header" class="inner">
 			<div class="profilepic">
-				<img src="" class="js-avatar">
+				<img src="/img/ava.jpg" class="js-avatar">
 			</div>
 			<hgroup>
 			  <h1 class="header-author js-header-author"></h1>
@@ -122,13 +126,15 @@
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
+						<a class="github" target="_blank" href="https://github.com/ddddreem" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
+						<a class="qq" target="_blank" href="/1808457651" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
+						<a class="weixin" target="_blank" href="/dreem_12" title="weixin"><i class="icon-weixin"></i></a>
 			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
+						<a class="mail" target="_blank" href="/1808457651@qq.com" title="mail"><i class="icon-mail"></i></a>
+			        
+						<a class="google" target="_blank" href="/payreas@gmial.com" title="google"><i class="icon-google"></i></a>
 			        
 				</div>
 			</nav>
@@ -139,7 +145,7 @@
 				
 					<li style="width: 50%"><a href="/">主页</a></li>
 		        
-					<li style="width: 50%"><a href="/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 50%"><a href="/tags/%E7%9B%AE%E5%BD%95/">目录</a></li>
 		        
 				</ul>
 			</nav>
@@ -156,6 +162,21 @@
           <div id="js-content" class="content-ll">
             <article id="post-Linux权限" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Linux权限管理
+    </h1>
+  
+
+        
+        <a href="/2022/09/20/Linux%E6%9D%83%E9%99%90/" class="archive-article-date">
+  	<time datetime="2022-09-20T10:32:00.208Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
+</a>
+        
+      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -196,6 +217,21 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">linux权限介绍</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -264,14 +300,14 @@
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          (no title)
+          Redis学习笔记
         
       </div>
     </a>
   
   
     <a href="/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title"></div>
+      <div class="article-nav-title">SpringMvc学习笔记</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -395,6 +431,54 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">目录</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">SpringMvc框架</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nosql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">redis主从复制</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">hello hexo！</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">hexo开始...</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -445,27 +529,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
         <ul class="search-ul">
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接1</a>
+              <a href="https://github.com/ddddreem" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>个人Github</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接2</a>
+              <a href="https://blog.csdn.net/qq_53657988" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>个人CSDN</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接3</a>
+              <a href="http://www.pengzhihui.xyz" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>稚晖的个人站</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接4</a>
+              <a href="http://www.codesheep.cn" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>程序羊的个人站</a>
             </li>
           
             <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接5</a>
-            </li>
-          
-            <li class="search-li">
-              <a href="http://localhost:4000/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>友情链接6</a>
+              <a href="http://www.runoob.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>菜鸟</a>
             </li>
           
         </ul>
@@ -476,7 +556,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;只做了一点微小的工作&lt;br&gt;谢谢大家</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">能摆尽摆&lt;br&gt;&lt;br&gt;能学尽学&lt;br&gt;谢谢</div>
   	  	
     	</section>
     
