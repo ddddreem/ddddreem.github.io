@@ -158,19 +158,19 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-Redis主从复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/20/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">Redis学习笔记</a>
+      <a class="article-title" href="/2022/09/20/Redis/">Redis学习笔记</a>
     </h1>
   
 
         
-        <a href="/2022/09/20/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/" class="archive-article-date">
+        <a href="/2022/09/20/Redis/" class="archive-article-date">
   	<time datetime="2022-09-20T11:29:21.481Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
 </a>
         
@@ -191,11 +191,11 @@
 <li><p>使读操作和写操作分离来，提高性能</p>
 </li>
 <li><p>容灾快速恢复：我认为的是系统突然遇到一些突发情况不能继续工作，容灾快速恢复可能是发生这种情况之后可以根据备份文件或者其他技术来恢复数据（&#x3D;&#x3D;个人理解&#x3D;&#x3D;）</p>
-<p><img src="/.com//image-20220629152629791.png" alt="image-20220629152629791"></p>
+<p><img src="/2022/09/20/Redis/image-20220629152629791.png" alt="image-20220629152629791"></p>
 </li>
 </ul>
 <h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><p>首先创建一个目录用来保存开启主从复制的redis服务的配置文件</p>
-<p><img src="/.com//image-20220629161152032.png" alt="image-20220629161152032"></p>
+<p><img src="/2022/09/20/Redis/image-20220629161152032.png" alt="image-20220629161152032"></p>
 <p>在redis的解压文件中拷贝一份redis的配置文件到新建的目录下</p>
 <p>拷贝的这一份配置文件需要设置：</p>
 <ol>
@@ -211,24 +211,24 @@
 <li>port [xxxx] 服务的端口号</li>
 <li>dbfilename [dbfilename] RDB持久化备份文件名</li>
 </ul>
-<p><img src="/.com//image-20220629174336363.png" alt="image-20220629174336363"></p>
-<p><img src="/.com//image-20220629174043078.png" alt="image-20220629174043078"></p>
+<p><img src="/2022/09/20/Redis/image-20220629174336363.png" alt="image-20220629174336363"></p>
+<p><img src="/2022/09/20/Redis/image-20220629174043078.png" alt="image-20220629174043078"></p>
 <p>分别启动三个redis服务</p>
-<p><img src="/.com//image-20220629172152447.png" alt="image-20220629172152447"></p>
+<p><img src="/2022/09/20/Redis/image-20220629172152447.png" alt="image-20220629172152447"></p>
 <p>分别进入到服务器的客户端<code>redis-cli -p xxxx</code>：进入到指定端口的redis客户端</p>
 <p>进入客户端之后输入info replication 可以查看redis服务器的信息，如下图。</p>
-<p><img src="/.com//image-20220629180033076.png" alt="image-20220629180033076"></p>
+<p><img src="/2022/09/20/Redis/image-20220629180033076.png" alt="image-20220629180033076"></p>
 <p><code>slaveof 主机地址 端口号</code> ： 将本服务器作为目的服务器的从服务器</p>
-<p><img src="/.com//image-20220629175933385.png" alt="image-20220629175933385"></p>
+<p><img src="/2022/09/20/Redis/image-20220629175933385.png" alt="image-20220629175933385"></p>
 <p>主服务器的info replication显示如下：</p>
-<p><img src="/.com//image-20220629175558947.png" alt="image-20220629175558947"></p>
+<p><img src="/2022/09/20/Redis/image-20220629175558947.png" alt="image-20220629175558947"></p>
 <h2 id="x3D-x3D-注意：-x3D-x3D"><a href="#x3D-x3D-注意：-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;注意：&#x3D;&#x3D;"></a>&#x3D;&#x3D;注意：&#x3D;&#x3D;</h2><p>当设置了的主从复制类似于薪火相传模式：即一台主机一个从机，从机还有一台从机。</p>
 <p>​	这种情况下注意，当中间的从机宕机后，属于这台从机的从机会等待这台宕机的机器重启，且不会变成master，</p>
 <p>依旧是以slave的角色挂接在这台宕机的机器上；但是如果宕机的这台机器重新上线，他不再是之前master的从机了，</p>
 <p>而是自己变成主机。</p>
-<p><img src="/.com//image-20220705160403316.png" alt="image-20220705160403316"></p>
+<p><img src="/2022/09/20/Redis/image-20220705160403316.png" alt="image-20220705160403316"></p>
 <p>中间的从机宕机重连之后：不再是之前主机的从机，而是自己变成主机。</p>
-<p><img src="/.com//image-20220705161819996.png" alt="image-20220705161819996"></p>
+<p><img src="/2022/09/20/Redis/image-20220705161819996.png" alt="image-20220705161819996"></p>
 <h2 id="参考地址："><a href="#参考地址：" class="headerlink" title="参考地址："></a>参考地址：</h2>
       
 
@@ -256,7 +256,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/Redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">展开全文 >></a>
+          <a class="article-more-a" href="/2022/09/20/Redis/">展开全文 >></a>
         </p>
       
 
@@ -496,7 +496,7 @@
 <li>405：如果页面的请求方式与控制器方法中的属性（即@RequestMapping的method属性）匹配不了，报该类错误</li>
 <li>500：如果请求路径在控制器中匹配到了方法，但是方法返回的字符串通过Thymeleaf的视图解析器解析之后，找不到该视图，最后Thymeleaf向浏览器发送 500错误。</li>
 </ol>
-<h2 id="四、RESTFul风格案例"><a href="#四、RESTFul风格案例" class="headerlink" title="四、RESTFul风格案例"></a>四、RESTFul风格案例</h2><p><img src="/.com//Users\Administrator\AppData\Roaming\Typora\typora-user-images\1645149025164.png" alt="1645149025164"></p>
+<h2 id="四、RESTFul风格案例"><a href="#四、RESTFul风格案例" class="headerlink" title="四、RESTFul风格案例"></a>四、RESTFul风格案例</h2><p><img src="/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Users/Administrator\AppData\Roaming\Typora\typora-user-images\1645149025164.png" alt="1645149025164"></p>
 <p>​		访问首页可以直接使用配置文件，在springMVC.xml文件中添加控制器(view-controller)<code>&lt;mvc:view-controller path=&quot;/&quot; view-name=&quot;index&quot;&gt;&lt;/mvc:view-controller&gt;</code> 并且需要开启注解驱动，否则其他控制器方法中的RequestMapping注解将失效，&#x3D;&#x3D;开启注解驱动&#x3D;&#x3D;：<code>&lt;mvc:annotation-driven/&gt;</code></p>
 <h4 id="RequestBody注解"><a href="#RequestBody注解" class="headerlink" title="@RequestBody注解"></a>@RequestBody注解</h4><p>​		用来标识形参，表示浏览器的请求体（也就是浏览器传入的一些参数）</p>
 <h4 id="RequestEntity类型"><a href="#RequestEntity类型" class="headerlink" title="RequestEntity类型"></a>RequestEntity类型</h4><p>​		RequestEntity封装请求报文的一种类型，需要在控制器方法的形参中设置该类型的形参，当前请求的请求报文就会赋值给该形参，可以通过getHeaders()获取请求头信息，通过getBody()获取请求体信息。</p>
@@ -892,7 +892,7 @@
 <h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
 <h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
 <h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#x64;&#100;&#x64;&#x64;&#x72;&#101;&#x65;&#x6d;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#109;">&#x64;&#100;&#x64;&#x64;&#x72;&#101;&#x65;&#x6d;&#x40;&#49;&#x36;&#51;&#x2e;&#x63;&#111;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#x64;&#x64;&#114;&#101;&#x65;&#x6d;&#64;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;">&#100;&#100;&#x64;&#x64;&#114;&#101;&#x65;&#x6d;&#64;&#x31;&#54;&#x33;&#46;&#99;&#x6f;&#x6d;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
 
