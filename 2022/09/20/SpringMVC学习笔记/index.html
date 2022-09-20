@@ -8,15 +8,19 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>dreem的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="主要专注后端，涉猎广泛，想学什么学什么">
-<meta property="og:type" content="website">
+  <meta name="description" content="SpringMVC一.SpringMVC简介1. 什么是SpringMVC：​	MVC是一种软件架构的思想，将软件按照模型、视图、控制器来划分 ​	M：Model，模型层，指工程中的JavaBean，作用是处理数据 ​		JavaBean分为两类： ​		· 一类是实体类Bean：专门存储业务数据的，数据库表的映射Bean ​		· 一类是业务处理Bean：指 Service 或 Dao 对象，专">
+<meta property="og:type" content="article">
 <meta property="og:title" content="dreem的博客">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="dreem的博客">
-<meta property="og:description" content="主要专注后端，涉猎广泛，想学什么学什么">
+<meta property="og:description" content="SpringMVC一.SpringMVC简介1. 什么是SpringMVC：​	MVC是一种软件架构的思想，将软件按照模型、视图、控制器来划分 ​	M：Model，模型层，指工程中的JavaBean，作用是处理数据 ​		JavaBean分为两类： ​		· 一类是实体类Bean：专门存储业务数据的，数据库表的映射Bean ​		· 一类是业务处理Bean：指 Service 或 Dao 对象，专">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1645149025164.png">
+<meta property="article:published_time" content="2022-09-20T10:31:28.285Z">
+<meta property="article:modified_time" content="2022-03-02T13:11:34.000Z">
 <meta property="article:author" content="dreem">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="c:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\1645149025164.png">
   
     <link rel="alternative" href="/atom.xml" title="dreem的博客" type="application/atom+xml">
   
@@ -152,162 +156,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-redis主从复制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="redis主从复制"><a href="#redis主从复制" class="headerlink" title="redis主从复制"></a>redis主从复制</h1><p>最近浅学了一下redis，下面就是我觉得重要的一个点。</p>
-<h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><ul>
-<li><p>主机数据更新后根据配置和策略， 自动同步到备机的master&#x2F;slaver机制，&#x3D;&#x3D;Maste&#x3D;&#x3D;r以&#x3D;&#x3D;写&#x3D;&#x3D;为主，&#x3D;&#x3D;Slave&#x3D;&#x3D;以&#x3D;&#x3D;读&#x3D;&#x3D;为主</p>
-</li>
-<li><p>可以这样帮助理解：主机相当于房东，从机相当于房客，房客不能损坏出租房里的东西，但是有使用的权限；而出租房是属于房东的，房东有权利去收走或者添置出租屋里的东西。</p>
-</li>
-<li><p>上面那个例子可能也不太好理解，反正就是主机可以有读写的权限，从机只有读的权限。</p>
-</li>
-</ul>
-<h2 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h2><ul>
-<li><p>使读操作和写操作分离来，提高性能</p>
-</li>
-<li><p>容灾快速恢复：我认为的是系统突然遇到一些突发情况不能继续工作，容灾快速恢复可能是发生这种情况之后可以根据备份文件或者其他技术来恢复数据（&#x3D;&#x3D;个人理解&#x3D;&#x3D;）</p>
-<p><img src="/.._screencut%5Cimage-20220629152629791.png" alt="image-20220629152629791"></p>
-</li>
-</ul>
-<h2 id="实现："><a href="#实现：" class="headerlink" title="实现："></a>实现：</h2><p>首先创建一个目录用来保存开启主从复制的redis服务的配置文件</p>
-<p><img src="/.._screencut%5Cimage-20220629161152032.png" alt="image-20220629161152032"></p>
-<p>在redis的解压文件中拷贝一份redis的配置文件到新建的目录下</p>
-<p>拷贝的这一份配置文件需要设置：</p>
-<ol>
-<li>设置为守护进程：即可以让redis在后台启动</li>
-<li>如果需要其他主机访问本机的redis服务：需要将配置文件中的protected-mode设置为no，并且将bind 127.0.0.1注释掉</li>
-<li>如果需要AOF持久化，需要设置配置文件中的appendonly为yes，如果只是为了演示一下，可以关闭AOF持久化</li>
-</ol>
-<p>拷贝redis的配置文件到新建目录下，编辑拷贝过来的配置文件，我这里是关了AOF持久化的配置</p>
-<p>具体的redis配置文件的配置如下，</p>
-<ul>
-<li>include [filename] 引入配置文件</li>
-<li>pidfile [pidfile] 进程标识号的文件</li>
-<li>port [xxxx] 服务的端口号</li>
-<li>dbfilename [dbfilename] RDB持久化备份文件名</li>
-</ul>
-<p><img src="/.._screencut%5Cimage-20220629174336363.png" alt="image-20220629174336363"></p>
-<p><img src="/.._screencut%5Cimage-20220629174043078.png" alt="image-20220629174043078"></p>
-<p>分别启动三个redis服务</p>
-<p><img src="/.._screencut%5Cimage-20220629172152447.png" alt="image-20220629172152447"></p>
-<p>分别进入到服务器的客户端<code>redis-cli -p xxxx</code>：进入到指定端口的redis客户端</p>
-<p>进入客户端之后输入info replication 可以查看redis服务器的信息，如下图。</p>
-<p><img src="/.._screencut%5Cimage-20220629180033076.png" alt="image-20220629180033076"></p>
-<p><code>slaveof 主机地址 端口号</code> ： 将本服务器作为目的服务器的从服务器</p>
-<p><img src="/.._screencut%5Cimage-20220629175933385.png" alt="image-20220629175933385"></p>
-<p>主服务器的info replication显示如下：</p>
-<p><img src="/.._screencut%5Cimage-20220629175558947.png" alt="image-20220629175558947"></p>
-<h2 id="x3D-x3D-注意：-x3D-x3D"><a href="#x3D-x3D-注意：-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;注意：&#x3D;&#x3D;"></a>&#x3D;&#x3D;注意：&#x3D;&#x3D;</h2><p>当设置了的主从复制类似于薪火相传模式：即一台主机一个从机，从机还有一台从机。</p>
-<p>​	这种情况下注意，当中间的从机宕机后，属于这台从机的从机会等待这台宕机的机器重启，且不会变成master，</p>
-<p>依旧是以slave的角色挂接在这台宕机的机器上；但是如果宕机的这台机器重新上线，他不再是之前master的从机了，</p>
-<p>而是自己变成主机。</p>
-<p><img src="/.._screencut%5Cimage-20220705160403316.png" alt="image-20220705160403316"></p>
-<p>中间的从机宕机重连之后：不再是之前主机的从机，而是自己变成主机。</p>
-<p><img src="/.._screencut%5Cimage-20220705161819996.png" alt="image-20220705161819996"></p>
-<h2 id="参考地址："><a href="#参考地址：" class="headerlink" title="参考地址："></a>参考地址：</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/redis%E4%B8%BB%E4%BB%8E%E5%A4%8D%E5%88%B6/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Linux权限" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux权限"><a href="#Linux权限" class="headerlink" title="Linux权限"></a>Linux权限</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">++++对于文件夹下的rwx权限</span><br><span class="line">	r：可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限；</span><br><span class="line">	w：表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件；</span><br><span class="line">	x：表示可以进入到该目录，即cd命令。</span><br><span class="line">	</span><br><span class="line">+++++对于文件的rwx权限</span><br><span class="line">	r：可以读，即可以使用cat命令；</span><br><span class="line">	w：可以写，即可以使用vi、vim和echo命令；</span><br><span class="line">	x：表示命令可以被bash解析并执行，允许bash程序去执行文件。</span><br></pre></td></tr></table></figure>
-
-<p>对于文件夹下的rwx权限：</p>
-<ul>
-<li>&#x3D;&#x3D;r&#x3D;&#x3D;:可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限。</li>
-<li>&#x3D;&#x3D;w&#x3D;&#x3D;:表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件</li>
-<li>&#x3D;&#x3D;x&#x3D;&#x3D;:表示可以进入到该目录，即cd命令；</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/Linux%E6%9D%83%E9%99%90/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringMVC学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-SpringMVC学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -539,6 +388,27 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -546,16 +416,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2022/09/20/Linux%E6%9D%83%E9%99%90/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">md语法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -575,310 +513,14 @@
 
 
 
-
   
-    <article id="post-Markdown语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/">md语法</a>
-    </h1>
   
 
-        
-        <a href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-09-20T10:30:45.916Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="学习Markdown语法"><a href="#学习Markdown语法" class="headerlink" title="学习Markdown语法"></a>学习Markdown语法</h1><p>&lt;·#是标题前缀</p>
-<p>###（1）插入本地图片链接</p>
-<p><img src="https://img-blog.csdn.net/20180802155057285?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQwNjE2MzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>###（2）插入互联网上的图片</p>
-<p><strong>·引用图片用</strong></p>
-<p><em><strong>eg:</strong></em></p>
-<p>​	<img src="http://pic.downcc.com/upload/2015-9/2015923174024.png" alt="asdf"></p>
-<p><img src="https://img-blog.csdn.net/20180802155336302?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQwNjE2MzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>​	<img src="http://pic.downcc.com/upload/2015-9/2015923174024.png" alt="markdown"></p>
-<p>·Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的</p>
-<p>​	<em><strong>eg:</strong></em></p>
-<p><a target="_blank" rel="noopener" href="https://baidu.com/">https://baidu.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.baidu.com/baidu.html?from=noscript">https://www.baidu.com/baidu.html?from=noscript</a></p>
-<p>###分隔符</p>
-<p>·你可以在一行中用三个以上的&#x3D;&#x3D;星号(*)、减号(-)、底线(_)&#x3D;&#x3D;来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
-<hr>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;add.....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>###代码块</p>
-<p>·单行代码用一对``		<em><strong>eg:</strong></em><code>示例代码</code></p>
-<p>·多行代码块用三对``,需换行开始		<em><strong>eg:</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>·高亮强调用==示例==		<em><strong>eg:</strong></em> 		&#x3D;&#x3D;示例&#x3D;&#x3D;</p>
-<p>###Markdown语法支持html语言</p>
-<p><em><strong>eg:</strong></em></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>值班人员<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">td</span>&gt;</span>李强<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>王平<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>​                                   </p>
-<p>###引用：比如说引用了什么话之类的</p>
-<p>在被引用的&#x3D;&#x3D;文本前加上&gt;符号，以及一个空格&#x3D;&#x3D;就可以了，如果只输入了一个&gt;符号会产生一个空白的引用。</p>
-<p><strong>·单个的引用</strong></p>
-<blockquote>
-<p>这是一个引用</p>
-<blockquote>
-<p>这还是一个引用</p>
-</blockquote>
-</blockquote>
-<p><strong>·多个引用</strong></p>
-<blockquote>
-<blockquote>
-<p>引用</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>引用</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<blockquote>
-<p>yinyong</p>
-<blockquote>
-<p>yinyong</p>
-<blockquote>
-<p>yinyong</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>###列表</p>
-<ul>
-<li><p>使用 &#x3D;&#x3D;*，+，- 表示无序列表&#x3D;&#x3D;。</p>
-<p>注意：&#x3D;&#x3D;符号后面一定要有一个空格&#x3D;&#x3D;，起到缩进的作用。</p>
-</li>
-</ul>
-<p><em><strong>eg：</strong></em></p>
-<ul>
-<li><p>(- )   列表</p>
-<ul>
-<li>(+ )  列表<ul>
-<li>(* )  列表</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>使用&#x3D;&#x3D;数字和一个英文句点表示有序列表&#x3D;&#x3D;。<br>注意：&#x3D;&#x3D;英文句点后面一定要有一个空格&#x3D;&#x3D;，起到缩进的作用。</p>
-<p><em><strong>eg:</strong></em></p>
-<pre><code>1. 有序列表
-2. 有序列表
-3. 示范
-</code></pre>
-</li>
-</ul>
-<p>###表格</p>
-<ul>
-<li>表格的基本写法跟表格的形状相识</li>
-</ul>
-<p>学号|姓名|分数</p>
-<p>-|-|-</p>
-<p>小明|男|75</p>
-<p>小红|女|79</p>
-<p>小陆|男|92</p>
-<ul>
-<li>表格对齐方式：我们可以指定表格单元格的对齐方式，冒号在左边表示左对齐，右边表示有对齐，两边都有表示居中。</li>
-</ul>
-<p>学号|姓名|分数</p>
-<p>:-|:-:|-:</p>
-<p>小明|男|75</p>
-<p>小红|女|79</p>
-<p>小陆|男|92</p>
-<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014061630/article/details/81359144?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164214252616780366594574%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164214252616780366594574&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81359144.first_rank_v2_pc_rank_v29&amp;utm_term=markdown%E8%AF%AD%E6%B3%95&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/u014061630/article/details/81359144?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164214252616780366594574%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164214252616780366594574&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81359144.first_rank_v2_pc_rank_v29&amp;utm_term=markdown%E8%AF%AD%E6%B3%95&amp;spm=1018.2226.3001.4187</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><h2 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h2><p>&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息<br>&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名<br>&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱</p>
-<h3 id="操作暂存区中的文件"><a href="#操作暂存区中的文件" class="headerlink" title="操作暂存区中的文件"></a>操作暂存区中的文件</h3><p>&#x3D;&#x3D;git init&#x3D;&#x3D; : 初始化本地仓库</p>
-<p>&#x3D;&#x3D;git status&#x3D;&#x3D; : 查看本地库的状态</p>
-<p>&#x3D;&#x3D;git add 文件名&#x3D;&#x3D; : 添加到暂存区</p>
-<p>&#x3D;&#x3D;git rm –cached 文件名&#x3D;&#x3D; : 删除暂存区中的文件</p>
-<h3 id="将暂存区中的文件提交到本地库"><a href="#将暂存区中的文件提交到本地库" class="headerlink" title="将暂存区中的文件提交到本地库"></a>将暂存区中的文件提交到本地库</h3><p>&#x3D;&#x3D;git commit -m “版本名称” 文件名&#x3D;&#x3D; : 提交本地库</p>
-<h3 id="查看全部版本信息"><a href="#查看全部版本信息" class="headerlink" title="查看全部版本信息"></a>查看全部版本信息</h3><p>&#x3D;&#x3D;git reflog&#x3D;&#x3D; : 查看版本信息的命令<br>&#x3D;&#x3D;git log&#x3D;&#x3D; : 查看详细的版本信息</p>
-<h3 id="Linux中的命令在Git-Bash也能使用"><a href="#Linux中的命令在Git-Bash也能使用" class="headerlink" title="Linux中的命令在Git Bash也能使用"></a>Linux中的命令在Git Bash也能使用</h3><p>&#x3D;&#x3D;ll&#x3D;&#x3D; : 查看当前目录下的文件</p>
-<p>&#x3D;&#x3D;vim 文件名&#x3D;&#x3D; : 新建或编辑文件</p>
-<p>&#x3D;&#x3D;cat 文件名&#x3D;&#x3D; ：查看文件</p>
-<h3 id="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"><a href="#版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里" class="headerlink" title="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"></a>版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里</h3><p>&#x3D;&#x3D;git reset –hard 版本号&#x3D;&#x3D; : 版本穿梭</p>
-<h3 id="分支操作：切换分支，创建分支等"><a href="#分支操作：切换分支，创建分支等" class="headerlink" title="分支操作：切换分支，创建分支等"></a>分支操作：切换分支，创建分支等</h3><p>&#x3D;&#x3D;git branch -v&#x3D;&#x3D; : 查看分支<br>&#x3D;&#x3D;git branch 分支名&#x3D;&#x3D; : 新建分支<br>&#x3D;&#x3D;git checkout 分支名&#x3D;&#x3D; : 切换分支(可以根据版本号来切换，上下同，即分支名可以是查看分支中的唯一标识)<br>&#x3D;&#x3D;git merge 分支名&#x3D;&#x3D; : 将指定分支合并到当前分支</p>
-<h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
-<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
-<h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#100;&#x64;&#114;&#101;&#x65;&#109;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#111;&#109;">&#100;&#100;&#100;&#x64;&#114;&#101;&#x65;&#109;&#x40;&#49;&#54;&#51;&#x2e;&#99;&#111;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
-<h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">我的第一篇博客文章</a>
-    </h1>
   
 
-        
-        <a href="/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" class="archive-article-date">
-  	<time datetime="2022-09-20T08:18:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>内容</p>
-<h2 id="第二章"><a href="#第二章" class="headerlink" title="第二章"></a>第二章</h2><p>内容</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -901,8 +543,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
