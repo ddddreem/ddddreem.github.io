@@ -6,13 +6,13 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Git学习笔记 | dreem的博客</title>
+  <title>Git学习笔记 | 吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Git 学习笔记Git基本命令&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱 操作暂">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git学习笔记">
 <meta property="og:url" content="http://example.com/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
-<meta property="og:site_name" content="dreem的博客">
+<meta property="og:site_name" content="吉姆的个人站">
 <meta property="og:description" content="Git 学习笔记Git基本命令&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱 操作暂">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-09-20T10:27:41.423Z">
@@ -22,7 +22,7 @@
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="dreem的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="吉姆的个人站" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/myblog.png">
@@ -87,9 +87,9 @@
 				
 					<a class="github" target="_blank" href="https://github.com/ddddreem" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/img/vx.jpg" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/img/qq.jpg" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/img/qq.jpg" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/img/vx.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 			</div>
 		</nav>
@@ -128,9 +128,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/ddddreem" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/img/vx.jpg" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/img/qq.jpg" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/img/qq.jpg" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/img/vx.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 				</div>
 			</nav>
@@ -193,7 +193,7 @@
 <h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
 <h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
 <h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#100;&#100;&#x72;&#101;&#101;&#x6d;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;">&#100;&#100;&#100;&#100;&#x72;&#101;&#101;&#x6d;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#x64;&#100;&#100;&#x72;&#x65;&#x65;&#x6d;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;">&#100;&#x64;&#100;&#100;&#x72;&#x65;&#x65;&#x6d;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
 
@@ -493,6 +493,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hello hexo！</a>
               </li>
              
@@ -580,7 +588,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">22届软件工程专业毕业生&lt;br/&gt;熟悉SpringBoot+Mybatis-plus+MySQL&lt;br/&gt;熟悉os、数据结构、计算机网络和计算机组成原理&lt;br/&gt;熟悉C/C++，学习51单片机中&lt;br/&gt;保持饥饿&lt;br/&gt;谢谢</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br/&gt;熟悉SpringBoot+Mybatis-plus+MySQL&lt;br/&gt;熟悉os、数据结构、计算机网络和计算机组成原理&lt;br/&gt;熟悉C/C++，学习51单片机中&lt;br/&gt;痴迷技术，持续学习中&lt;br/&gt;保持饥饿，peace!&lt;br/&gt;</div>
   	  	
     	</section>
     

@@ -6,19 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>dreem的博客</title>
+  <title>吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="主要专注后端，涉猎广泛，想学什么学什么">
 <meta property="og:type" content="website">
-<meta property="og:title" content="dreem的博客">
+<meta property="og:title" content="吉姆的个人站">
 <meta property="og:url" content="http://example.com/index.html">
-<meta property="og:site_name" content="dreem的博客">
+<meta property="og:site_name" content="吉姆的个人站">
 <meta property="og:description" content="主要专注后端，涉猎广泛，想学什么学什么">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="dreem">
 <meta name="twitter:card" content="summary">
   
-    <link rel="alternative" href="/atom.xml" title="dreem的博客" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="吉姆的个人站" type="application/atom+xml">
   
   
     <link rel="icon" href="/img/myblog.png">
@@ -83,9 +83,9 @@
 				
 					<a class="github" target="_blank" href="https://github.com/ddddreem" title="github"><i class="icon-github"></i></a>
 		        
-					<a class="qq" target="_blank" href="/img/vx.jpg" title="qq"><i class="icon-qq"></i></a>
+					<a class="qq" target="_blank" href="/img/qq.jpg" title="qq"><i class="icon-qq"></i></a>
 		        
-					<a class="weixin" target="_blank" href="/img/qq.jpg" title="weixin"><i class="icon-weixin"></i></a>
+					<a class="weixin" target="_blank" href="/img/vx.jpg" title="weixin"><i class="icon-weixin"></i></a>
 		        
 			</div>
 		</nav>
@@ -124,9 +124,9 @@
 					
 						<a class="github" target="_blank" href="https://github.com/ddddreem" title="github"><i class="icon-github"></i></a>
 			        
-						<a class="qq" target="_blank" href="/img/vx.jpg" title="qq"><i class="icon-qq"></i></a>
+						<a class="qq" target="_blank" href="/img/qq.jpg" title="qq"><i class="icon-qq"></i></a>
 			        
-						<a class="weixin" target="_blank" href="/img/qq.jpg" title="weixin"><i class="icon-weixin"></i></a>
+						<a class="weixin" target="_blank" href="/img/vx.jpg" title="weixin"><i class="icon-weixin"></i></a>
 			        
 				</div>
 			</nav>
@@ -155,6 +155,132 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-shellsort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/27/shellsort/">希尔排序算法思想和简单实现</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/27/shellsort/" class="archive-article-date">
+  	<time datetime="2022-09-27T06:54:52.261Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p>目的：用这篇文章来记录和巩固希尔排序的思想和实现步骤</p>
+<h2 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h2><p>​	先将整个待排序列分割成<strong>若干子序列</strong>，分别进行直接插入排序，代整个序列中的记录”<strong>基本有序</strong>“时，再对全体记录进行一次<strong>直接插入排序</strong>。</p>
+<h3 id="希尔排序算法的特点"><a href="#希尔排序算法的特点" class="headerlink" title="希尔排序算法的特点"></a>希尔排序算法的特点</h3><ul>
+<li>缩小增量</li>
+<li>多遍插入排序</li>
+</ul>
+<h2 id="希尔排序特点"><a href="#希尔排序特点" class="headerlink" title="希尔排序特点"></a>希尔排序特点</h2><ul>
+<li>一次移动，移动位置较大，跳跃式地接近排序后的最终位置</li>
+<li>最后一次只需要少量移动</li>
+<li>增量序列必须是递减的，最后一个必须是1</li>
+<li>增量序列应该是互质的(不能互相整除)</li>
+</ul>
+<hr>
+<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><h3 id="主程："><a href="#主程：" class="headerlink" title="主程："></a>主程：</h3><p>用来给定需要进行希尔排序的序列、增量序列和进行排序的次数</p>
+<p>示例代码如下：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 20</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> InfoType;</span><br><span class="line"><span class="comment">// 数据结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123; <span class="comment">// 每个记录的数据结构</span></span><br><span class="line">    <span class="type">int</span> key; <span class="comment">// 关键字</span></span><br><span class="line">    InfoType otherInfo;</span><br><span class="line">&#125;RedType； <span class="comment">// Record Type</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123; <span class="comment">// 顺序表的数据结构</span></span><br><span class="line">    RedType r[MAXSIZE + <span class="number">1</span>]; <span class="comment">// r[0] 通常用来作为哨兵，数据存储的位置从下标为 1的位置开始开始</span></span><br><span class="line">    <span class="type">int</span> length; <span class="comment">// 保存顺序表的长度</span></span><br><span class="line">&#125;Sqlist;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellSort</span><span class="params">(Sqlist &amp;L, <span class="type">int</span> dlta[], <span class="type">int</span> t)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 按增量序列dlta[0...t-1]对顺序表L做希尔排序</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; t; ++i)</span><br><span class="line">		<span class="built_in">ShellInsert</span>(L, dlta[i]); <span class="comment">// 一趟增量为dlta[i]的插入排序</span></span><br><span class="line">&#125; <span class="comment">// ShellSort</span></span><br></pre></td></tr></table></figure>
+
+<p>增量的意思是每次执行排序的两个数之间的距离。</p>
+<p><img src="/2022/09/27/shellsort/image-20220927115831072.png" alt="image-20220927115831072"></p>
+<p>数据为0的位置为哨兵的位置，这里的哨兵并不是直接插入排序中的哨兵，这里的哨兵来进行辅助交换操作。</p>
+<h3 id="增量排序："><a href="#增量排序：" class="headerlink" title="增量排序："></a>增量排序：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellInsert</span><span class="params">(Sqlist &amp;L, <span class="type">int</span> dk)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 对顺序表进行一趟增量为dk的Shell排序，dk为这次增量排序的步长</span></span><br><span class="line">    <span class="type">int</span> i, j;</span><br><span class="line">	<span class="keyword">for</span>(i = dk + <span class="number">1</span>; i &lt;= L.length; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.r[i].key &lt; L.r[i - dk].key)&#123;</span><br><span class="line">            L.r[<span class="number">0</span>] = L.r[i]; <span class="comment">// 用哨兵暂存扫描到且还没加到有序表的元素</span></span><br><span class="line">            <span class="comment">// j = j -dk用来判断之前是否有元素，如果有，之前的元素也需要跟交换后的位置比较，以保持有序性质</span></span><br><span class="line">            <span class="keyword">for</span>(j = i - dk; j &gt; <span class="number">0</span> &amp;&amp; (L.r[<span class="number">0</span>].key &lt; L.r[j].key); j = j - dk)</span><br><span class="line">                L.r[j + dk] = L.r[j];</span><br><span class="line">            L.r[j + dk] = L.r[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>没有什么比举例子更容易理解的东西</p>
+<p><img src="/2022/09/27/shellsort/image-20220927122439367.png" alt="image-20220927122439367"></p>
+<p>eg：</p>
+<ul>
+<li><strong>第一轮循环</strong>：当dk为5时，希尔排序从dk + 1的位置开始开始比较第 dk + 1 和dk + 1 - dk的大小，第一轮循环，比较下图中的两个位置的大小并交换。</li>
+</ul>
+<p>开始状态：</p>
+<p><img src="/2022/09/27/shellsort/image-20220927122737873.png" alt="image-20220927122737873"></p>
+<p>执行完第一轮循环之后的状态：</p>
+<p>​		此时 <strong>j &#x3D; i - dk，也就是说 j 也指向 i - dk的位置，执行完 交换之后需要 减去一个dk（也就是减去一个步长），再看看前面是否还有需要交换的元素，以来保证每次循环后，i之前的相距 dk的位置是相对有序的</strong></p>
+<p><img src="/2022/09/27/shellsort/image-20220927124121257.png" alt="image-20220927124121257"></p>
+<p><img src="/2022/09/27/shellsort/image-20220927124522670.png" alt="image-20220927124522670"></p>
+<ul>
+<li><p>当 <strong>i - dk****的值小于</strong>0<strong>时，表明前面没有需要比较的元素，只需要对比两元素之后，</strong>i**跳转到下一个暂未排序的增量步长</p>
+</li>
+<li><p>当 <strong>i - dk****的值大于</strong>0**时，表明前面还有需要比较的元素，如下图</p>
+<p>当 <strong>i</strong>的位置在下午所示的位置时候。</p>
+</li>
+</ul>
+<p><img src="/2022/09/27/shellsort/image-20220927144605396.png" alt="image-20220927144605396"></p>
+<ul>
+<li>由于此时在 <strong>j</strong>之前的元素都已排好序，则不需要进行位置交换，即跳出循环，完成排序；其他位置的比较和交换类似。自己模拟一下就知道了。</li>
+</ul>
+<h3 id="注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能"><a href="#注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能" class="headerlink" title="注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能"></a>注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能</h3>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/27/shellsort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-Redis" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -906,7 +1032,7 @@
 <h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
 <h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
 <h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#100;&#100;&#x72;&#101;&#101;&#x6d;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;">&#100;&#100;&#100;&#100;&#x72;&#101;&#101;&#x6d;&#x40;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#x64;&#100;&#100;&#x72;&#x65;&#x65;&#x6d;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;">&#100;&#x64;&#100;&#100;&#x72;&#x65;&#x65;&#x6d;&#64;&#49;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
 
@@ -1185,6 +1311,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">hello hexo！</a>
               </li>
              
@@ -1272,7 +1406,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">22届软件工程专业毕业生&lt;br/&gt;熟悉SpringBoot+Mybatis-plus+MySQL&lt;br/&gt;熟悉os、数据结构、计算机网络和计算机组成原理&lt;br/&gt;熟悉C/C++，学习51单片机中&lt;br/&gt;保持饥饿&lt;br/&gt;谢谢</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;br/&gt;熟悉SpringBoot+Mybatis-plus+MySQL&lt;br/&gt;熟悉os、数据结构、计算机网络和计算机组成原理&lt;br/&gt;熟悉C/C++，学习51单片机中&lt;br/&gt;痴迷技术，持续学习中&lt;br/&gt;保持饥饿，peace!&lt;br/&gt;</div>
   	  	
     	</section>
     
