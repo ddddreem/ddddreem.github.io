@@ -6,22 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Linux权限管理 | 吉姆的个人站</title>
+  <title>Linux静态IP设置 | 吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Linux权限123456789++++对于文件夹下的rwx权限	r：可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限；	w：表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件；	x：表示可以进入到该目录，即cd命令。	+++++对于文件的rw">
+  <meta name="description" content="Linux静态ip设置找到安装时的ens33文件位置：相关命令cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts 这里注意登录的用户是否为root用户，修改ifcfg-ens33文件需要root用户，因为只有root用户有写权限  编辑ifcfg-ens33文件：vim&#x2F;vi ifcfg-ens33  使用DHCP的好处是不会发生ip冲突，但是这样的话，虚拟机每次登录的ip地址可能">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux权限管理">
-<meta property="og:url" content="http://example.com/2022/09/20/Linux%E6%9D%83%E9%99%90/index.html">
+<meta property="og:title" content="Linux静态IP设置">
+<meta property="og:url" content="http://example.com/2022/09/27/linuxstaticip/index.html">
 <meta property="og:site_name" content="吉姆的个人站">
-<meta property="og:description" content="Linux权限123456789++++对于文件夹下的rwx权限	r：可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限；	w：表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件；	x：表示可以进入到该目录，即cd命令。	+++++对于文件的rw">
+<meta property="og:description" content="Linux静态ip设置找到安装时的ens33文件位置：相关命令cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts 这里注意登录的用户是否为root用户，修改ifcfg-ens33文件需要root用户，因为只有root用户有写权限  编辑ifcfg-ens33文件：vim&#x2F;vi ifcfg-ens33  使用DHCP的好处是不会发生ip冲突，但是这样的话，虚拟机每次登录的ip地址可能">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-20T10:32:00.208Z">
-<meta property="article:modified_time" content="2022-09-20T13:25:41.288Z">
+<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266461228.jpg">
+<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266517317.jpg">
+<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266130579.jpg">
+<meta property="article:published_time" content="2022-09-27T08:02:00.044Z">
+<meta property="article:modified_time" content="2022-09-27T08:17:19.189Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="os">
-<meta property="article:tag" content="linux权限介绍">
+<meta property="article:tag" content="linux静态IP设置">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266461228.jpg">
   
     <link rel="alternative" href="/atom.xml" title="吉姆的个人站" type="application/atom+xml">
   
@@ -159,34 +163,47 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Linux权限" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-linuxstaticip" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Linux权限管理
+      Linux静态IP设置
     </h1>
   
 
         
-        <a href="/2022/09/20/Linux%E6%9D%83%E9%99%90/" class="archive-article-date">
-  	<time datetime="2022-09-20T10:32:00.208Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
+        <a href="/2022/09/27/linuxstaticip/" class="archive-article-date">
+  	<time datetime="2022-09-27T08:02:00.044Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Linux权限"><a href="#Linux权限" class="headerlink" title="Linux权限"></a>Linux权限</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">++++对于文件夹下的rwx权限</span><br><span class="line">	r：可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限；</span><br><span class="line">	w：表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件；</span><br><span class="line">	x：表示可以进入到该目录，即cd命令。</span><br><span class="line">	</span><br><span class="line">+++++对于文件的rwx权限</span><br><span class="line">	r：可以读，即可以使用cat命令；</span><br><span class="line">	w：可以写，即可以使用vi、vim和echo命令；</span><br><span class="line">	x：表示命令可以被bash解析并执行，允许bash程序去执行文件。</span><br></pre></td></tr></table></figure>
-
-<p>对于文件夹下的rwx权限：</p>
+        <h1 id="Linux静态ip设置"><a href="#Linux静态ip设置" class="headerlink" title="Linux静态ip设置"></a>Linux静态ip设置</h1><p>找到安装时的ens33文件位置：相关命令<code>cd /etc/sysconfig/network-scripts</code></p>
+<p>这里注意登录的用户是否为root用户，修改ifcfg-ens33文件需要root用户，因为只有root用户有写权限</p>
+<p><img src="/2022/09/27/linuxstaticip/image-1664266461228.jpg" alt="image01"></p>
+<p>编辑ifcfg-ens33文件：<code>vim/vi ifcfg-ens33</code></p>
+<p><img src="/2022/09/27/linuxstaticip/image-1664266517317.jpg" alt="image02"></p>
+<p>使用DHCP的好处是不会发生ip冲突，但是这样的话，虚拟机每次登录的ip地址可能会变，所以静态ip就很有必要</p>
+<p>进入编辑页面：&#x3D;&#x3D;i&#x3D;&#x3D; 进入编辑模式，&#x3D;&#x3D;ESC&#x3D;&#x3D;退出编辑模式进入命令模式，在命令模式下输入&#x3D;&#x3D;:wq&#x3D;&#x3D; 以保存编辑的信息</p>
+<p><img src="/2022/09/27/linuxstaticip/image-1664266130579.jpg" alt="image03"></p>
+<p>ifcfg-ens33文件中：</p>
 <ul>
-<li>&#x3D;&#x3D;r&#x3D;&#x3D;:可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限。</li>
-<li>&#x3D;&#x3D;w&#x3D;&#x3D;:表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件</li>
-<li>&#x3D;&#x3D;x&#x3D;&#x3D;:表示可以进入到该目录，即cd命令；</li>
+<li>TYPE&#x3D;Ethernet      #网络类型（通常是Ethernet，万维网）</li>
+<li>HWADDR&#x3D;00:0C:29:76:75:F9       #MAC地址</li>
+<li>DEVICE&#x3D;ens33 	#接口名（设备，网卡）</li>
+<li>UUID&#x3D;”911d4460-38cc-4250-baea-321ca2ce195b”      #随机id</li>
+<li>ONBOOT&#x3D;yes        #系统启动的时候网络接口是否有效（yes&#x2F;no）</li>
+<li>BOOTPROTO&#x3D;”static”    #IP的配置方法[none|static|bootp|dhcp]（引导时不使用协议|静态分配IP|BOOTP协议|DHCP协议）</li>
+<li>IPADDR&#x3D;192.168.157.132     #IP地址</li>
+<li>GATEWAY&#x3D;192.168.157.2    #网关</li>
+<li>DNS1&#x3D;192.168.157.2     #域名解析器</li>
 </ul>
+<p>配置完成之后，需要重启网络服务或者重启系统才能生效<code>service network restart</code>或<code>reboot</code></p>
 
       
 
@@ -239,7 +256,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">linux权限介绍</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">linux静态IP设置</a>
         		</li>
       		
 		</ul>
@@ -295,7 +312,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/20/Linux%E6%9D%83%E9%99%90/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/27/linuxstaticip/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -309,18 +326,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/20/Redis/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Redis学习笔记
-        
-      </div>
-    </a>
   
-  
-    <a href="/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">SpringMvc学习笔记</div>
+    <a href="/2022/09/27/shellsort/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">希尔排序算法思想和简单实现</div>
       <i class="icon-circle-right"></i>
     </a>
   
