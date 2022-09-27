@@ -15,17 +15,17 @@
 <meta property="og:site_name" content="吉姆的个人站">
 <meta property="og:description" content="Linux静态ip设置找到安装时的ens33文件位置：相关命令cd &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts 这里注意登录的用户是否为root用户，修改ifcfg-ens33文件需要root用户，因为只有root用户有写权限  编辑ifcfg-ens33文件：vim&#x2F;vi ifcfg-ens33  使用DHCP的好处是不会发生ip冲突，但是这样的话，虚拟机每次登录的ip地址可能">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266461228.jpg">
-<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266517317.jpg">
+<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/1664266461228.jpg">
+<meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/1664266517317.jpg">
 <meta property="og:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266130579.jpg">
 <meta property="article:published_time" content="2022-09-27T08:02:00.044Z">
-<meta property="article:modified_time" content="2022-09-27T08:17:19.189Z">
+<meta property="article:modified_time" content="2022-09-27T08:30:43.392Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="os">
 <meta property="article:tag" content="linux静态IP设置">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/27/linuxstaticip/image-1664266461228.jpg">
+<meta name="twitter:image" content="http://example.com/2022/09/27/linuxstaticip/1664266461228.jpg">
   
     <link rel="alternative" href="/atom.xml" title="吉姆的个人站" type="application/atom+xml">
   
@@ -185,11 +185,11 @@
       
         <h1 id="Linux静态ip设置"><a href="#Linux静态ip设置" class="headerlink" title="Linux静态ip设置"></a>Linux静态ip设置</h1><p>找到安装时的ens33文件位置：相关命令<code>cd /etc/sysconfig/network-scripts</code></p>
 <p>这里注意登录的用户是否为root用户，修改ifcfg-ens33文件需要root用户，因为只有root用户有写权限</p>
-<p><img src="/2022/09/27/linuxstaticip/image-1664266461228.jpg" alt="image01"></p>
+<p><img src="/2022/09/27/linuxstaticip/1664266461228.jpg" alt="image01"></p>
 <p>编辑ifcfg-ens33文件：<code>vim/vi ifcfg-ens33</code></p>
-<p><img src="/2022/09/27/linuxstaticip/image-1664266517317.jpg" alt="image02"></p>
+<p><img src="/2022/09/27/linuxstaticip/1664266517317.jpg" alt="image02"></p>
 <p>使用DHCP的好处是不会发生ip冲突，但是这样的话，虚拟机每次登录的ip地址可能会变，所以静态ip就很有必要</p>
-<p>进入编辑页面：&#x3D;&#x3D;i&#x3D;&#x3D; 进入编辑模式，&#x3D;&#x3D;ESC&#x3D;&#x3D;退出编辑模式进入命令模式，在命令模式下输入&#x3D;&#x3D;:wq&#x3D;&#x3D; 以保存编辑的信息</p>
+<p>进入编辑页面：<strong>i</strong> 进入编辑模式，<strong>ESC</strong>退出编辑模式进入命令模式，在命令模式下输入**:wq** 以保存编辑的信息</p>
 <p><img src="/2022/09/27/linuxstaticip/image-1664266130579.jpg" alt="image03"></p>
 <p>ifcfg-ens33文件中：</p>
 <ul>
