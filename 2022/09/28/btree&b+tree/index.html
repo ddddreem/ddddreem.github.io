@@ -6,21 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Git学习笔记 | 吉姆的个人站</title>
+  <title>B树、B+树的特点和区别 | 吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Git 学习笔记Git基本命令&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱 操作暂">
+  <meta name="description" content="B树、B+树的特点和区别B树的特点B树：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为B树的阶，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：  树中每个结点至多有 m棵子树，即至多含有 m - 1个关键字。（关键字即查找的元素值） 若根结点不是终端结点，则至少有两棵子树。 除根节点外的所有非叶结点至少有⌈m&#x2F;2⌉ 棵子树，即至少含">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Git学习笔记">
-<meta property="og:url" content="http://example.com/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:title" content="B树、B+树的特点和区别">
+<meta property="og:url" content="http://example.com/2022/09/28/btree&b+tree/index.html">
 <meta property="og:site_name" content="吉姆的个人站">
-<meta property="og:description" content="Git 学习笔记Git基本命令&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱 操作暂">
+<meta property="og:description" content="B树、B+树的特点和区别B树的特点B树：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为B树的阶，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：  树中每个结点至多有 m棵子树，即至多含有 m - 1个关键字。（关键字即查找的元素值） 若根结点不是终端结点，则至少有两棵子树。 除根节点外的所有非叶结点至少有⌈m&#x2F;2⌉ 棵子树，即至少含">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2022-09-20T10:27:41.423Z">
-<meta property="article:modified_time" content="2022-09-20T13:26:06.082Z">
+<meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20220929000502291.png">
+<meta property="article:published_time" content="2022-09-28T15:27:40.177Z">
+<meta property="article:modified_time" content="2022-10-08T12:23:48.114Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="tech">
-<meta property="article:tag" content="git">
+<meta property="article:tag" content="data structure">
+<meta property="article:tag" content="BTree&amp;B+Tree">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/2022/09/28/btree&b+tree/image-20220929000502291.png">
   
     <link rel="alternative" href="/atom.xml" title="吉姆的个人站" type="application/atom+xml">
   
@@ -158,47 +161,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Git 学习笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-btree&amp;b+tree" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Git学习笔记
+      B树、B+树的特点和区别
     </h1>
   
 
         
-        <a href="/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-09-20T10:27:41.423Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
+        <a href="/2022/09/28/btree&b+tree/" class="archive-article-date">
+  	<time datetime="2022-09-28T15:27:40.177Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-28</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><h2 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h2><p>&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息<br>&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名<br>&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱</p>
-<h3 id="操作暂存区中的文件"><a href="#操作暂存区中的文件" class="headerlink" title="操作暂存区中的文件"></a>操作暂存区中的文件</h3><p>&#x3D;&#x3D;git init&#x3D;&#x3D; : 初始化本地仓库</p>
-<p>&#x3D;&#x3D;git status&#x3D;&#x3D; : 查看本地库的状态</p>
-<p>&#x3D;&#x3D;git add 文件名&#x3D;&#x3D; : 添加到暂存区</p>
-<p>&#x3D;&#x3D;git rm –cached 文件名&#x3D;&#x3D; : 删除暂存区中的文件</p>
-<h3 id="将暂存区中的文件提交到本地库"><a href="#将暂存区中的文件提交到本地库" class="headerlink" title="将暂存区中的文件提交到本地库"></a>将暂存区中的文件提交到本地库</h3><p>&#x3D;&#x3D;git commit -m “版本名称” 文件名&#x3D;&#x3D; : 提交本地库</p>
-<h3 id="查看全部版本信息"><a href="#查看全部版本信息" class="headerlink" title="查看全部版本信息"></a>查看全部版本信息</h3><p>&#x3D;&#x3D;git reflog&#x3D;&#x3D; : 查看版本信息的命令<br>&#x3D;&#x3D;git log&#x3D;&#x3D; : 查看详细的版本信息</p>
-<h3 id="Linux中的命令在Git-Bash也能使用"><a href="#Linux中的命令在Git-Bash也能使用" class="headerlink" title="Linux中的命令在Git Bash也能使用"></a>Linux中的命令在Git Bash也能使用</h3><p>&#x3D;&#x3D;ll&#x3D;&#x3D; : 查看当前目录下的文件</p>
-<p>&#x3D;&#x3D;vim 文件名&#x3D;&#x3D; : 新建或编辑文件</p>
-<p>&#x3D;&#x3D;cat 文件名&#x3D;&#x3D; ：查看文件</p>
-<h3 id="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"><a href="#版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里" class="headerlink" title="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"></a>版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里</h3><p>&#x3D;&#x3D;git reset –hard 版本号&#x3D;&#x3D; : 版本穿梭</p>
-<h3 id="分支操作：切换分支，创建分支等"><a href="#分支操作：切换分支，创建分支等" class="headerlink" title="分支操作：切换分支，创建分支等"></a>分支操作：切换分支，创建分支等</h3><p>&#x3D;&#x3D;git branch -v&#x3D;&#x3D; : 查看分支<br>&#x3D;&#x3D;git branch 分支名&#x3D;&#x3D; : 新建分支<br>&#x3D;&#x3D;git checkout 分支名&#x3D;&#x3D; : 切换分支(可以根据版本号来切换，上下同，即分支名可以是查看分支中的唯一标识)<br>&#x3D;&#x3D;git merge 分支名&#x3D;&#x3D; : 将指定分支合并到当前分支</p>
-<h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
-<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
-<h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#x64;&#x64;&#x64;&#114;&#101;&#101;&#109;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#109;">&#100;&#x64;&#x64;&#x64;&#114;&#101;&#101;&#109;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
-<h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
-
-
-
-
+        <h1 id="B树、B-树的特点和区别"><a href="#B树、B-树的特点和区别" class="headerlink" title="B树、B+树的特点和区别"></a>B树、B+树的特点和区别</h1><h2 id="B树的特点"><a href="#B树的特点" class="headerlink" title="B树的特点"></a>B树的特点</h2><p><strong>B树</strong>：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为<strong>B树的阶</strong>，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：</p>
+<ul>
+<li>树中每个结点至多有 <strong>m棵子树</strong>，即至多含有 <strong>m - 1个关键字</strong>。（关键字即查找的元素值）</li>
+<li>若根结点不是终端结点，则至少有两棵子树。</li>
+<li><strong>除根节点外</strong>的所有非叶结点<strong>至少有⌈m&#x2F;2⌉ 棵子树</strong>，即至少含有<strong>⌈m&#x2F;2⌉ - 1 个关键字</strong>。</li>
+<li>其中</li>
+<li>所哟的叶结点都出现在同一层次上，并且不带信息（可以视为外部结点或类似于折半查找判定树的查找失败结点，实际上这些结点不存在，指向这些结点的指针为空）。</li>
+</ul>
+<p><strong>图示：</strong></p>
+<p><img src="/2022/09/28/btree&b+tree/image-20220929000502291.png" alt="image-20220929000502291"></p>
+<p>也可以结合二叉排序树来记忆，即<strong>左子树</strong>的元素值 &lt; <strong>根节点</strong>的元素值 &lt; <strong>右子树</strong>的元素值。</p>
+<h2 id="B-树的特点"><a href="#B-树的特点" class="headerlink" title="B+树的特点"></a>B+树的特点</h2><h2 id="B树、B-树的联系和区别"><a href="#B树、B-树的联系和区别" class="headerlink" title="B树、B+树的联系和区别"></a>B树、B+树的联系和区别</h2>
       
 
       
@@ -246,7 +240,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BTree&B+Tree</a>
         		</li>
       		
 		</ul>
@@ -302,7 +300,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/09/28/btree&b+tree/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -316,18 +314,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/30/IPv4/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          Markdown学习笔记
+          IPv4地址概述
         
       </div>
     </a>
   
   
-    <a href="/2022/09/20/%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">我的第一篇博客文章</div>
+    <a href="/2022/09/27/linuxstaticip/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Linux静态IP设置</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -156,6 +156,285 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-IPv4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/30/IPv4/">IPv4地址概述</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/30/IPv4/" class="archive-article-date">
+  	<time datetime="2022-09-30T03:25:48.384Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="IPv4概述"><a href="#IPv4概述" class="headerlink" title="IPv4概述"></a>IPv4概述</h1><h2 id="分类编址"><a href="#分类编址" class="headerlink" title="分类编址"></a>分类编址</h2><p>分类编址的IPv4地址分为五类：A类、B类、C类、D类和E类</p>
+<p><img src="/2022/09/30/IPv4/image-20220930145432959.png" alt="image-20220930145432959"></p>
+<p><strong>注：</strong></p>
+<ul>
+<li>只有A类、B类和C类地址可分配给网络中的主机或路由器的各接口</li>
+<li>主机号为 <strong>”全0“</strong> 的地址是网络地址，不能分配给主机或路由器的各接口</li>
+<li>主机号为 <strong>“全1”</strong> 的地址是广播地址，不能分配给主机或路由器的各接口</li>
+</ul>
+<hr>
+<h3 id="A类地址："><a href="#A类地址：" class="headerlink" title="A类地址："></a>A类地址：</h3><p><strong>前8位为网络号，且第一位为0</strong></p>
+<p><img src="/2022/09/30/IPv4/image-20220930150151133.png" alt="image-20220930150151133"></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li><strong>最小网络号0</strong>，<strong>保留不指派</strong></li>
+<li>地址 <strong>0.0.0.0</strong> 是一个<strong>特殊的IPv4地址</strong>，<strong>只能作为源地址</strong>使用，表示 <strong>“在本网络上的本主机”</strong>。封装有DHCP Discovery 报文的IP分组的源地址使用 0.0.0.0</li>
+<li>第一个可指派的网络号为1，网络地址为1.0.0.0</li>
+<li>最大网络号127，作为<strong>本地软件环回测试地址</strong>，不指派<ul>
+<li>最小的本地软件环回测试地址为127.0.0.1</li>
+<li>最大的本地软件环回测试地址为127.255.255.254</li>
+</ul>
+</li>
+<li><strong>最后一个可指派的网络号</strong>为<strong>126</strong>，网络号为126.0.0.0</li>
+<li>可<strong>指派的网络数量</strong>为2^(8-1) - 2 &#x3D; 126（<strong>减2的原因是出去最小网络号和最大网络号127</strong>）</li>
+<li>每个网络中<strong>可分配的IP地址数量</strong>为 2^24 - 2 &#x3D; 16777214（<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
+</ul>
+<hr>
+<h3 id="B类地址："><a href="#B类地址：" class="headerlink" title="B类地址："></a>B类地址：</h3><p><strong>前16位作为网络号，且第一、第二位为 10</strong></p>
+<p><img src="/2022/09/30/IPv4/image-20220930151302292.png" alt="image-20220930151302292"></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>最小网络号也是第一个可指派的网络号 <strong>128.0</strong>，网络地址为<strong>128.0</strong>.0.0</li>
+<li>最大网络号也是最后一个可指派的网络号<strong>191.255</strong>，网络地址为<strong>191.255</strong>.0.0</li>
+<li><strong>可指派的网络数量</strong>为 2^(16-2) &#x3D; 16384</li>
+<li>每个<strong>网络中可分配的IP地址数量</strong>为 2^16 - 2 &#x3D; 65534 （<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
+</ul>
+<hr>
+<h3 id="C类地址："><a href="#C类地址：" class="headerlink" title="C类地址："></a>C类地址：</h3><p><strong>前24位作为网络号，且第一、二、三位为 110</strong></p>
+<p><img src="/2022/09/30/IPv4/image-20220930151937374.png" alt="image-20220930151937374"></p>
+<p><strong>注意：</strong></p>
+<ul>
+<li>最小网络号也是第一个可指派的网络号 <strong>192.0.0</strong>，网络地址为<strong>192.0.0</strong>.0</li>
+<li>最大网络号也是最后一个可指派的网络号 <strong>223.255.255</strong>，网络地址为 <strong>223.255.255</strong>.0</li>
+<li><strong>可指派的网络数量</strong>为 2^(24 - 3) &#x3D; 2097152</li>
+<li><strong>每个网络中可分配的IP地址数量</strong>为 2^8 - 2 &#x3D; 254（<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
+</ul>
+<hr>
+<h3 id="网络地址转换："><a href="#网络地址转换：" class="headerlink" title="网络地址转换："></a>网络地址转换：</h3><p><strong>为了网络安全，划出了部分IP地址为私有 IP地址。私有 IP地址只用于LAN(局域网)，不用于WAN(广域网)</strong></p>
+<p><strong>私有 IP地址不能直接用于 Internet，必须通过网关利用 NAT把私有 IP地址转换为 Internet中合法的全球 IP地址后才能用于Internet，并且允许私有 IP地址被LAN重复使用，有效解决了 IP地址不足的问题，即现在计算机一般都会使用NAT转换服务</strong></p>
+<p><strong>A类：</strong>1个A类网段，即 **10.**0.0.0 ~ **10.**255.255.255</p>
+<p><strong>B类：</strong>16个B类网段，即 <strong>172.16</strong>.0.0 ~ <strong>172.31</strong>.255.255</p>
+<p><strong>C类：</strong>256个C类网段，即 <strong>192.168.0</strong>.0 ~ <strong>192.168.255</strong>.255</p>
+<p><strong>典型的 NAT地址转换表如下：</strong></p>
+<p><img src="/2022/09/30/IPv4/image-20220930154130366.png" alt="image-20220930154130366"></p>
+<hr>
+<h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>可以从<strong>IP地址的主机号部分</strong>中<strong>借用一些位作为子网号</strong>来区分不同的子网</p>
+<p>这样就可以在分配到的网络中再分配出多个小的子网，而不用申请新的网络号</p>
+<p><strong>32比特的子网掩码可以表明分类IP地址的主机号部分被借用了几个比特作为子网号</strong></p>
+<ul>
+<li>子网掩码使用<strong>连续的比特1来对应网络号和子网号</strong></li>
+<li>子网掩码使用<strong>连续的比特0来对应主机号</strong></li>
+<li>将划分子网的<strong>IPv4地址</strong>与其相应的<strong>子网掩码</strong>进行<strong>逻辑与运算</strong>就可以得到IPv4地址所在<strong>子网的网络地址</strong></li>
+</ul>
+<p><img src="/2022/09/30/IPv4/image-20221008182742965.png" alt="image-20221008182742965"></p>
+<p>可以借用子网掩码这个工具来区分子网，地址由网络号、子网号和主机号组成</p>
+<p><img src="/2022/09/30/IPv4/image-20221008183751086.png" alt="image-20221008183751086"></p>
+<p><img src="/2022/09/30/IPv4/image-20221008185831103.png" alt="image-20221008185831103"></p>
+<p><strong>默认的子网掩码：默认的子网掩码</strong>是指<strong>在未划分子网的情况下使用的子网掩码</strong></p>
+<p><img src="/2022/09/30/IPv4/image-20221008190128279.png" alt="image-20221008190128279"></p>
+<h2 id="无分类编址（CIDR）"><a href="#无分类编址（CIDR）" class="headerlink" title="无分类编址（CIDR）"></a>无分类编址（CIDR）</h2><ul>
+<li><p><strong>CIDR消除了传统的A类、B类和C类地址，以及划分子网的概念</strong></p>
+</li>
+<li><p><strong>CIDR可以更加有效地分配IPv4的地址空间</strong>，并且可以在新的IPv6使用之前允许因特网的规模继续增长</p>
+</li>
+<li><p>CIDR使用“<strong>斜线记法</strong>”，或称CIDR记法。即在IPv4地址后面加上斜线“&#x2F;”，在<strong>斜线后面写上网络前缀所占的比特数量</strong></p>
+<p><img src="/2022/09/30/IPv4/image-20221008200752761.png" alt="image-20221008200752761"></p>
+</li>
+<li><p>CIDR实际上是将<strong>网络前缀都相同的连续的IP地址组成一个“CIDR地址块”</strong></p>
+</li>
+<li><p>我们只要知道CIDR地址块中的任何一个地址，就可以知道该地址块的全部细节</p>
+<ul>
+<li><p>地址块中的最小地址</p>
+</li>
+<li><p>地址块中的最大地址</p>
+</li>
+<li><p>地址块中的地址数量</p>
+</li>
+<li><p>地址块聚合某类网络（A类、B类和C类）的数量</p>
+</li>
+<li><p>地址掩码（也可继续称为子网掩码）</p>
+<p><img src="/2022/09/30/IPv4/image-20221008201240233.png" alt="image-20221008201240233"></p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="路由聚合（构造超网）"><a href="#路由聚合（构造超网）" class="headerlink" title="路由聚合（构造超网）"></a>路由聚合（构造超网）</h3><p>找目的网络地址中的共同前缀来构成超网，以减少路由表中的条目数</p>
+<ul>
+<li><p><strong>网络前缀越长，地址块越小，路由越具体</strong>；</p>
+</li>
+<li><p>若路由器查表转发分组时发现有多条路由可选，则选择网络前缀最长的那条，这称为<strong>最长前缀匹配</strong>，</p>
+<p>因为这样的路由更具体。</p>
+</li>
+</ul>
+<p><img src="/2022/09/30/IPv4/image-20221008201914458.png" alt="image-20221008201914458"></p>
+<p><strong>注：</strong>把需要聚合的各个网络的网络前缀写出来，找出最长的相同的网络器前缀聚合成一个网络。</p>
+<hr>
+<h2 id="参考：湖科大教书匠：https-www-bilibili-com-video-BV1c4411d7jb-spm-id-from-333-999-0-0-amp-vd-source-e8dabb7e7d08d095b938c58a3b51a693"><a href="#参考：湖科大教书匠：https-www-bilibili-com-video-BV1c4411d7jb-spm-id-from-333-999-0-0-amp-vd-source-e8dabb7e7d08d095b938c58a3b51a693" class="headerlink" title="参考：湖科大教书匠：https://www.bilibili.com/video/BV1c4411d7jb/?spm_id_from=333.999.0.0&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693"></a>参考：湖科大教书匠：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1c4411d7jb/?spm_id_from=333.999.0.0&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693">https://www.bilibili.com/video/BV1c4411d7jb/?spm_id_from=333.999.0.0&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693</a></h2><p>+++</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IPv4地址概述</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/30/IPv4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-btree&amp;b+tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/28/btree&b+tree/">B树、B+树的特点和区别</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/28/btree&b+tree/" class="archive-article-date">
+  	<time datetime="2022-09-28T15:27:40.177Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="B树、B-树的特点和区别"><a href="#B树、B-树的特点和区别" class="headerlink" title="B树、B+树的特点和区别"></a>B树、B+树的特点和区别</h1><h2 id="B树的特点"><a href="#B树的特点" class="headerlink" title="B树的特点"></a>B树的特点</h2><p><strong>B树</strong>：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为<strong>B树的阶</strong>，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：</p>
+<ul>
+<li>树中每个结点至多有 <strong>m棵子树</strong>，即至多含有 <strong>m - 1个关键字</strong>。（关键字即查找的元素值）</li>
+<li>若根结点不是终端结点，则至少有两棵子树。</li>
+<li><strong>除根节点外</strong>的所有非叶结点<strong>至少有⌈m&#x2F;2⌉ 棵子树</strong>，即至少含有<strong>⌈m&#x2F;2⌉ - 1 个关键字</strong>。</li>
+<li>其中</li>
+<li>所哟的叶结点都出现在同一层次上，并且不带信息（可以视为外部结点或类似于折半查找判定树的查找失败结点，实际上这些结点不存在，指向这些结点的指针为空）。</li>
+</ul>
+<p><strong>图示：</strong></p>
+<p><img src="/2022/09/28/btree&b+tree/image-20220929000502291.png" alt="image-20220929000502291"></p>
+<p>也可以结合二叉排序树来记忆，即<strong>左子树</strong>的元素值 &lt; <strong>根节点</strong>的元素值 &lt; <strong>右子树</strong>的元素值。</p>
+<h2 id="B-树的特点"><a href="#B-树的特点" class="headerlink" title="B+树的特点"></a>B+树的特点</h2><h2 id="B树、B-树的联系和区别"><a href="#B树、B-树的联系和区别" class="headerlink" title="B树、B+树的联系和区别"></a>B树、B+树的联系和区别</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BTree&B+Tree</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/28/btree&b+tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-linuxstaticip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -340,11 +619,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">algorithm</a>
         		</li>
       		
 		</ul>
@@ -1134,7 +1413,7 @@
 <h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
 <h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
 <h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#x64;&#x64;&#100;&#x64;&#x72;&#101;&#101;&#109;&#64;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;">&#x64;&#x64;&#100;&#x64;&#x72;&#101;&#101;&#109;&#64;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#x6d;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#x64;&#x64;&#x64;&#114;&#101;&#101;&#109;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#109;">&#100;&#x64;&#x64;&#x64;&#114;&#101;&#101;&#109;&#x40;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
 
@@ -1380,6 +1659,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">IPv4地址概述</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
@@ -1412,15 +1699,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">linux静态IP设置</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
               </li>
              
               <li class="article-tag-list-item">
