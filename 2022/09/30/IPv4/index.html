@@ -28,7 +28,7 @@
 <meta property="og:image" content="http://example.com/2022/09/30/IPv4/image-20221008201240233.png">
 <meta property="og:image" content="http://example.com/2022/09/30/IPv4/image-20221008201914458.png">
 <meta property="article:published_time" content="2022-09-30T03:25:48.384Z">
-<meta property="article:modified_time" content="2022-10-08T12:28:16.763Z">
+<meta property="article:modified_time" content="2022-10-09T05:25:59.101Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="计算机网络">
@@ -81,14 +81,17 @@
 	        
 			</ul>
 		</nav>
+		<nav>
+			总文章数 10
+		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -238,6 +241,8 @@
 <li><strong>每个网络中可分配的IP地址数量</strong>为 2^8 - 2 &#x3D; 254（<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
 </ul>
 <hr>
+<span id="more"></span>
+
 <h3 id="网络地址转换："><a href="#网络地址转换：" class="headerlink" title="网络地址转换："></a>网络地址转换：</h3><p><strong>为了网络安全，划出了部分IP地址为私有 IP地址。私有 IP地址只用于LAN(局域网)，不用于WAN(广域网)</strong></p>
 <p><strong>私有 IP地址不能直接用于 Internet，必须通过网关利用 NAT把私有 IP地址转换为 Internet中合法的全球 IP地址后才能用于Internet，并且允许私有 IP地址被LAN重复使用，有效解决了 IP地址不足的问题，即现在计算机一般都会使用NAT转换服务</strong></p>
 <p><strong>A类：</strong>1个A类网段，即 **10.**0.0.0 ~ **10.**255.255.255</p>
@@ -310,7 +315,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
@@ -518,11 +523,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有笔记</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -563,11 +568,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
+                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,11 +592,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">os</a>
+                <a href="javascript:void(0)" class="js-tag color5">data_structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -591,11 +608,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -608,18 +621,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo开始...</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringMvc框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
             
             <div class="clearfix"></div>

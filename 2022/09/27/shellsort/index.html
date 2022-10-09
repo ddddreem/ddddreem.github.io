@@ -22,10 +22,10 @@
 <meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927124522670.png">
 <meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927144605396.png">
 <meta property="article:published_time" content="2022-09-27T06:54:52.261Z">
-<meta property="article:modified_time" content="2022-09-27T08:20:17.484Z">
+<meta property="article:modified_time" content="2022-10-09T05:34:38.042Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="tech">
-<meta property="article:tag" content="data structure">
+<meta property="article:tag" content="data_structure">
 <meta property="article:tag" content="algorithm">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/2022/09/27/shellsort/image-20220927115831072.png">
@@ -75,14 +75,17 @@
 	        
 			</ul>
 		</nav>
+		<nav>
+			总文章数 10
+		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -206,6 +209,8 @@
 <p>增量的意思是每次执行排序的两个数之间的距离。</p>
 <p><img src="/2022/09/27/shellsort/image-20220927115831072.png" alt="image-20220927115831072"></p>
 <p>数据为0的位置为哨兵的位置，这里的哨兵并不是直接插入排序中的哨兵，这里的哨兵来进行辅助交换操作。</p>
+<span id="more"></span>
+
 <h3 id="增量排序："><a href="#增量排序：" class="headerlink" title="增量排序："></a>增量排序：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellInsert</span><span class="params">(Sqlist &amp;L, <span class="type">int</span> dk)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 对顺序表进行一趟增量为dk的Shell排序，dk为这次增量排序的步长</span></span><br><span class="line">    <span class="type">int</span> i, j;</span><br><span class="line">	<span class="keyword">for</span>(i = dk + <span class="number">1</span>; i &lt;= L.length; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.r[i].key &lt; L.r[i - dk].key)&#123;</span><br><span class="line">            L.r[<span class="number">0</span>] = L.r[i]; <span class="comment">// 用哨兵暂存扫描到且还没加到有序表的元素</span></span><br><span class="line">            <span class="comment">// j = j -dk用来判断之前是否有元素，如果有，之前的元素也需要跟交换后的位置比较，以保持有序性质</span></span><br><span class="line">            <span class="keyword">for</span>(j = i - dk; j &gt; <span class="number">0</span> &amp;&amp; (L.r[<span class="number">0</span>].key &lt; L.r[j].key); j = j - dk)</span><br><span class="line">                L.r[j + dk] = L.r[j];</span><br><span class="line">            L.r[j + dk] = L.r[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>没有什么比举例子更容易理解的东西</p>
@@ -244,7 +249,7 @@
             <span class="tooltip-content">
               <span class="tooltip-text">
                 <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你<i class="icon icon-quo-right"></i></p>
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持<i class="icon icon-quo-right"></i></p>
                   <div class="reward-box">
                     
                     <div class="reward-box-item">
@@ -279,7 +284,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -461,11 +466,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有笔记</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -506,11 +511,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
+                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -522,11 +535,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">os</a>
+                <a href="javascript:void(0)" class="js-tag color5">data_structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -534,11 +551,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -551,18 +564,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo开始...</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringMvc框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
             
             <div class="clearfix"></div>

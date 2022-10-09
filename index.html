@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="主要专注后端，涉猎广泛，想学什么学什么">
+  <meta name="description" content="涉猎广泛，想学什么学什么">
 <meta property="og:type" content="website">
 <meta property="og:title" content="吉姆的个人站">
 <meta property="og:url" content="http://example.com/index.html">
 <meta property="og:site_name" content="吉姆的个人站">
-<meta property="og:description" content="主要专注后端，涉猎广泛，想学什么学什么">
+<meta property="og:description" content="涉猎广泛，想学什么学什么">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="dreem">
 <meta name="twitter:card" content="summary">
@@ -63,14 +63,17 @@
 	        
 			</ul>
 		</nav>
+		<nav>
+			总文章数 10
+		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
+    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
@@ -222,66 +225,7 @@
 <li><strong>每个网络中可分配的IP地址数量</strong>为 2^8 - 2 &#x3D; 254（<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
 </ul>
 <hr>
-<h3 id="网络地址转换："><a href="#网络地址转换：" class="headerlink" title="网络地址转换："></a>网络地址转换：</h3><p><strong>为了网络安全，划出了部分IP地址为私有 IP地址。私有 IP地址只用于LAN(局域网)，不用于WAN(广域网)</strong></p>
-<p><strong>私有 IP地址不能直接用于 Internet，必须通过网关利用 NAT把私有 IP地址转换为 Internet中合法的全球 IP地址后才能用于Internet，并且允许私有 IP地址被LAN重复使用，有效解决了 IP地址不足的问题，即现在计算机一般都会使用NAT转换服务</strong></p>
-<p><strong>A类：</strong>1个A类网段，即 **10.**0.0.0 ~ **10.**255.255.255</p>
-<p><strong>B类：</strong>16个B类网段，即 <strong>172.16</strong>.0.0 ~ <strong>172.31</strong>.255.255</p>
-<p><strong>C类：</strong>256个C类网段，即 <strong>192.168.0</strong>.0 ~ <strong>192.168.255</strong>.255</p>
-<p><strong>典型的 NAT地址转换表如下：</strong></p>
-<p><img src="/2022/09/30/IPv4/image-20220930154130366.png" alt="image-20220930154130366"></p>
-<hr>
-<h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>可以从<strong>IP地址的主机号部分</strong>中<strong>借用一些位作为子网号</strong>来区分不同的子网</p>
-<p>这样就可以在分配到的网络中再分配出多个小的子网，而不用申请新的网络号</p>
-<p><strong>32比特的子网掩码可以表明分类IP地址的主机号部分被借用了几个比特作为子网号</strong></p>
-<ul>
-<li>子网掩码使用<strong>连续的比特1来对应网络号和子网号</strong></li>
-<li>子网掩码使用<strong>连续的比特0来对应主机号</strong></li>
-<li>将划分子网的<strong>IPv4地址</strong>与其相应的<strong>子网掩码</strong>进行<strong>逻辑与运算</strong>就可以得到IPv4地址所在<strong>子网的网络地址</strong></li>
-</ul>
-<p><img src="/2022/09/30/IPv4/image-20221008182742965.png" alt="image-20221008182742965"></p>
-<p>可以借用子网掩码这个工具来区分子网，地址由网络号、子网号和主机号组成</p>
-<p><img src="/2022/09/30/IPv4/image-20221008183751086.png" alt="image-20221008183751086"></p>
-<p><img src="/2022/09/30/IPv4/image-20221008185831103.png" alt="image-20221008185831103"></p>
-<p><strong>默认的子网掩码：默认的子网掩码</strong>是指<strong>在未划分子网的情况下使用的子网掩码</strong></p>
-<p><img src="/2022/09/30/IPv4/image-20221008190128279.png" alt="image-20221008190128279"></p>
-<h2 id="无分类编址（CIDR）"><a href="#无分类编址（CIDR）" class="headerlink" title="无分类编址（CIDR）"></a>无分类编址（CIDR）</h2><ul>
-<li><p><strong>CIDR消除了传统的A类、B类和C类地址，以及划分子网的概念</strong></p>
-</li>
-<li><p><strong>CIDR可以更加有效地分配IPv4的地址空间</strong>，并且可以在新的IPv6使用之前允许因特网的规模继续增长</p>
-</li>
-<li><p>CIDR使用“<strong>斜线记法</strong>”，或称CIDR记法。即在IPv4地址后面加上斜线“&#x2F;”，在<strong>斜线后面写上网络前缀所占的比特数量</strong></p>
-<p><img src="/2022/09/30/IPv4/image-20221008200752761.png" alt="image-20221008200752761"></p>
-</li>
-<li><p>CIDR实际上是将<strong>网络前缀都相同的连续的IP地址组成一个“CIDR地址块”</strong></p>
-</li>
-<li><p>我们只要知道CIDR地址块中的任何一个地址，就可以知道该地址块的全部细节</p>
-<ul>
-<li><p>地址块中的最小地址</p>
-</li>
-<li><p>地址块中的最大地址</p>
-</li>
-<li><p>地址块中的地址数量</p>
-</li>
-<li><p>地址块聚合某类网络（A类、B类和C类）的数量</p>
-</li>
-<li><p>地址掩码（也可继续称为子网掩码）</p>
-<p><img src="/2022/09/30/IPv4/image-20221008201240233.png" alt="image-20221008201240233"></p>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="路由聚合（构造超网）"><a href="#路由聚合（构造超网）" class="headerlink" title="路由聚合（构造超网）"></a>路由聚合（构造超网）</h3><p>找目的网络地址中的共同前缀来构成超网，以减少路由表中的条目数</p>
-<ul>
-<li><p><strong>网络前缀越长，地址块越小，路由越具体</strong>；</p>
-</li>
-<li><p>若路由器查表转发分组时发现有多条路由可选，则选择网络前缀最长的那条，这称为<strong>最长前缀匹配</strong>，</p>
-<p>因为这样的路由更具体。</p>
-</li>
-</ul>
-<p><img src="/2022/09/30/IPv4/image-20221008201914458.png" alt="image-20221008201914458"></p>
-<p><strong>注：</strong>把需要聚合的各个网络的网络前缀写出来，找出最长的相同的网络器前缀聚合成一个网络。</p>
-<hr>
-<h2 id="参考：湖科大教书匠：https-www-bilibili-com-video-BV1c4411d7jb-spm-id-from-333-999-0-0-amp-vd-source-e8dabb7e7d08d095b938c58a3b51a693"><a href="#参考：湖科大教书匠：https-www-bilibili-com-video-BV1c4411d7jb-spm-id-from-333-999-0-0-amp-vd-source-e8dabb7e7d08d095b938c58a3b51a693" class="headerlink" title="参考：湖科大教书匠：https://www.bilibili.com/video/BV1c4411d7jb/?spm_id_from=333.999.0.0&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693"></a>参考：湖科大教书匠：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1c4411d7jb/?spm_id_from=333.999.0.0&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693">https://www.bilibili.com/video/BV1c4411d7jb/?spm_id_from=333.999.0.0&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693</a></h2>
+        
       
 
       
@@ -381,61 +325,7 @@
 </ul>
 <p><strong>图示：</strong></p>
 <p><img src="/2022/09/28/btree&b+tree/image-20220929000502291.png" alt="image-20220929000502291"></p>
-<p><strong>平衡二叉树的左右子树高度只能是-1，0，1，但是B树的左右子树高度差只能为0（即左右子树高度都要相等）</strong>，也可以结合二叉排序树来记忆，即<strong>左子树</strong>的元素值 &lt; <strong>根节点</strong>的元素值 &lt; <strong>右子树</strong>的元素值。</p>
-<p><strong>注：</strong></p>
-<p>​	+  <strong>根结点的子树数∈[2，m]，关键字数∈[1，m - 1]</strong></p>
-<p>​	+  <strong>其他结点的子树数∈[⌈m&#x2F;2⌉，m]，关键字数∈[⌈m&#x2F;2⌉ - 1，m - 1]</strong></p>
-<h3 id="B树的插入和删除（插入只能在最底层的终端结点中）"><a href="#B树的插入和删除（插入只能在最底层的终端结点中）" class="headerlink" title="B树的插入和删除（插入只能在最底层的终端结点中）"></a>B树的插入和删除（插入只能在最底层的终端结点中）</h3><p><strong>① 对 m阶B树—除根节点外，结点关键字个数 ⌈m&#x2F;2⌉ - 1 ≤ n ≤ m - 1</strong></p>
-<p><strong>② 要永远保证 子树0 &lt; 关键字1 &lt; 子树1 &lt; 关键字2 &lt; 子树2 &lt; …</strong></p>
-<p><strong>参考：</strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1b7411N798?p=73&amp;spm_id_from=pageDriver&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693">https://www.bilibili.com/video/BV1b7411N798?p=73&amp;spm_id_from=pageDriver&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693</a></p>
-<h4 id="插入："><a href="#插入：" class="headerlink" title="插入："></a>插入：</h4><p>​	<strong>要考虑当插入关键字之后结点超过 m - 1时，需要将当前结点进行拆分，拆分出不同的两棵子树，且关键字大小在中间的关键字提到父节点中，作为拆分出来的新节点分别在这个被提结点的左右</strong></p>
-<h4 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h4><p>​	<strong>删除则需要保证删除关键字之后结点中的关键字个数小于 ⌈m&#x2F;2⌉ - 1时，需要往兄弟借或者合并结点</strong></p>
-<p><strong>删除非终端结点：</strong></p>
-<p><img src="/2022/09/28/btree&b+tree/image-20221008220205166.png" alt="image-20221008220205166"></p>
-<p><strong>删除终端结点</strong>：</p>
-<p><img src="/2022/09/28/btree&b+tree/image-20221008220325017.png" alt="image-20221008220325017"></p>
-<p><img src="/2022/09/28/btree&b+tree/image-20221008220917232.png" alt="image-20221008220917232"></p>
-<h2 id="B-树的特点（类比OS中的文件管理中的索引存储）"><a href="#B-树的特点（类比OS中的文件管理中的索引存储）" class="headerlink" title="B+树的特点（类比OS中的文件管理中的索引存储）"></a>B+树的特点（类比OS中的文件管理中的索引存储）</h2><p>B+树和B树是两个概念，一个是用来存储，B+树更多是用来存储磁盘的文件类资源</p>
-<p><strong>图示：</strong></p>
-<p><img src="/2022/09/28/btree&b+tree/image-20221008223350200.png" alt="image-20221008223350200"></p>
-<p><strong>一棵m阶的B+树需满足下列条件：</strong></p>
-<ul>
-<li>每个分支结点最多有m棵子树（孩子结点）；</li>
-<li><strong>非叶根结点至少有两棵子树</strong>，其他每个分支结点<strong>至少有 ⌈m&#x2F;2⌉ 棵子树</strong>；</li>
-<li><strong>结点的子树个数与关键字个数相等</strong>；</li>
-<li>所有<strong>叶结点包含全部关键字</strong>及指向相应记录的指针，叶结点中将关键字按大小顺序排列，并且<strong>相邻叶结点按大小顺序相互链接起来</strong>。</li>
-</ul>
-<p><strong>注：</strong></p>
-<p>在B+树中，<strong>非叶结点不含有该关键字对应记录的存储地址</strong>；</p>
-<p>可以使一个磁盘块可以包含更多个关键字，使得B+树的阶更大，<strong>树高更矮，读磁盘次数更少</strong>，查找更快。</p>
-<hr>
-<h2 id="B树、B-树的联系和区别"><a href="#B树、B-树的联系和区别" class="headerlink" title="B树、B+树的联系和区别"></a>B树、B+树的联系和区别</h2><p><img src="/2022/09/28/btree&b+tree/image-20221008234738642.png" alt="image-20221008234738642"></p>
-<h3 id="m阶B树（m阶B-树）："><a href="#m阶B树（m阶B-树）：" class="headerlink" title="m阶B树（m阶B-树）："></a>m阶B树（m阶B-树）：</h3><ul>
-<li><p>结点中的n个关键字对应 n + 1棵子树；</p>
-</li>
-<li><p>根结点的关键字数 n∈[1，m - 1]</p>
-<p>其他结点的关键字数 n∈[⌈m&#x2F;2⌉ - 1，m - 1]；</p>
-</li>
-<li><p>在B树中，各结点中包含的关键字是不重复的；</p>
-</li>
-<li><p>B树的结点中都包含了关键字对应的记录的存储地址。</p>
-</li>
-</ul>
-<p><strong>注：</strong>不会出现两个相同的关键字，且关键字即是记录，区别B+树（B+树中关键字为记录的指针），不支持顺序查找。</p>
-<h3 id="m阶B-树："><a href="#m阶B-树：" class="headerlink" title="m阶B+树："></a>m阶B+树：</h3><ul>
-<li><p>结点中的n个关键字对应n棵子树；</p>
-</li>
-<li><p>根结点的关键字数 n∈[1，m]</p>
-<p>其他结点的关键字数 n∈[⌈m&#x2F;2⌉，m]；</p>
-</li>
-<li><p>在B+树中，叶结点包含全部关键字，非叶结点中出现过的关键字也会出现在叶结点中；</p>
-</li>
-<li><p>在B+树中，叶结点包含信息，所有非叶结点仅起索引作用，非叶结点中的每个索引项只含有对应子树的最大关键字和指向该子树的指针，不含有该关键字对应记录的存储地址。</p>
-</li>
-</ul>
-<p><strong>注：</strong>B+树支持顺序查找，由于所有的叶子结点都是由一个链表链接在一起的，所以可以直接通过链头指针遍历到所有的关键字。</p>
-<p>+++</p>
-<h2 id="参考：https-www-bilibili-com-video-BV1b7411N798"><a href="#参考：https-www-bilibili-com-video-BV1b7411N798" class="headerlink" title="参考：https://www.bilibili.com/video/BV1b7411N798"></a>参考：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1b7411N798">https://www.bilibili.com/video/BV1b7411N798</a></h2>
+        
       
 
       
@@ -452,7 +342,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -638,32 +528,7 @@
 <p>增量的意思是每次执行排序的两个数之间的距离。</p>
 <p><img src="/2022/09/27/shellsort/image-20220927115831072.png" alt="image-20220927115831072"></p>
 <p>数据为0的位置为哨兵的位置，这里的哨兵并不是直接插入排序中的哨兵，这里的哨兵来进行辅助交换操作。</p>
-<h3 id="增量排序："><a href="#增量排序：" class="headerlink" title="增量排序："></a>增量排序：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellInsert</span><span class="params">(Sqlist &amp;L, <span class="type">int</span> dk)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 对顺序表进行一趟增量为dk的Shell排序，dk为这次增量排序的步长</span></span><br><span class="line">    <span class="type">int</span> i, j;</span><br><span class="line">	<span class="keyword">for</span>(i = dk + <span class="number">1</span>; i &lt;= L.length; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.r[i].key &lt; L.r[i - dk].key)&#123;</span><br><span class="line">            L.r[<span class="number">0</span>] = L.r[i]; <span class="comment">// 用哨兵暂存扫描到且还没加到有序表的元素</span></span><br><span class="line">            <span class="comment">// j = j -dk用来判断之前是否有元素，如果有，之前的元素也需要跟交换后的位置比较，以保持有序性质</span></span><br><span class="line">            <span class="keyword">for</span>(j = i - dk; j &gt; <span class="number">0</span> &amp;&amp; (L.r[<span class="number">0</span>].key &lt; L.r[j].key); j = j - dk)</span><br><span class="line">                L.r[j + dk] = L.r[j];</span><br><span class="line">            L.r[j + dk] = L.r[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>没有什么比举例子更容易理解的东西</p>
-<p><img src="/2022/09/27/shellsort/image-20220927122439367.png" alt="image-20220927122439367"></p>
-<p>eg：</p>
-<ul>
-<li><strong>第一轮循环</strong>：当dk为5时，希尔排序从dk + 1的位置开始开始比较第 dk + 1 和dk + 1 - dk的大小，第一轮循环，比较下图中的两个位置的大小并交换。</li>
-</ul>
-<p>开始状态：</p>
-<p><img src="/2022/09/27/shellsort/image-20220927122737873.png" alt="image-20220927122737873"></p>
-<p>执行完第一轮循环之后的状态：</p>
-<p>​		此时 <strong>j &#x3D; i - dk，也就是说 j 也指向 i - dk的位置，执行完 交换之后需要 减去一个dk（也就是减去一个步长），再看看前面是否还有需要交换的元素，以来保证每次循环后，i之前的相距 dk的位置是相对有序的</strong></p>
-<p><img src="/2022/09/27/shellsort/image-20220927124121257.png" alt="image-20220927124121257"></p>
-<p><img src="/2022/09/27/shellsort/image-20220927124522670.png" alt="image-20220927124522670"></p>
-<ul>
-<li><p>当 <strong>i - dk****的值小于</strong>0<strong>时，表明前面没有需要比较的元素，只需要对比两元素之后，</strong>i**跳转到下一个暂未排序的增量步长</p>
-</li>
-<li><p>当 <strong>i - dk****的值大于</strong>0**时，表明前面还有需要比较的元素，如下图</p>
-<p>当 <strong>i</strong>的位置在下午所示的位置时候。</p>
-</li>
-</ul>
-<p><img src="/2022/09/27/shellsort/image-20220927144605396.png" alt="image-20220927144605396"></p>
-<ul>
-<li>由于此时在 <strong>j</strong>之前的元素都已排好序，则不需要进行位置交换，即跳出循环，完成排序；其他位置的比较和交换类似。自己模拟一下就知道了。</li>
-</ul>
-<h3 id="注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能"><a href="#注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能" class="headerlink" title="注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能"></a>注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能</h3><h2 id="参考：青岛大学–王卓，地址：https-space-bilibili-com-40323036"><a href="#参考：青岛大学–王卓，地址：https-space-bilibili-com-40323036" class="headerlink" title="参考：青岛大学–王卓，地址：https://space.bilibili.com/40323036"></a>参考：青岛大学–王卓，地址：<a target="_blank" rel="noopener" href="https://space.bilibili.com/40323036">https://space.bilibili.com/40323036</a></h2>
+        
       
 
       
@@ -680,7 +545,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -746,7 +611,7 @@
       
         <h1 id="redis主从复制"><a href="#redis主从复制" class="headerlink" title="redis主从复制"></a>redis主从复制</h1><p>最近浅学了一下redis，下面就是我觉得重要的一个点。</p>
 <h2 id="介绍："><a href="#介绍：" class="headerlink" title="介绍："></a>介绍：</h2><ul>
-<li><p>主机数据更新后根据配置和策略， 自动同步到备机的master&#x2F;slaver机制，&#x3D;&#x3D;Maste&#x3D;&#x3D;r以&#x3D;&#x3D;写&#x3D;&#x3D;为主，&#x3D;&#x3D;Slave&#x3D;&#x3D;以&#x3D;&#x3D;读&#x3D;&#x3D;为主</p>
+<li><p>主机数据更新后根据配置和策略， 自动同步到备机的master&#x2F;slaver机制，<strong>Master</strong>以<strong>写</strong>为主，<strong>Slave</strong>以<strong>读</strong>为主</p>
 </li>
 <li><p>可以这样帮助理解：主机相当于房东，从机相当于房客，房客不能损坏出租房里的东西，但是有使用的权限；而出租房是属于房东的，房东有权利去收走或者添置出租屋里的东西。</p>
 </li>
@@ -756,7 +621,7 @@
 <h2 id="作用："><a href="#作用：" class="headerlink" title="作用："></a>作用：</h2><ul>
 <li><p>使读操作和写操作分离来，提高性能</p>
 </li>
-<li><p>容灾快速恢复：我认为的是系统突然遇到一些突发情况不能继续工作，容灾快速恢复可能是发生这种情况之后可以根据备份文件或者其他技术来恢复数据（&#x3D;&#x3D;个人理解&#x3D;&#x3D;）</p>
+<li><p>容灾快速恢复：我认为的是系统突然遇到一些突发情况不能继续工作，容灾快速恢复可能是发生这种情况之后可以根据备份文件或者其他技术来恢复数据（<strong>个人理解</strong>）</p>
 <p><img src="/2022/09/20/Redis/image-20220629152629791.png" alt="image-20220629152629791"></p>
 </li>
 </ul>
@@ -788,7 +653,7 @@
 <p><img src="/2022/09/20/Redis/image-20220629175933385.png" alt="image-20220629175933385"></p>
 <p>主服务器的info replication显示如下：</p>
 <p><img src="/2022/09/20/Redis/image-20220629175558947.png" alt="image-20220629175558947"></p>
-<h2 id="x3D-x3D-注意：-x3D-x3D"><a href="#x3D-x3D-注意：-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;注意：&#x3D;&#x3D;"></a>&#x3D;&#x3D;注意：&#x3D;&#x3D;</h2><p>当设置了的主从复制类似于薪火相传模式：即一台主机一个从机，从机还有一台从机。</p>
+<h2 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h2><p>当设置了的主从复制类似于薪火相传模式：即一台主机一个从机，从机还有一台从机。</p>
 <p>​	这种情况下注意，当中间的从机宕机后，属于这台从机的从机会等待这台宕机的机器重启，且不会变成master，</p>
 <p>依旧是以slave的角色挂接在这台宕机的机器上；但是如果宕机的这台机器重新上线，他不再是之前master的从机了，</p>
 <p>而是自己变成主机。</p>
@@ -880,9 +745,9 @@
 
 <p>对于文件夹下的rwx权限：</p>
 <ul>
-<li>&#x3D;&#x3D;r&#x3D;&#x3D;:可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限。</li>
-<li>&#x3D;&#x3D;w&#x3D;&#x3D;:表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件</li>
-<li>&#x3D;&#x3D;x&#x3D;&#x3D;:表示可以进入到该目录，即cd命令；</li>
+<li><em><strong>r</strong></em> :可以ls，将目录的内容列举出来；如果文件夹没有读权限，只是不能列举出文件夹下的所有文件，其他的查看文件是可以的，如果登录的用户有该文件夹下文件的执行权限。</li>
+<li><em><strong>w</strong></em> :表示可以在该目录创建或者修改文件；如果没有w（写权限），则不可以删除文件夹下的文件或在文件夹中新建文件</li>
+<li><em><strong>x</strong></em> :表示可以进入到该目录，即cd命令；</li>
 </ul>
 
       
@@ -988,16 +853,16 @@
 <p>由于Maven的传递性，我们不必将所有需要的包全部配置依赖，而是配置最顶端的依赖，其他靠传递性导入</p>
 </blockquote>
 </li>
-<li><p>&#x3D;&#x3D;配置web.xml&#x3D;&#x3D;：注册SpringMVC的前端控制器DispatcherServlet，有两种配置方式</p>
+<li><p><strong>配置web.xml</strong>：注册SpringMVC的前端控制器DispatcherServlet，有两种配置方式</p>
 </li>
 </ul>
 <ol>
 <li><p><strong>默认配置</strong>方式：如果用这种配置，SpringMVC的配置文件默认位于WEB-INFx下，默认名字为-servlet.xml，例如，以下配置所对应SpringMVC的配置文件位于WEB-INF下，文件名为springMVC-servlet.xml</p>
-<p><em><strong>&#x3D;&#x3D;eg&#x3D;&#x3D;：</strong></em>在web.xml配置文件中需要添加如下配置；</p>
+<p><em><strong>eg：</strong></em>在web.xml配置文件中需要添加如下配置；</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 <li><p><strong>扩展配置</strong>方式（推荐）：可以通过&lt;init-param&gt;标签设置SpringMVC配置文件的位置和名称，通过&lt;load-on-startu&gt;标签设置SpringMVC前端控制器DispatcherServlet的初始化时间；使用&lt;init-param&gt;标签设置SpringMVC配置文件的位置和名称，这就是说明在扩展配置方式下，SpringMVC的配置文件可以在项目的任何位置；与默认配置方式相比，默认配置方式直接在WEB-INF下找指定文件名的文件，而扩展配置方式不需要</p>
-<p><em><strong>&#x3D;&#x3D;eg&#x3D;&#x3D;：</strong></em>在web.xml配置文件中需要添加如下配置；</p>
+<p><em><strong>eg：</strong></em>在web.xml配置文件中需要添加如下配置；</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通过初始化参数指定SpringMVC配置文件的位置和名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- contextConfigLocation为固定值 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 使用classpath:表示从类路径查找配置文件，例如maven工程中的src/main/resources --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMVC.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">         作为框架的核心组件，在启动过程中有大量的初始化操作要做</span></span><br><span class="line"><span class="comment">        而这些操作放在第一次请求时才执行会严重影响访问速度</span></span><br><span class="line"><span class="comment">        因此需要通过此标签将启动控制DispatcherServlet的初始化时间提前到服务器启动时</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <blockquote>
@@ -1025,170 +890,7 @@
 <ol start="4">
 <li><strong>一个请求及其响应的过程</strong>：当页面发出请求，得到其请求地址，会被前端控制器DispatcherServlet进行处理（也就是说，只要有请求，就肯定会经过DispatcherServlet）。前端控制器DispatcherServlet会加载并读取SpringMVC的核心配置文件，即开启Spring的 IOC 容器，通过扫描组件，获得Controller控制器，将请求地址和相应的属性与所有的控制器中的@RequestMapping注解的属性值（value, method, params, headers）进行匹配，如果匹配成功，Controller会调用匹配的方法并返回一个字符串类型的视图名称，返回的视图名称会经过thymeleaf的视图解析器解析，加上配置的前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最后请求转发到视图对应页面。如果匹配不成功则报404-错误。</li>
 </ol>
-<h2 id="三-RequestMapping注解"><a href="#三-RequestMapping注解" class="headerlink" title="三.@RequestMapping注解"></a>三.@RequestMapping注解</h2><h4 id="1-RequestMapping注解的功能"><a href="#1-RequestMapping注解的功能" class="headerlink" title="1.@RequestMapping注解的功能"></a>1.@RequestMapping注解的功能</h4><p>​	从注解名称上我们可以看到，@RequestMapping注解的作用就是将请求和处理请求的控制器方法关联起来，建立映射关系。</p>
-<p>​	SpringMVC 接收到指定的请求，就会来找到在映射关系中对应的控制器方法来处理这个请求。</p>
-<h4 id="2-RequestMapping注解的位置"><a href="#2-RequestMapping注解的位置" class="headerlink" title="2.@RequestMapping注解的位置"></a>2.@RequestMapping注解的位置</h4><p>@RequestMapping标识一个类：设置映射请求的请求路径的初始信息</p>
-<p>@RequestMapping标识一个方法：设置映射请求请求路径的具体信息</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/test&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">RequestMappingController</span> &#123;</span><br><span class="line">    <span class="comment">//此时请求映射所映射的请求的请求路径为：/test/testRequestMapping</span></span><br><span class="line">    <span class="meta">@RequestMapping(&quot;/testRequestMapping&quot;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">testRequestMapping</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;success&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h4 id="3-RequestMapping注解的value属性"><a href="#3-RequestMapping注解的value属性" class="headerlink" title="3. @RequestMapping注解的value属性"></a>3. @RequestMapping注解的value属性</h4><p>@RequestMapping注解的value属性通过请求的请求地址匹配请求映射</p>
-<p>@RequestMapping注解的value属性是一个字符串类型的数组，表示该请求映射能够匹配多个请求地址所对应的请求</p>
-<p>@RequestMapping注解的value属性必须设置，至少通过请求地址匹配请求映射</p>
-<h4 id="4-RequestMapping注解的method属性"><a href="#4-RequestMapping注解的method属性" class="headerlink" title="4. RequestMapping注解的method属性"></a>4. RequestMapping注解的method属性</h4><p>@RequestMapping注解的method属性通过请求的请求方式（get或post）匹配请求映射</p>
-<p>@RequestMapping注解的method属性是一个RequestMethod类型的数组，表示该请求映射能够匹配多种请求方式的请求</p>
-<p>若当前请求的请求地址满足请求映射的value属性，但是请求方式不满足method属性，则浏览器报错405：Request method ‘POST’ not supported</p>
-<blockquote>
-<p>注：</p>
-<p>1、对于处理指定请求方式的控制器方法，SpringMVC中提供了@RequestMapping的派生注解</p>
-<p>处理get请求的映射–&gt;@GetMapping</p>
-<p>处理post请求的映射–&gt;@PostMapping</p>
-<p>处理put请求的映射–&gt;@PutMapping</p>
-<p>处理delete请求的映射–&gt;@DeleteMapping</p>
-<p>2、常用的请求方式有get，post，put，delete</p>
-<p>但是目前浏览器只支持get和post，若在form表单提交时，为method设置了其他请求方式的字符串（put或delete），则按照默认的请求方式get处理</p>
-<p>若要发送put和delete请求，则需要通过spring提供的过滤器HiddenHttpMethodFilter，在RESTful部分会讲到</p>
-</blockquote>
-<h4 id="5-RequestMapping注解的params属性（了解）"><a href="#5-RequestMapping注解的params属性（了解）" class="headerlink" title="5. @RequestMapping注解的params属性（了解）"></a>5. @RequestMapping注解的params属性（了解）</h4><p>@RequestMapping注解的params属性通过请求的请求参数匹配请求映射</p>
-<p>@RequestMapping注解的params属性是一个字符串类型的数组，可以通过四种表达式设置请求参数和请求映射的匹配关系</p>
-<p>“param”：要求请求映射所匹配的请求必须携带param请求参数</p>
-<p>“!param”：要求请求映射所匹配的请求必须不能携带param请求参数</p>
-<p>“param&#x3D;value”：要求请求映射所匹配的请求必须携带param请求参数且param&#x3D;value</p>
-<p>“param!&#x3D;value”：要求请求映射所匹配的请求必须携带param请求参数但是param!&#x3D;value</p>
-<h4 id="RequestMapping注解的headers属性（了解）"><a href="#RequestMapping注解的headers属性（了解）" class="headerlink" title="@RequestMapping注解的headers属性（了解）"></a>@RequestMapping注解的headers属性（了解）</h4><p>@RequestMapping注解的headers属性通过请求的请求头信息匹配请求映射</p>
-<p>@RequestMapping注解的headers属性是一个字符串类型的数组，可以通过四种表达式设置请求头信息和请求映射的匹配关系</p>
-<p>“header”：要求请求映射所匹配的请求必须携带header请求头信息</p>
-<p>“!header”：要求请求映射所匹配的请求必须不能携带header请求头信息</p>
-<p>“header&#x3D;value”：要求请求映射所匹配的请求必须携带header请求头信息且header&#x3D;value</p>
-<p>“header!&#x3D;value”：要求请求映射所匹配的请求必须携带header请求头信息且header!&#x3D;value</p>
-<p>若当前请求满足@RequestMapping注解的value和method属性，但是不满足headers属性，此时页面显示404错误，即资源未找到</p>
-<h4 id="x3D-x3D-eg-x3D-x3D"><a href="#x3D-x3D-eg-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;eg:&#x3D;&#x3D;"></a><em><strong>&#x3D;&#x3D;eg:&#x3D;&#x3D;</strong></em></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 多标签测试</span></span><br><span class="line"><span class="comment">// headers属性的值可以在页面的network中查看请求参数和响应参数</span></span><br><span class="line"><span class="meta">@RequestMapping(value = &#123;&quot;/testMultipleTag&quot;, &quot;/testMultiple&quot;&#125;, // 设置请求的匹配地址</span></span><br><span class="line"><span class="meta">	method = &#123;RequestMethod.POST, RequestMethod.GET&#125;, // 设置请求的方式</span></span><br><span class="line"><span class="meta">	params = &#123;&quot;username!=admin&quot;, &quot;password=123&quot;&#125;, // 设置匹配参数</span></span><br><span class="line"><span class="meta">	headers = &#123;&quot;host=localhost:8080&quot;&#125;)</span> <span class="comment">// 设置匹配的主机号</span></span><br><span class="line"><span class="keyword">public</span> String <span class="title function_">multipleTag</span><span class="params">(String[] hobby)</span>&#123;</span><br><span class="line">    System.out.println(<span class="string">&quot;hobby = &quot;</span> + Arrays.toString(hobby));</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;/pages/success&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>***&#x3D;&#x3D;报错类型&#x3D;&#x3D;***：</p>
-<ol>
-<li>400：请求参数（即@RequestMapping的params属性）不匹配报该类错误</li>
-<li>404：如果页面请求没有跟任何控制器方法（即@RequestMapping的value属性）匹配，报该类错误</li>
-<li>405：如果页面的请求方式与控制器方法中的属性（即@RequestMapping的method属性）匹配不了，报该类错误</li>
-<li>500：如果请求路径在控制器中匹配到了方法，但是方法返回的字符串通过Thymeleaf的视图解析器解析之后，找不到该视图，最后Thymeleaf向浏览器发送 500错误。</li>
-</ol>
-<h2 id="四、RESTFul风格案例"><a href="#四、RESTFul风格案例" class="headerlink" title="四、RESTFul风格案例"></a>四、RESTFul风格案例</h2><p><img src="/2022/09/20/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/Users/Administrator\AppData\Roaming\Typora\typora-user-images\1645149025164.png" alt="1645149025164"></p>
-<p>​		访问首页可以直接使用配置文件，在springMVC.xml文件中添加控制器(view-controller)<code>&lt;mvc:view-controller path=&quot;/&quot; view-name=&quot;index&quot;&gt;&lt;/mvc:view-controller&gt;</code> 并且需要开启注解驱动，否则其他控制器方法中的RequestMapping注解将失效，&#x3D;&#x3D;开启注解驱动&#x3D;&#x3D;：<code>&lt;mvc:annotation-driven/&gt;</code></p>
-<h4 id="RequestBody注解"><a href="#RequestBody注解" class="headerlink" title="@RequestBody注解"></a>@RequestBody注解</h4><p>​		用来标识形参，表示浏览器的请求体（也就是浏览器传入的一些参数）</p>
-<h4 id="RequestEntity类型"><a href="#RequestEntity类型" class="headerlink" title="RequestEntity类型"></a>RequestEntity类型</h4><p>​		RequestEntity封装请求报文的一种类型，需要在控制器方法的形参中设置该类型的形参，当前请求的请求报文就会赋值给该形参，可以通过getHeaders()获取请求头信息，通过getBody()获取请求体信息。</p>
-<h4 id="ResponseBody处理json"><a href="#ResponseBody处理json" class="headerlink" title="@ResponseBody处理json"></a>@ResponseBody处理json</h4><p>​		服务器向客户端发送数据的时候，也就是说服务器通过response向页面发送数据时（不能接受服务器发来的对象类型），只能通过文本的形式发送，如果说想向服务器发送一个对象的话，这个时候就要转换为json，json是一种数据交互格式，与之前所用的xml是一个道理。json有两种格式，{}表示json对象，[]表示json数组。</p>
-<p>​		在SpringMVC的核心配置文件中开启mvc的注解驱动，此时在HandlerAdaptor中会自动装配一个消息转换器：Mappingjackson2HttpMessageConverter，可以将响应转换为json格式的字符串<code>&lt;mvc:annotation-driven/&gt;</code></p>
-<p>​		在处理器方法上使用@ResponseBody注解进行标注</p>
-<p>​		将java对象直接作为控制器方法的返回值返回，就会自动转换为json格式的字符串</p>
-<p>处理静态资源</p>
-<p>像css、js和图片类的静态资源，如果页面显示404找不到资源，一是可能需要重新打包（添加资源之前，程序以及运行过了，后面添加的资源没有存在我们之前打包之后的结果里面），如果重新打包之后还报404错误，有可能是springmvc的配置文件里面的没有开启对静态资源的默认访问，需在springmvc的配置文件中添加<code>&lt;mvc:default-servlet-handler /&gt;</code>,(如果光是添加了这个标签，没有开启注解驱动的话，网页就只能访问静态资源，所以在配置完默认servlet处理器之后还需要添加<code>&lt;mvc:annotation-driven /&gt;</code>标签)</p>
-<h4 id="RestController注解"><a href="#RestController注解" class="headerlink" title="@RestController注解"></a>@RestController注解</h4><p>@RestController注解是springMVC提供的一个复合注解，标识在控制器的类上，就相当于为类添加了@Controller注解，并且为其中的每一个控制器方法都添加了@ResponseBody注解</p>
-<h4 id="ResponseEntity注解"><a href="#ResponseEntity注解" class="headerlink" title="@ResponseEntity注解"></a>@ResponseEntity注解</h4><p>ResponseEntity用于控制器方法的返回值类型，该控制器方法的返回值就是响应到浏览器的响应报文，换句话来说ResponseEntity就是自定义的一个响应报文。</p>
-<p>文件上传和下载用的都是文件复制的方法，上传功能一定用的是post</p>
-<h2 id="五、拦截器"><a href="#五、拦截器" class="headerlink" title="五、拦截器"></a>五、拦截器</h2><p>想要使用拦截器，必须先在springMVC的配置文件中注册拦截器，拦截器会在控制器执行阶段自动进行拦截。</p>
-<p>preHandler在控制器执行之前执行</p>
-<p>postHandler在控制器执行之后执行</p>
-<p>afterComplication在渲染视图之后执行</p>
-<p><strong>插件</strong>：应用中的插件就相当于拦截器的作用</p>
-<h5 id="1、拦截器的配置"><a href="#1、拦截器的配置" class="headerlink" title="1、拦截器的配置"></a>1、拦截器的配置</h5><p>SpringMVC中的拦截器用于拦截控制器方法的执行</p>
-<p>SpringMVC中的拦截器需要实现HandlerInterceptor接口</p>
-<p>SpringMVC的拦截器必须在SpringMVC的配置文件中进行配置：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;com.pj.interceptor.FirstInterceptor&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">&quot;firstInterceptor&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">ref</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 以上两种配置方法都是针对DispatcherServlet所处理的所有请求进行拦截 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">&quot;/**&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">mvc:exclude-mapping</span> <span class="attr">path</span>=<span class="string">&quot;/&quot;</span>/&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">&quot;firstInerceptor&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 以上配置方法可以通过ref或bean标签设置拦截器，通过mvc:mapping设置需要拦截的请求，通过mvc:exclude-mapping设置需要排除的请求，即不需要拦截的请求 --&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p> 其中<code>mvc:interceptors</code>表示可以配置多个拦截器，每个拦截器可以配置自己的拦截策略</p>
-</blockquote>
-<blockquote>
-<p> &#x2F;** 表示拦截全部请求，与web.xml中配置的过滤器 Filter 的过滤所有请求的 &#x2F;*区分开</p>
-</blockquote>
-<p>配置拦截器组件：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 用Component来表示拦截器为普通组件</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="comment">// 拦截器类需要实现HandlerInterceptor接口，并且可以重写他提供的三个方法</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">FirstInerceptor</span> <span class="keyword">implements</span> <span class="title class_">HandlerInterceptor</span> &#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="type">boolean</span> <span class="title function_">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;preHandle()运行&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;postHandle()运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;afterCompletion()运行&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="2、拦截器的三个抽象方法"><a href="#2、拦截器的三个抽象方法" class="headerlink" title="2、拦截器的三个抽象方法"></a>2、拦截器的三个抽象方法</h5><p>SpringMVC中的拦截器有三个抽象方法：</p>
-<p>&#x3D;&#x3D;preHandle&#x3D;&#x3D;：控制器方法执行之前执行preHandle()，其中boolean类型的返回值表示是否拦截或放行，返回true为放行，即调用控制器方法；返回false表示拦截，即不调用控制器方法</p>
-<p>&#x3D;&#x3D;postHandle&#x3D;&#x3D;：控制器方法执行之后执行postHandle()</p>
-<p>&#x3D;&#x3D;afterCompletion&#x3D;&#x3D;：处理完视图和模型数据，渲染视图完毕之后执行afterCompletion()</p>
-<h5 id="3、多个拦截器的执行顺序"><a href="#3、多个拦截器的执行顺序" class="headerlink" title="3、多个拦截器的执行顺序"></a>3、多个拦截器的执行顺序</h5><blockquote>
-<p>若每个拦截器的preHandle()都返回true</p>
-</blockquote>
-<p>此时多个拦截器的执行顺序和拦截器在SpringMVC的配置文件中的配置顺序有挂：</p>
-<p>preHandle()会按照配置的顺序执行，而postHandle()和afterCompletion()会按照配置的反序执行</p>
-<blockquote>
-<p>若某个拦截器的preHandle()返回了false</p>
-</blockquote>
-<p>preHandle()返回false和它之前的拦截器的preHandle()都会执行，postHandle()都不执行，返回false的拦截器之前的拦截器的afterCompletion()会执行</p>
-<h2 id="六、异常处理器"><a href="#六、异常处理器" class="headerlink" title="六、异常处理器"></a>六、异常处理器</h2><h4 id="1、基于配置的异常处理"><a href="#1、基于配置的异常处理" class="headerlink" title="1、基于配置的异常处理"></a>1、基于配置的异常处理</h4><p>SpringMVC提供了一个处理控制器方法执行过程中所出现的异常的接口：&#x3D;&#x3D;HandlerExceptionResolver&#x3D;&#x3D;</p>
-<p>HandlerExceptionResolver接口的实现类有：<strong>DefaultHandlerExceptionResolver</strong>和<strong>SimpleMappingExceptionResolver</strong></p>
-<p>SpringMVC提供了自定义的异常处理器SimpleMappingExceptinResolver，使用方式：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.springframework.web.servlet.handler.SimpleMappingExceptionResolver&quot;</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">peoperty</span> <span class="attr">name</span>=<span class="string">&quot;exceptionMapping&quot;</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">props</span>&gt;</span></span><br><span class="line">    	<span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">			peoperties的键表示处理器方法执行过程中出现的异常</span></span><br><span class="line"><span class="comment">			peoperties的值表示若出现指定异常时，设置一个新的视图名称，跳转到指定页面</span></span><br><span class="line"><span class="comment">		--&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">prop</span> <span class="attr">key</span>=<span class="string">&quot;java.lang.ArithmeticException&quot;</span>&gt;</span>error<span class="tag">&lt;/<span class="name">prop</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">props</span>&gt;</span></span><br><span class="line">	<span class="comment">&lt;!-- exceptionAttribute属性设置一个属性名，将出现的异常信息在请求域中进行共享 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;exceptionAttribute&quot;</span> <span class="attr">value</span>=<span class="string">&quot;ex&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="2、基于注解的异常处理"><a href="#2、基于注解的异常处理" class="headerlink" title="2、基于注解的异常处理"></a>2、基于注解的异常处理</h4><p><strong>与xml配置文件的工作原理一样</strong>：都是识别到异常，处理异常，跳转相应页面</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ControllerAdvice</span>      <span class="comment">//@ControllerAdvice将当前类表示为处理异常的组件</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">ExceptionController</span> &#123;</span><br><span class="line">	<span class="comment">//@ExceptionHandler设置所处理的异常</span></span><br><span class="line">    <span class="meta">@ExceptionHandler(value = &#123;ArithmeticException.class,NullPointerException.class&#125;)</span></span><br><span class="line">    <span class="keyword">public</span> String <span class="title function_">testException1</span><span class="params">(Exception ex, Model model)</span>&#123;   <span class="comment">//通过形参Exception类型对象接收异常信息</span></span><br><span class="line">        model.addAttribute(<span class="string">&quot;ex&quot;</span>,ex);</span><br><span class="line">        <span class="keyword">return</span> <span class="string">&quot;error&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="七、SpringMVC执行流程"><a href="#七、SpringMVC执行流程" class="headerlink" title="七、SpringMVC执行流程"></a>七、SpringMVC执行流程</h2><h4 id="1、SpringMVC常用组件"><a href="#1、SpringMVC常用组件" class="headerlink" title="1、SpringMVC常用组件"></a>1、SpringMVC常用组件</h4><ul>
-<li><p><strong>DispatcherServlet：前端控制器</strong>，不需要工程师开发，由框架提供</p>
-<p>&#x3D;&#x3D;作用&#x3D;&#x3D;：统一处理请求和响应，整个流程控制的中心，由它调用其他组件处理用户的请求</p>
-</li>
-<li><p><strong>HandlerMapping：处理器映射器</strong>，不需要工程师开发，由框架提供</p>
-<p>&#x3D;&#x3D;作用&#x3D;&#x3D;：根据请求的url 、method 等信息查找Handler，即控制器方法（@Controller）</p>
-</li>
-<li><p><strong>Handler：处理器</strong>，需要工程师开发</p>
-<p>&#x3D;&#x3D;作用&#x3D;&#x3D;：在DispatcherServlet的控制下Handler对具体的用户请求进行处理</p>
-</li>
-<li><p><strong>HandlerAdapter：处理器适配器</strong>，不需要工程师开发，由框架提供</p>
-<p>&#x3D;&#x3D;作用&#x3D;&#x3D;：通过HandlerAdapter 对处理器（控制器方法）进行执行</p>
-</li>
-<li><p><strong>ViewResolver：视图解析器</strong>，不需要工程师开发，由框架提供</p>
-<p>&#x3D;&#x3D;作用&#x3D;&#x3D;：进行视图解析，得到相应的视图。例如：ThymeleafView、InternalResourceView、RedirectView</p>
-</li>
-<li><p><strong>View：视图</strong>，不需要工程师开发，由框架或视图技术提供</p>
-<p>&#x3D;&#x3D;作用&#x3D;&#x3D;：将模型数据通过页面展示给用户</p>
-</li>
-</ul>
-<p><em><strong>注：</strong></em>HandlerMapping是使页面请求和控制器方法配对，将请求和控制器方法进行映射，其实也就是RequestMapping。</p>
-<p>HandlerAdapter是调用相应的控制器方法，当我们找到了控制器方法，我们需要使用控制器方法的时候，靠的是HandlerAdapter来调用</p>
-<h4 id="2、DispatcherServlet"><a href="#2、DispatcherServlet" class="headerlink" title="2、DispatcherServlet"></a>2、DispatcherServlet</h4><h4 id="3、SpringMVC的执行流程"><a href="#3、SpringMVC的执行流程" class="headerlink" title="3、SpringMVC的执行流程"></a>3、SpringMVC的执行流程</h4><ul>
-<li>用户向服务器发送请求，请求被SpringMVC前端控制器 DispatcherServlet捕获</li>
-<li>DispatcherServlet 对请求url 进行解析，得到请求资源标识符（URI），判断请求URI对应的映射：<ul>
-<li>不存在<ul>
-<li>再判断是否配置了mvc:default-servlet-handler</li>
-<li>如果没配置，则控制台包映射查找不到，客户端展示404错误</li>
-<li>如果有配置，则访问目标资源（一般为静态资源，如：JS、CSS、HTML），找不到客户端也会展示404错误</li>
-</ul>
-</li>
-<li>存在则执行下面的流程</li>
-</ul>
-</li>
-<li>根据该URI，调用HandlerMapping 获取该Handler配置的所有相关的对象（包括Handler对象以及Handler对象对应的拦截器），最后以HandlerExecutionChain 执行链对象的形式返回</li>
-<li>DispatcherServlet 根据获得的Handler，选择一个合适的HandlerAdapter</li>
-<li>如果成功获取HandlerAdapter，此时将开始执行拦截器的preHandler(…)方法</li>
-<li>提取Request中的模型数据，填充Handler入参，开始执行Handler(Controller)方法，处理请求。在填充Handler的入参的过程中，根据你的配置，Spring将帮你做一些额外的工作：<ul>
-<li>HTTPMessageConverter：将请求信息（如 Json、xml等数据）转换成一个对象，将对象转换为指定的响应信息</li>
-<li>数据转换：对请求信息进行数据转换。如String转换成Integer、Double等</li>
-<li>数据格式化：对请求信息进行数据格式化。如将字符串转换成格式化数字或格式化日期</li>
-<li>数据验证：验证数据的有效性（长度。格式等），验证结果存储到BindingResult或Error中</li>
-</ul>
-</li>
-<li>Handler执行完成后，向DispatcherServlet 返回一个ModelAndView对象</li>
-<li>此时将开始执行拦截器的postHandle(…)方法</li>
-<li>根据返回的ModelAndView（此时会判断是否存在异常：如果存在异常，则执行HandlerExceptionResolver进行异常处理）选择一个适合的ViewResolver进行视图解析，根据Model和View，来渲染视图</li>
-<li>渲染视图完毕执行拦截器的afterCompletion(…)方法</li>
-<li>将渲染结果返回给客户端</li>
-</ul>
-<h2 id="知识点补充"><a href="#知识点补充" class="headerlink" title="知识点补充"></a>知识点补充</h2><h4 id="session和cookie："><a href="#session和cookie：" class="headerlink" title="session和cookie："></a>session和cookie：</h4><p>session和cookie的关系（会话技术：生命周期是服务器启动到服务器停止）</p>
-<p>session依赖于cookie，cookie是客户端的会话技术，session是服务器端的会话技术</p>
-<p>​		如果是第一次执行getSession方法，会先检测请求报文中是否会携带JSESSIONID的cookie，如果没有的话，表示在这次会话中是第一次创建HttpSession对象，然后会创建HttpSession对象，将这个HttpSesion对象放在服务器维护的map集合中，并且会去创建一个cookie，这个cookie的键是固定的是JSESSIONID，他的值是一个随机序列，还会将创建的HttpSession对象存储到服务器维护的map集合中，以JSESSIONID这个cookie的值（也就是这个随机序列）作为map集合的键，把创建的这个HttpSession对象作为map集合的值来进行存储，存储在服务器的内部。再把cookie响应到浏览器。第一次执行getSession方法的时候，这个JSESSIONID的cookie会存在响应报文中，之后会存在请求报文中。</p>
-<h4 id="钝化和活化："><a href="#钝化和活化：" class="headerlink" title="钝化和活化："></a>钝化和活化：</h4><p>​		钝化是把session中的数据序列化然后保存到本地磁盘的过程，活化就是从磁盘中读取数据，然后反序列化的过程</p>
-<h4 id="转发和重定向的区别"><a href="#转发和重定向的区别" class="headerlink" title="转发和重定向的区别:"></a>转发和重定向的区别:</h4><p>​		&#x3D;&#x3D;转发&#x3D;&#x3D;：转发是一次请求，第一次是浏览器发送，第二次是发生在服务器内部，这里指的一次是浏览器发送的一次请求。转发跳转之后的地址栏还是第一次发送请求的地址。转发能访问WEB-INF下的资源。转发可以访问域对象中的数据，转发归根到底还是一次请求。转发不能跨域，只能访问服务器内部的资源，</p>
-<p>​		&#x3D;&#x3D;重定向&#x3D;&#x3D;：重定向是浏览器发送了两次请求，第一次访问Servlet，第二次是访问重定向的地址。地址栏中的地址是重定向的地址。重定向不能获取域对象中的数据。重定向不能访问WEB-INF下的资源，只能通过转发到一个servlet，通过转发来访问资源，即重定向最后要转变成转发请求。重定向是浏览器发送的两次请求，浏览器可以访问任何资源，例如：我可以重定向到百度。重定向也是重定向到一个请求</p>
-<p>​		在配置编码过滤器时，需要放在配置文件最前面，为了防止其他过滤器在设置编码前获取请求参数，出现乱码现象。</p>
-<h4 id="json"><a href="#json" class="headerlink" title="json"></a>json</h4><p>​		什么是json：json是javascript里面的一种数据格式，是一种数据交互格式(xml也是一种数据交互格式)</p>
-<p>​		json类型：json对象和json数组</p>
-<p>​		dom4j解析xml对象，就类似于网页解析html页面(将整个html文档当做一个document对象，通过document对象来操作当前文档中的各个标签)一样，根据标签层层解析。</p>
-<p>​		关于json的知识点：一个是json对象，一个是json数组，对象是放在{}大括号中，数组是放在方括号[]里面。&#x3D;&#x3D;eg：&#x3D;&#x3D;java对象转换成json对象，map集合转换成json对象，list集合转换成json数组。</p>
-<h4 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h4><p>​		ajax本身是页面不刷新域服务器进行交互，</p>
-<h3 id="x3D-x3D-相关链接：-x3D-x3D"><a href="#x3D-x3D-相关链接：-x3D-x3D" class="headerlink" title="&#x3D;&#x3D;相关链接：&#x3D;&#x3D;"></a>&#x3D;&#x3D;相关链接：&#x3D;&#x3D;</h3><p>​		<strong>尚硅谷SpringMVC教程：</strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Ry4y1574R">https://www.bilibili.com/video/BV1Ry4y1574R</a></p>
-
+        
       
 
       
@@ -1202,10 +904,6 @@
 			 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">SpringMvc框架</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1459,22 +1157,44 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><h2 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h2><p>&#x3D;&#x3D;git –version&#x3D;&#x3D; : 查看git的版本信息<br>&#x3D;&#x3D;git config –global user.name 用户名&#x3D;&#x3D; : 设置用户签名<br>&#x3D;&#x3D;git config –global user.email 用户邮箱&#x3D;&#x3D; : 设置用户邮箱</p>
-<h3 id="操作暂存区中的文件"><a href="#操作暂存区中的文件" class="headerlink" title="操作暂存区中的文件"></a>操作暂存区中的文件</h3><p>&#x3D;&#x3D;git init&#x3D;&#x3D; : 初始化本地仓库</p>
-<p>&#x3D;&#x3D;git status&#x3D;&#x3D; : 查看本地库的状态</p>
-<p>&#x3D;&#x3D;git add 文件名&#x3D;&#x3D; : 添加到暂存区</p>
-<p>&#x3D;&#x3D;git rm –cached 文件名&#x3D;&#x3D; : 删除暂存区中的文件</p>
-<h3 id="将暂存区中的文件提交到本地库"><a href="#将暂存区中的文件提交到本地库" class="headerlink" title="将暂存区中的文件提交到本地库"></a>将暂存区中的文件提交到本地库</h3><p>&#x3D;&#x3D;git commit -m “版本名称” 文件名&#x3D;&#x3D; : 提交本地库</p>
-<h3 id="查看全部版本信息"><a href="#查看全部版本信息" class="headerlink" title="查看全部版本信息"></a>查看全部版本信息</h3><p>&#x3D;&#x3D;git reflog&#x3D;&#x3D; : 查看版本信息的命令<br>&#x3D;&#x3D;git log&#x3D;&#x3D; : 查看详细的版本信息</p>
-<h3 id="Linux中的命令在Git-Bash也能使用"><a href="#Linux中的命令在Git-Bash也能使用" class="headerlink" title="Linux中的命令在Git Bash也能使用"></a>Linux中的命令在Git Bash也能使用</h3><p>&#x3D;&#x3D;ll&#x3D;&#x3D; : 查看当前目录下的文件</p>
-<p>&#x3D;&#x3D;vim 文件名&#x3D;&#x3D; : 新建或编辑文件</p>
-<p>&#x3D;&#x3D;cat 文件名&#x3D;&#x3D; ：查看文件</p>
-<h3 id="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"><a href="#版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里" class="headerlink" title="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"></a>版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里</h3><p>&#x3D;&#x3D;git reset –hard 版本号&#x3D;&#x3D; : 版本穿梭</p>
-<h3 id="分支操作：切换分支，创建分支等"><a href="#分支操作：切换分支，创建分支等" class="headerlink" title="分支操作：切换分支，创建分支等"></a>分支操作：切换分支，创建分支等</h3><p>&#x3D;&#x3D;git branch -v&#x3D;&#x3D; : 查看分支<br>&#x3D;&#x3D;git branch 分支名&#x3D;&#x3D; : 新建分支<br>&#x3D;&#x3D;git checkout 分支名&#x3D;&#x3D; : 切换分支(可以根据版本号来切换，上下同，即分支名可以是查看分支中的唯一标识)<br>&#x3D;&#x3D;git merge 分支名&#x3D;&#x3D; : 将指定分支合并到当前分支</p>
-<h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><p>&#x3D;&#x3D;git remote -v&#x3D;&#x3D; : 查看当前所有远程地址别名<br>&#x3D;&#x3D;git remote add 别名 远程地址&#x3D;&#x3D; : 新建远程地址别名</p>
-<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><p>&#x3D;&#x3D;git push 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 把本地的分支推送到远程仓库</p>
-<h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><p>&#x3D;&#x3D;git pull 别名&#x2F;远程仓库url地址 分支&#x3D;&#x3D; : 将远程库中的代码拉取到本地库中</p>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><p>&#x3D;&#x3D;ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#x64;&#100;&#x72;&#x65;&#x65;&#x6d;&#x40;&#x31;&#54;&#x33;&#46;&#x63;&#x6f;&#109;">&#100;&#100;&#x64;&#100;&#x72;&#x65;&#x65;&#x6d;&#x40;&#x31;&#54;&#x33;&#46;&#x63;&#x6f;&#109;</a>&#x3D;&#x3D;  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+        <h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><h2 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h2><blockquote>
+<p><strong>git –version</strong> : 查看git的版本信息<br><strong>git config –global user.name 用户名</strong> : 设置用户签名<br><strong>git config –global user.email 用户邮箱</strong> : 设置用户邮箱</p>
+</blockquote>
+<h3 id="操作暂存区中的文件"><a href="#操作暂存区中的文件" class="headerlink" title="操作暂存区中的文件"></a>操作暂存区中的文件</h3><blockquote>
+<p><strong>git init</strong> : 初始化本地仓库</p>
+<p><strong>git status</strong> : 查看本地库的状态</p>
+<p><strong>git add 文件名</strong> : 添加到暂存区</p>
+<p><strong>git rm –cached 文件名</strong> : 删除暂存区中的文件</p>
+</blockquote>
+<h3 id="将暂存区中的文件提交到本地库"><a href="#将暂存区中的文件提交到本地库" class="headerlink" title="将暂存区中的文件提交到本地库"></a>将暂存区中的文件提交到本地库</h3><blockquote>
+<p><strong>git commit -m “版本名称” 文件名</strong> : 提交本地库</p>
+</blockquote>
+<h3 id="查看全部版本信息"><a href="#查看全部版本信息" class="headerlink" title="查看全部版本信息"></a>查看全部版本信息</h3><blockquote>
+<p><strong>git reflog</strong> : 查看版本信息的命令<br><strong>git log</strong> : 查看详细的版本信息</p>
+</blockquote>
+<h3 id="Linux中的命令在Git-Bash也能使用"><a href="#Linux中的命令在Git-Bash也能使用" class="headerlink" title="Linux中的命令在Git Bash也能使用"></a>Linux中的命令在Git Bash也能使用</h3><blockquote>
+<p><strong>ll</strong> : 查看当前目录下的文件</p>
+<p><strong>vim 文件名</strong> : 新建或编辑文件</p>
+<p><strong>cat 文件名</strong> ：查看文件</p>
+</blockquote>
+<h3 id="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"><a href="#版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里" class="headerlink" title="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"></a>版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里</h3><blockquote>
+<p><strong>git reset –hard 版本号</strong> : 版本穿梭</p>
+</blockquote>
+<h3 id="分支操作：切换分支，创建分支等"><a href="#分支操作：切换分支，创建分支等" class="headerlink" title="分支操作：切换分支，创建分支等"></a>分支操作：切换分支，创建分支等</h3><blockquote>
+<p><strong>git branch -v</strong> : 查看分支<br><strong>git branch 分支名</strong> : 新建分支<br><strong>git checkout 分支名</strong> : 切换分支(可以根据版本号来切换，上下同，即分支名可以是查看分支中的唯一标识)<br><strong>git merge 分支名</strong> : 将指定分支合并到当前分支</p>
+</blockquote>
+<h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><blockquote>
+<p><strong>git remote -v</strong> : 查看当前所有远程地址别名<br><strong>git remote add 别名 远程地址</strong> : 新建远程地址别名</p>
+</blockquote>
+<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><blockquote>
+<p> <strong>git push 别名&#x2F;远程仓库url地址 分支</strong> : 把本地的分支推送到远程仓库</p>
+</blockquote>
+<h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><blockquote>
+<p> <strong>git pull 别名&#x2F;远程仓库url地址 分支</strong> : 将远程库中的代码拉取到本地库中</p>
+</blockquote>
+<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><blockquote>
+<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#100;&#100;&#x64;&#x72;&#x65;&#101;&#x6d;&#x40;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#109;">&#x64;&#100;&#100;&#x64;&#x72;&#x65;&#101;&#x6d;&#x40;&#x31;&#x36;&#x33;&#x2e;&#99;&#111;&#109;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+</blockquote>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
 
@@ -1683,11 +1403,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有笔记</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
+      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友情链接</a></li>
       
         
       
@@ -1728,11 +1448,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data structure</a>
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
+                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1744,11 +1472,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
+                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">os</a>
+                <a href="javascript:void(0)" class="js-tag color5">data_structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1756,11 +1488,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">工具语言</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+                <a href="javascript:void(0)" class="js-tag color5">algorithm</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1773,18 +1501,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo开始...</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">SpringMvc框架</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">springmvc</a>
               </li>
             
             <div class="clearfix"></div>
