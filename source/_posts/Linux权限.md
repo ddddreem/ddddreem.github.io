@@ -1,6 +1,6 @@
 ---
 title: Linux权限管理
-data: 2022-06-19 18:31
+date: 2022-06-19 18:31
 tags: 
 - tech
 - os

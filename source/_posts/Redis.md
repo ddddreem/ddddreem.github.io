@@ -1,6 +1,6 @@
 ---
 title: Redis学习笔记
-data: 2022-07-05 16:22
+date: 2022-07-05 16:22
 tags: 
 - tech
 - nosql

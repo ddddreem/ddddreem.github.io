@@ -1,6 +1,6 @@
 ---
 title: Mybatis学习笔记
-data: 2022-02-26 19:51
+date: 2022-02-26 19:51
 tags: 
 - tech
 - dao
@@ -34,6 +34,9 @@ tags:
 	- 轻量级，性能出色  
 	- SQL 和 Java 编码分开，功能边界清晰。Java代码专注业务、SQL语句专注数据  
 	- 开发效率稍逊于HIbernate，但是完全能够接受
+
+<!-- more -->
+
 # 搭建MyBatis
 ## 开发环境
 - IDE：idea 2019.2  

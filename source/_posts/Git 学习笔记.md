@@ -1,6 +1,6 @@
 ---
 title: Git学习笔记
-data: 2022-05-26
+date: 2022-05-26
 tags: 
 - tech
 - git

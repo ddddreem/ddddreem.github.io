@@ -1,6 +1,6 @@
 ---
 title: 英语日常写作_note
-data: 2022-10-09 19:30
+date: 2022-10-09 19:30
 tags: 
 - other
 - writing

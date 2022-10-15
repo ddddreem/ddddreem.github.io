@@ -1,6 +1,6 @@
 ---
 title: 希尔排序算法思想和简单实现
-data: 2022-09-27 14:53
+date: 2022-09-27 14:53
 tags: 
 - tech
 - algorithm

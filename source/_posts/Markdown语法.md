@@ -1,6 +1,6 @@
 ---
 title: Markdown学习笔记
-data: 2022-05-26 19:51
+date: 2022-05-26 19:51
 tags: 
 - tech
 - 工具语言
