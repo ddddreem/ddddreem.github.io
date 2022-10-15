@@ -3,7 +3,6 @@ title: SpringMvc学习笔记
 data: 2022-03-02 21:11
 tags: 
 - tech
-- SpringMvc框架
 - springmvc
 ---
 # SpringMVC
@@ -43,11 +42,11 @@ tags:
 
      > 由于Maven的传递性，我们不必将所有需要的包全部配置依赖，而是配置最顶端的依赖，其他靠传递性导入
 
-   + ==配置web.xml==：注册SpringMVC的前端控制器DispatcherServlet，有两种配置方式
+   + **配置web.xml**：注册SpringMVC的前端控制器DispatcherServlet，有两种配置方式
 
    1. **默认配置**方式：如果用这种配置，SpringMVC的配置文件默认位于WEB-INFx下，默认名字为-servlet.xml，例如，以下配置所对应SpringMVC的配置文件位于WEB-INF下，文件名为springMVC-servlet.xml
 
-      ***==eg==：***在web.xml配置文件中需要添加如下配置；
+      ***eg：***在web.xml配置文件中需要添加如下配置；
 
       ```xml
       <!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 -->
@@ -63,7 +62,7 @@ tags:
 
    2. **扩展配置**方式（推荐）：可以通过\<init-param\>标签设置SpringMVC配置文件的位置和名称，通过\<load-on-startu\>标签设置SpringMVC前端控制器DispatcherServlet的初始化时间；使用\<init-param\>标签设置SpringMVC配置文件的位置和名称，这就是说明在扩展配置方式下，SpringMVC的配置文件可以在项目的任何位置；与默认配置方式相比，默认配置方式直接在WEB-INF下找指定文件名的文件，而扩展配置方式不需要
 
-      ***==eg==：***在web.xml配置文件中需要添加如下配置；
+      ***eg：***在web.xml配置文件中需要添加如下配置；
 
       ```xml
       <!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 -->
@@ -139,6 +138,8 @@ public class HelloController {
 ```
 
 4. **一个请求及其响应的过程**：当页面发出请求，得到其请求地址，会被前端控制器DispatcherServlet进行处理（也就是说，只要有请求，就肯定会经过DispatcherServlet）。前端控制器DispatcherServlet会加载并读取SpringMVC的核心配置文件，即开启Spring的 IOC 容器，通过扫描组件，获得Controller控制器，将请求地址和相应的属性与所有的控制器中的@RequestMapping注解的属性值（value, method, params, headers）进行匹配，如果匹配成功，Controller会调用匹配的方法并返回一个字符串类型的视图名称，返回的视图名称会经过thymeleaf的视图解析器解析，加上配置的前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最后请求转发到视图对应页面。如果匹配不成功则报404-错误。
+
+<!-- more -->
 
 ## 三.@RequestMapping注解
 
@@ -230,7 +231,7 @@ public class RequestMappingController {
 
 若当前请求满足@RequestMapping注解的value和method属性，但是不满足headers属性，此时页面显示404错误，即资源未找到
 
-#### ***==eg:==***
+#### ***eg:***
 
 ```java
 // 多标签测试
@@ -245,7 +246,7 @@ public String multipleTag(String[] hobby){
 }
 ```
 
-***==报错类型==***：
+***报错类型***：
 
 1. 400：请求参数（即@RequestMapping的params属性）不匹配报该类错误
 2. 404：如果页面请求没有跟任何控制器方法（即@RequestMapping的value属性）匹配，报该类错误
@@ -258,7 +259,7 @@ public String multipleTag(String[] hobby){
 
 
 
-​		访问首页可以直接使用配置文件，在springMVC.xml文件中添加控制器(view-controller)`<mvc:view-controller path="/" view-name="index"></mvc:view-controller>` 并且需要开启注解驱动，否则其他控制器方法中的RequestMapping注解将失效，==开启注解驱动==：`<mvc:annotation-driven/>`
+​		访问首页可以直接使用配置文件，在springMVC.xml文件中添加控制器(view-controller)`<mvc:view-controller path="/" view-name="index"></mvc:view-controller>` 并且需要开启注解驱动，否则其他控制器方法中的RequestMapping注解将失效，**开启注解驱动**：`<mvc:annotation-driven/>`
 
 #### @RequestBody注解
 
@@ -367,11 +368,11 @@ public class FirstInerceptor implements HandlerInterceptor {
 
 SpringMVC中的拦截器有三个抽象方法：
 
-==preHandle==：控制器方法执行之前执行preHandle()，其中boolean类型的返回值表示是否拦截或放行，返回true为放行，即调用控制器方法；返回false表示拦截，即不调用控制器方法
+***preHandle***：控制器方法执行之前执行preHandle()，其中boolean类型的返回值表示是否拦截或放行，返回true为放行，即调用控制器方法；返回false表示拦截，即不调用控制器方法
 
-==postHandle==：控制器方法执行之后执行postHandle()
+***postHandle***：控制器方法执行之后执行postHandle()
 
-==afterCompletion==：处理完视图和模型数据，渲染视图完毕之后执行afterCompletion()
+***afterCompletion***：处理完视图和模型数据，渲染视图完毕之后执行afterCompletion()
 
 ##### 3、多个拦截器的执行顺序
 
@@ -389,7 +390,7 @@ preHandle()返回false和它之前的拦截器的preHandle()都会执行，postH
 
 #### 1、基于配置的异常处理
 
-SpringMVC提供了一个处理控制器方法执行过程中所出现的异常的接口：==HandlerExceptionResolver==
+SpringMVC提供了一个处理控制器方法执行过程中所出现的异常的接口：***HandlerExceptionResolver***
 
 HandlerExceptionResolver接口的实现类有：**DefaultHandlerExceptionResolver**和**SimpleMappingExceptionResolver**
 
@@ -432,27 +433,27 @@ public class ExceptionController {
 
 + **DispatcherServlet：前端控制器**，不需要工程师开发，由框架提供
 
-  ==作用==：统一处理请求和响应，整个流程控制的中心，由它调用其他组件处理用户的请求
+  **作用**：统一处理请求和响应，整个流程控制的中心，由它调用其他组件处理用户的请求
 
 + **HandlerMapping：处理器映射器**，不需要工程师开发，由框架提供
 
-  ==作用==：根据请求的url 、method 等信息查找Handler，即控制器方法（@Controller）
+  **作用**：根据请求的url 、method 等信息查找Handler，即控制器方法（@Controller）
 
 + **Handler：处理器**，需要工程师开发
 
-  ==作用==：在DispatcherServlet的控制下Handler对具体的用户请求进行处理
+  **作用**：在DispatcherServlet的控制下Handler对具体的用户请求进行处理
 
 + **HandlerAdapter：处理器适配器**，不需要工程师开发，由框架提供
 
-  ==作用==：通过HandlerAdapter 对处理器（控制器方法）进行执行
+  **作用**：通过HandlerAdapter 对处理器（控制器方法）进行执行
 
 + **ViewResolver：视图解析器**，不需要工程师开发，由框架提供
 
-  ==作用==：进行视图解析，得到相应的视图。例如：ThymeleafView、InternalResourceView、RedirectView
+  **作用**：进行视图解析，得到相应的视图。例如：ThymeleafView、InternalResourceView、RedirectView
 
 + **View：视图**，不需要工程师开发，由框架或视图技术提供
 
-  ==作用==：将模型数据通过页面展示给用户
+  **作用**：将模型数据通过页面展示给用户
 
 ***注：***HandlerMapping是使页面请求和控制器方法配对，将请求和控制器方法进行映射，其实也就是RequestMapping。
 
@@ -499,9 +500,9 @@ session依赖于cookie，cookie是客户端的会话技术，session是服务器
 
 #### 转发和重定向的区别:
 
-​		==转发==：转发是一次请求，第一次是浏览器发送，第二次是发生在服务器内部，这里指的一次是浏览器发送的一次请求。转发跳转之后的地址栏还是第一次发送请求的地址。转发能访问WEB-INF下的资源。转发可以访问域对象中的数据，转发归根到底还是一次请求。转发不能跨域，只能访问服务器内部的资源，
+​		***转发***：转发是一次请求，第一次是浏览器发送，第二次是发生在服务器内部，这里指的一次是浏览器发送的一次请求。转发跳转之后的地址栏还是第一次发送请求的地址。转发能访问WEB-INF下的资源。转发可以访问域对象中的数据，转发归根到底还是一次请求。转发不能跨域，只能访问服务器内部的资源，
 
-​		==重定向==：重定向是浏览器发送了两次请求，第一次访问Servlet，第二次是访问重定向的地址。地址栏中的地址是重定向的地址。重定向不能获取域对象中的数据。重定向不能访问WEB-INF下的资源，只能通过转发到一个servlet，通过转发来访问资源，即重定向最后要转变成转发请求。重定向是浏览器发送的两次请求，浏览器可以访问任何资源，例如：我可以重定向到百度。重定向也是重定向到一个请求
+​		***重定向***：重定向是浏览器发送了两次请求，第一次访问Servlet，第二次是访问重定向的地址。地址栏中的地址是重定向的地址。重定向不能获取域对象中的数据。重定向不能访问WEB-INF下的资源，只能通过转发到一个servlet，通过转发来访问资源，即重定向最后要转变成转发请求。重定向是浏览器发送的两次请求，浏览器可以访问任何资源，例如：我可以重定向到百度。重定向也是重定向到一个请求
 
 ​		在配置编码过滤器时，需要放在配置文件最前面，为了防止其他过滤器在设置编码前获取请求参数，出现乱码现象。
 
@@ -513,7 +514,7 @@ session依赖于cookie，cookie是客户端的会话技术，session是服务器
 
 ​		dom4j解析xml对象，就类似于网页解析html页面(将整个html文档当做一个document对象，通过document对象来操作当前文档中的各个标签)一样，根据标签层层解析。
 
-​		关于json的知识点：一个是json对象，一个是json数组，对象是放在{}大括号中，数组是放在方括号[]里面。==eg：==java对象转换成json对象，map集合转换成json对象，list集合转换成json数组。
+​		关于json的知识点：一个是json对象，一个是json数组，对象是放在{}大括号中，数组是放在方括号[]里面。***eg：***java对象转换成json对象，map集合转换成json对象，list集合转换成json数组。
 
 #### Ajax
 
@@ -521,7 +522,7 @@ session依赖于cookie，cookie是客户端的会话技术，session是服务器
 
 
 
-### ==相关链接：==
+### 相关链接：
 
 ​		**尚硅谷SpringMVC教程：**https://www.bilibili.com/video/BV1Ry4y1574R
 

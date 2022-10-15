@@ -15,8 +15,9 @@
 		<nav class="header-menu">
 			<ul>
 			<% for (var i in theme.menu){ %>
-				<li><a href="<%- url_for(theme.menu[i]) %>"><%= i %></a></li>
+				<li> | <a href="<%- url_for(theme.menu[i]) %>"><%= i %></a> | </li>
 	        <%}%>
+			<li>总笔记数 : <%=site.posts.length%></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">

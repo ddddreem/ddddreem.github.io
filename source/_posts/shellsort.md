@@ -4,7 +4,7 @@ data: 2022-09-27 14:53
 tags: 
 - tech
 - algorithm
-- data structure
+- data_structure
 ---
 # 希尔排序
 
@@ -64,6 +64,8 @@ void ShellSort(Sqlist &L, int dlta[], int t){
 
 数据为0的位置为哨兵的位置，这里的哨兵并不是直接插入排序中的哨兵，这里的哨兵来进行辅助交换操作。
 
+<!-- more -->
+
 ### 增量排序：
 
 ```c++
@@ -116,19 +118,5 @@ eg：
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## 参考：青岛大学--王卓，地址：https://space.bilibili.com/40323036
 
