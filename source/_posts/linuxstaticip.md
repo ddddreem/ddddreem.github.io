@@ -1,6 +1,6 @@
 ---
 title: Linux静态IP设置
-date: 2022-05-19 18:31
+date: 2022-05-19 18:31:11
 tags: 
 - tech
 - os
