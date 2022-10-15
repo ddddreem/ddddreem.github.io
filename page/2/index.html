@@ -61,7 +61,7 @@
 	        
 				<li> | <a href="/tags/other/">其他</a> | </li>
 	        
-			<li>总笔记数 : 11</li>
+			<li>总笔记数 : 13</li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -156,6 +156,321 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Markdown语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/">Markdown学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-09-20T10:30:45.916Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="学习Markdown语法"><a href="#学习Markdown语法" class="headerlink" title="学习Markdown语法"></a>学习Markdown语法</h1><p>&lt;·#是标题前缀</p>
+<p>###（1）插入本地图片链接</p>
+<p><img src="https://img-blog.csdn.net/20180802155057285?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQwNjE2MzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>###（2）插入互联网上的图片</p>
+<p><strong>·引用图片用</strong></p>
+<p><em><strong>eg:</strong></em></p>
+<p>​	<img src="http://pic.downcc.com/upload/2015-9/2015923174024.png" alt="asdf"></p>
+<p><img src="https://img-blog.csdn.net/20180802155336302?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQwNjE2MzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<p>​	<img src="http://pic.downcc.com/upload/2015-9/2015923174024.png" alt="markdown"></p>
+<p>·Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的</p>
+<p>​	<em><strong>eg:</strong></em></p>
+<p><a target="_blank" rel="noopener" href="https://baidu.com/">https://baidu.com</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/baidu.html?from=noscript">https://www.baidu.com/baidu.html?from=noscript</a></p>
+<p>###分隔符</p>
+<p>·你可以在一行中用三个以上的&#x3D;&#x3D;星号(*)、减号(-)、底线(_)&#x3D;&#x3D;来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
+<hr>
+<hr>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;add.....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>###代码块</p>
+<p>·单行代码用一对``		<em><strong>eg:</strong></em><code>示例代码</code></p>
+<p>·多行代码块用三对``,需换行开始		<em><strong>eg:</strong></em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p>·高亮强调用==示例==		<em><strong>eg:</strong></em> 		&#x3D;&#x3D;示例&#x3D;&#x3D;</p>
+<p>###Markdown语法支持html语言</p>
+<p><em><strong>eg:</strong></em></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>值班人员<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">td</span>&gt;</span>李强<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>王平<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​                                   </p>
+<p>###引用：比如说引用了什么话之类的</p>
+<p>在被引用的&#x3D;&#x3D;文本前加上&gt;符号，以及一个空格&#x3D;&#x3D;就可以了，如果只输入了一个&gt;符号会产生一个空白的引用。</p>
+<p><strong>·单个的引用</strong></p>
+<blockquote>
+<p>这是一个引用</p>
+<blockquote>
+<p>这还是一个引用</p>
+</blockquote>
+</blockquote>
+<p><strong>·多个引用</strong></p>
+<blockquote>
+<blockquote>
+<p>引用</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>引用</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>引用</p>
+</blockquote>
+<blockquote>
+<p>yinyong</p>
+<blockquote>
+<p>yinyong</p>
+<blockquote>
+<p>yinyong</p>
+</blockquote>
+</blockquote>
+</blockquote>
+<p>###列表</p>
+<ul>
+<li><p>使用 &#x3D;&#x3D;*，+，- 表示无序列表&#x3D;&#x3D;。</p>
+<p>注意：&#x3D;&#x3D;符号后面一定要有一个空格&#x3D;&#x3D;，起到缩进的作用。</p>
+</li>
+</ul>
+<p><em><strong>eg：</strong></em></p>
+<ul>
+<li><p>(- )   列表</p>
+<ul>
+<li>(+ )  列表<ul>
+<li>(* )  列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>使用&#x3D;&#x3D;数字和一个英文句点表示有序列表&#x3D;&#x3D;。<br>注意：&#x3D;&#x3D;英文句点后面一定要有一个空格&#x3D;&#x3D;，起到缩进的作用。</p>
+<p><em><strong>eg:</strong></em></p>
+<pre><code>1. 有序列表
+2. 有序列表
+3. 示范
+</code></pre>
+</li>
+</ul>
+<p>###表格</p>
+<ul>
+<li>表格的基本写法跟表格的形状相识</li>
+</ul>
+<p>学号|姓名|分数</p>
+<p>-|-|-</p>
+<p>小明|男|75</p>
+<p>小红|女|79</p>
+<p>小陆|男|92</p>
+<ul>
+<li>表格对齐方式：我们可以指定表格单元格的对齐方式，冒号在左边表示左对齐，右边表示有对齐，两边都有表示居中。</li>
+</ul>
+<p>学号|姓名|分数</p>
+<p>:-|:-:|-:</p>
+<p>小明|男|75</p>
+<p>小红|女|79</p>
+<p>小陆|男|92</p>
+<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014061630/article/details/81359144?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164214252616780366594574%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164214252616780366594574&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81359144.first_rank_v2_pc_rank_v29&amp;utm_term=markdown%E8%AF%AD%E6%B3%95&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/u014061630/article/details/81359144?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164214252616780366594574%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164214252616780366594574&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81359144.first_rank_v2_pc_rank_v29&amp;utm_term=markdown%E8%AF%AD%E6%B3%95&amp;spm=1018.2226.3001.4187</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具语言</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MarkDown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/20/Markdown%E8%AF%AD%E6%B3%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Git 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Git学习笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2022-09-20T10:27:41.423Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-20</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><h2 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h2><blockquote>
+<p><strong>git –version</strong> : 查看git的版本信息<br><strong>git config –global user.name 用户名</strong> : 设置用户签名<br><strong>git config –global user.email 用户邮箱</strong> : 设置用户邮箱</p>
+</blockquote>
+<h3 id="操作暂存区中的文件"><a href="#操作暂存区中的文件" class="headerlink" title="操作暂存区中的文件"></a>操作暂存区中的文件</h3><blockquote>
+<p><strong>git init</strong> : 初始化本地仓库</p>
+<p><strong>git status</strong> : 查看本地库的状态</p>
+<p><strong>git add 文件名</strong> : 添加到暂存区</p>
+<p><strong>git rm –cached 文件名</strong> : 删除暂存区中的文件</p>
+</blockquote>
+<h3 id="将暂存区中的文件提交到本地库"><a href="#将暂存区中的文件提交到本地库" class="headerlink" title="将暂存区中的文件提交到本地库"></a>将暂存区中的文件提交到本地库</h3><blockquote>
+<p><strong>git commit -m “版本名称” 文件名</strong> : 提交本地库</p>
+</blockquote>
+<h3 id="查看全部版本信息"><a href="#查看全部版本信息" class="headerlink" title="查看全部版本信息"></a>查看全部版本信息</h3><blockquote>
+<p><strong>git reflog</strong> : 查看版本信息的命令<br><strong>git log</strong> : 查看详细的版本信息</p>
+</blockquote>
+<h3 id="Linux中的命令在Git-Bash也能使用"><a href="#Linux中的命令在Git-Bash也能使用" class="headerlink" title="Linux中的命令在Git Bash也能使用"></a>Linux中的命令在Git Bash也能使用</h3><blockquote>
+<p><strong>ll</strong> : 查看当前目录下的文件</p>
+<p><strong>vim 文件名</strong> : 新建或编辑文件</p>
+<p><strong>cat 文件名</strong> ：查看文件</p>
+</blockquote>
+<h3 id="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"><a href="#版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里" class="headerlink" title="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"></a>版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里</h3><blockquote>
+<p><strong>git reset –hard 版本号</strong> : 版本穿梭</p>
+</blockquote>
+<h3 id="分支操作：切换分支，创建分支等"><a href="#分支操作：切换分支，创建分支等" class="headerlink" title="分支操作：切换分支，创建分支等"></a>分支操作：切换分支，创建分支等</h3><blockquote>
+<p><strong>git branch -v</strong> : 查看分支<br><strong>git branch 分支名</strong> : 新建分支<br><strong>git checkout 分支名</strong> : 切换分支(可以根据版本号来切换，上下同，即分支名可以是查看分支中的唯一标识)<br><strong>git merge 分支名</strong> : 将指定分支合并到当前分支</p>
+</blockquote>
+<h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><blockquote>
+<p><strong>git remote -v</strong> : 查看当前所有远程地址别名<br><strong>git remote add 别名 远程地址</strong> : 新建远程地址别名</p>
+</blockquote>
+<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><blockquote>
+<p> <strong>git push 别名&#x2F;远程仓库url地址 分支</strong> : 把本地的分支推送到远程仓库</p>
+</blockquote>
+<h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><blockquote>
+<p> <strong>git pull 别名&#x2F;远程仓库url地址 分支</strong> : 将远程库中的代码拉取到本地库中</p>
+</blockquote>
+<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><blockquote>
+<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#x64;&#x64;&#x64;&#x72;&#x65;&#101;&#109;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#x6d;">&#x64;&#x64;&#x64;&#x64;&#x72;&#x65;&#101;&#109;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#111;&#x6d;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+</blockquote>
+<h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/20/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-我的第一篇博客文章" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -369,6 +684,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">MarkDown</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">dao</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
               </li>
              
               <li class="article-tag-list-item">
