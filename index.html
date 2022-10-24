@@ -61,7 +61,7 @@
 	        
 				<li> | <a href="/tags/other/">其他</a> | </li>
 	        
-			<li>总笔记数 : 11</li>
+			<li>总笔记数 : 15</li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -156,6 +156,407 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-semaphore_mechanism" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/25/semaphore_mechanism/">操作系统信号量机制</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/25/semaphore_mechanism/" class="archive-article-date">
+  	<time datetime="2022-10-25T07:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-25</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="信号量机制"><a href="#信号量机制" class="headerlink" title="信号量机制"></a>信号量机制</h1>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/25/semaphore_mechanism/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-process_synchronization&amp;mutual_exclusion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/24/process_synchronization&mutual_exclusion/">操作系统进程同步、互斥</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/24/process_synchronization&mutual_exclusion/" class="archive-article-date">
+  	<time datetime="2022-10-24T09:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-24</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="进程同步、互斥"><a href="#进程同步、互斥" class="headerlink" title="进程同步、互斥"></a>进程同步、互斥</h1><h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><blockquote>
+<ul>
+<li><p>进程具有<font color="red" size="3"><strong>异步性</strong></font>的特征。异步性是指各并发执行的进程以各自独立的、不可预知的速度向前推进。</p>
+</li>
+<li><p><font color="red" size="3"><strong>同步</strong></font>也叫做<font color="red" size="3"><strong>直接制约关系</strong></font>，它是指为完成某种任务而建立的两个或多个进程，这些进程因为需要在<font color="red" size="3"><strong>某些位置上协调他们的工作次序而产生的制约关系。进程间的直接制约关系</strong></font>&gt;就是源于它们之间的相互合作。</p>
+</li>
+</ul>
+</blockquote>
+<h2 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h2><p>进程的 “ 并发 ” 需要 “ 共享 ” 的支持。各个并发执行的进程不可避免的需要共享一些系统资源（比如内存，打印机、摄像头这样的 I&#x2F;O设备）。</p>
+<h3 id="资源共享方式"><a href="#资源共享方式" class="headerlink" title="资源共享方式"></a>资源共享方式</h3><ul>
+<li><font color="red" size="3"><strong>互斥共享方式</strong></font> ：系统中的某些资源，虽然可以提供给多个进程使用，但<strong>一个时间段内只允许一个进程访问该资源</strong></li>
+<li><font color="red" size="3"><strong>同时共享方式</strong></font> ： 系统中的某些资源，<strong>允许一个时间段内由多个进程 “同时” 对他们进行访问</strong></li>
+</ul>
+<h3 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h3><p>我们把<strong>一个时间段内只允许一个进程使用的资源称为临界资源</strong>。许多物理设备（比如摄像头、打印机）都属于临界资源。此外还有很多变量、数据、内存缓冲区等都属于临界资源。</p>
+<p>对临界资源的访问，必须互斥的进行。<font color="red" size="3"><strong>互斥</strong></font>，也叫做<font color="red" size="3"><strong>间接制约关系</strong></font>。进程互斥指<font color="red" size="3"><strong>当一个进程访问某临界资源时，另一个想要访问该资源的进程必须等待。当前访问临界资源的进程访问结束，释放该资源之后，另一个进程才能去访问临界资源</strong></font>。</p>
+<h3 id="实现临界资源互斥访问的四大原则"><a href="#实现临界资源互斥访问的四大原则" class="headerlink" title="实现临界资源互斥访问的四大原则"></a>实现临界资源互斥访问的四大原则</h3><ol>
+<li><strong>空闲让进</strong>。临界区空闲时，可以允许一个请求进入临界区的进程立即进入临界区；</li>
+<li><strong>忙则等待</strong>。当已有进程进入临界区时，其他试图进入临界区的进程必须等待；</li>
+<li><strong>有限等待</strong>。对请求访问的进程，应保证能在有限时间内进入临界区（保证不会饥饿）；</li>
+<li><strong>让权等待</strong>。当进程不能进入临界区时，应立即释放处理机，防止进程忙等待。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	entry section; <span class="comment">// 进入区</span></span><br><span class="line">    critical section; <span class="comment">// 临界区</span></span><br><span class="line">    exit section; <span class="comment">// 退出区</span></span><br><span class="line">    remainder section; <span class="comment">// 剩余区</span></span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<hr>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/24/process_synchronization&mutual_exclusion/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-process_scheduling" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/23/process_scheduling/">操作系统处理机调度</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/23/process_scheduling/" class="archive-article-date">
+  	<time datetime="2022-10-23T09:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><blockquote>
+<ul>
+<li>三个层次的调度<ul>
+<li>高级调度（作业调度）</li>
+<li>中级调度（内存调度）</li>
+<li>低级调度（进程调度）：发生的最频繁的调度，也是系统最基本的调度</li>
+</ul>
+</li>
+</ul>
+</blockquote>
+<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><h4 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h4><ul>
+<li><font color="green" face="宋体" size="4">CPU利用率</font> ：<strong>利用率 &#x3D; CPU 忙碌时间 &#x2F; 进程工作的总时间</strong></li>
+<li><font color="green" face="宋体" size="4">系统吞吐量</font> ： <strong>系统吞吐量  &#x3D; 总共完成了多少道作业 &#x2F; 总共花了多少时间</strong></li>
+<li><font color="green" face="宋体" size="4">周转时间</font> ： <ul>
+<li><strong>周转时间 &#x3D; 作业完成时间 - 作业提交时间</strong></li>
+<li><strong>平均周转时间 &#x3D; 各作业周转时间之和 &#x2F; 作业数</strong></li>
+<li><strong>带权周转时间 &#x3D; 作业周转时间 &#x2F; 作业实际运行的时间</strong></li>
+<li><strong>平均带权周转时间 &#x3D; 各作业带权周转时间之和 &#x2F; 作业数</strong></li>
+</ul>
+</li>
+<li><font color="green" face="宋体" size="4">等待时间</font> ：<ul>
+<li><strong>进程 &#x2F; 作业等待被服务的时间之和</strong></li>
+<li><strong>平均等待时间即各个 进程 &#x2F; 作业 等待时间的平均值</strong></li>
+</ul>
+</li>
+<li><font color="green" face="宋体" size="4">响应时间</font> ：<strong>作业提交请求到首次产生响应所用的时间</strong></li>
+</ul>
+<hr>
+<h4 id="FCFS算法（先来先服务）"><a href="#FCFS算法（先来先服务）" class="headerlink" title="FCFS算法（先来先服务）"></a>FCFS算法（先来先服务）</h4><h4 id="SJF算法（短作业优先）"><a href="#SJF算法（短作业优先）" class="headerlink" title="SJF算法（短作业优先）"></a>SJF算法（短作业优先）</h4><blockquote>
+<p>SJF 算法是对于作业调度来说的，SPF 算法则是对于进程调度来说的</p>
+<p>只是简单的根据用户提供的运行时间安排调度顺序，<strong>不一定能真正做到短作业优先调度</strong></p>
+<p>注：SJF 调度算法的<strong>平均等待时间、平均周转时间最小</strong></p>
+</blockquote>
+<h4 id="HRRN算法（高响应比优先）"><a href="#HRRN算法（高响应比优先）" class="headerlink" title="HRRN算法（高响应比优先）"></a>HRRN算法（高响应比优先）</h4><h4 id="RR算法（时间片轮转）"><a href="#RR算法（时间片轮转）" class="headerlink" title="RR算法（时间片轮转）"></a>RR算法（时间片轮转）</h4><h4 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h4><h4 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h4>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/23/process_scheduling/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-process_manage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/10/23/process_manage/">操作系统进程管理</a>
+    </h1>
+  
+
+        
+        <a href="/2022/10/23/process_manage/" class="archive-article-date">
+  	<time datetime="2022-10-23T07:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h2 id="进程、线程概念"><a href="#进程、线程概念" class="headerlink" title="进程、线程概念"></a>进程、线程概念</h2><blockquote>
+<ul>
+<li><strong>进程是分配系统资源的单位</strong>（包括内存地址空间），各进程拥有的内存地址空间相互独立</li>
+<li><strong>引入线程之前</strong>，进程是程序执行流的最小单位；<strong>引入线程概念之后</strong>，<strong>线程</strong>是程序执行流的<strong>最小单位</strong></li>
+</ul>
+</blockquote>
+<h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2><h2 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h2><h2 id="进程同步和互斥"><a href="#进程同步和互斥" class="headerlink" title="进程同步和互斥"></a>进程同步和互斥</h2><h2 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h2><h3 id="并发和并行的区别"><a href="#并发和并行的区别" class="headerlink" title="并发和并行的区别"></a>并发和并行的区别</h3><p>并发：逻辑上很多个任务可以同时进行，但是物理上是多个任务互相切换以达到同时进行的效果</p>
+<p>并行：在物理上是做到了多个任务同时进行</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/10/23/process_manage/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-e_note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -802,566 +1203,6 @@
 
 
   
-    <article id="post-Markdown语法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/26/Markdown%E8%AF%AD%E6%B3%95/">Markdown学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2022/05/26/Markdown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2022-05-26T11:51:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="学习Markdown语法"><a href="#学习Markdown语法" class="headerlink" title="学习Markdown语法"></a>学习Markdown语法</h1><p>&lt;·#是标题前缀</p>
-<p>###（1）插入本地图片链接</p>
-<p><img src="https://img-blog.csdn.net/20180802155057285?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQwNjE2MzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>###（2）插入互联网上的图片</p>
-<p><strong>·引用图片用</strong></p>
-<p><em><strong>eg:</strong></em></p>
-<p>​	<img src="http://pic.downcc.com/upload/2015-9/2015923174024.png" alt="asdf"></p>
-<p><img src="https://img-blog.csdn.net/20180802155336302?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3UwMTQwNjE2MzA=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
-<p>​	<img src="http://pic.downcc.com/upload/2015-9/2015923174024.png" alt="markdown"></p>
-<p>·Markdown 支持以比较简短的自动链接形式来处理网址和电子邮件信箱，只要是用&lt;&gt;包起来， Markdown 就会自动把它转成链接。也可以直接写，也是可以显示成链接形式的</p>
-<p>​	<em><strong>eg:</strong></em></p>
-<p><a target="_blank" rel="noopener" href="https://baidu.com/">https://baidu.com</a></p>
-<p><a target="_blank" rel="noopener" href="https://www.baidu.com/baidu.html?from=noscript">https://www.baidu.com/baidu.html?from=noscript</a></p>
-<p>###分隔符</p>
-<p>·你可以在一行中用三个以上的&#x3D;&#x3D;星号(*)、减号(-)、底线(_)&#x3D;&#x3D;来建立一个分隔线，行内不能有其他东西。你也可以在星号或是减号中间插入空格。</p>
-<hr>
-<hr>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span>&#123;</span><br><span class="line">        System.out.printf(<span class="string">&quot;add.....&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>###代码块</p>
-<p>·单行代码用一对``		<em><strong>eg:</strong></em><code>示例代码</code></p>
-<p>·多行代码块用三对``,需换行开始		<em><strong>eg:</strong></em></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">test</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">add</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>·高亮强调用==示例==		<em><strong>eg:</strong></em> 		&#x3D;&#x3D;示例&#x3D;&#x3D;</p>
-<p>###Markdown语法支持html语言</p>
-<p><em><strong>eg:</strong></em></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">th</span> <span class="attr">rowspan</span>=<span class="string">&quot;2&quot;</span>&gt;</span>值班人员<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期一<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期二<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">th</span>&gt;</span>星期三<span class="tag">&lt;/<span class="name">th</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">tr</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="name">td</span>&gt;</span>李强<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>张明<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">td</span>&gt;</span>王平<span class="tag">&lt;/<span class="name">td</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>​                                   </p>
-<p>###引用：比如说引用了什么话之类的</p>
-<p>在被引用的&#x3D;&#x3D;文本前加上&gt;符号，以及一个空格&#x3D;&#x3D;就可以了，如果只输入了一个&gt;符号会产生一个空白的引用。</p>
-<p><strong>·单个的引用</strong></p>
-<blockquote>
-<p>这是一个引用</p>
-<blockquote>
-<p>这还是一个引用</p>
-</blockquote>
-</blockquote>
-<p><strong>·多个引用</strong></p>
-<blockquote>
-<blockquote>
-<p>引用</p>
-</blockquote>
-</blockquote>
-<blockquote>
-<blockquote>
-<blockquote>
-<p>引用</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<blockquote>
-<p>引用</p>
-</blockquote>
-<blockquote>
-<p>yinyong</p>
-<blockquote>
-<p>yinyong</p>
-<blockquote>
-<p>yinyong</p>
-</blockquote>
-</blockquote>
-</blockquote>
-<p>###列表</p>
-<ul>
-<li><p>使用 &#x3D;&#x3D;*，+，- 表示无序列表&#x3D;&#x3D;。</p>
-<p>注意：&#x3D;&#x3D;符号后面一定要有一个空格&#x3D;&#x3D;，起到缩进的作用。</p>
-</li>
-</ul>
-<p><em><strong>eg：</strong></em></p>
-<ul>
-<li><p>(- )   列表</p>
-<ul>
-<li>(+ )  列表<ul>
-<li>(* )  列表</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><p>使用&#x3D;&#x3D;数字和一个英文句点表示有序列表&#x3D;&#x3D;。<br>注意：&#x3D;&#x3D;英文句点后面一定要有一个空格&#x3D;&#x3D;，起到缩进的作用。</p>
-<p><em><strong>eg:</strong></em></p>
-<pre><code>1. 有序列表
-2. 有序列表
-3. 示范
-</code></pre>
-</li>
-</ul>
-<p>###表格</p>
-<ul>
-<li>表格的基本写法跟表格的形状相识</li>
-</ul>
-<p>学号|姓名|分数</p>
-<p>-|-|-</p>
-<p>小明|男|75</p>
-<p>小红|女|79</p>
-<p>小陆|男|92</p>
-<ul>
-<li>表格对齐方式：我们可以指定表格单元格的对齐方式，冒号在左边表示左对齐，右边表示有对齐，两边都有表示居中。</li>
-</ul>
-<p>学号|姓名|分数</p>
-<p>:-|:-:|-:</p>
-<p>小明|男|75</p>
-<p>小红|女|79</p>
-<p>小陆|男|92</p>
-<p>参考文章：<a target="_blank" rel="noopener" href="https://blog.csdn.net/u014061630/article/details/81359144?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164214252616780366594574%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164214252616780366594574&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81359144.first_rank_v2_pc_rank_v29&amp;utm_term=markdown%E8%AF%AD%E6%B3%95&amp;spm=1018.2226.3001.4187">https://blog.csdn.net/u014061630/article/details/81359144?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522164214252616780366594574%2522%252C%2522scm%2522%253A%252220140713.130102334..%2522%257D&amp;request_id=164214252616780366594574&amp;biz_id=0&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~all~top_positive~default-1-81359144.first_rank_v2_pc_rank_v29&amp;utm_term=markdown%E8%AF%AD%E6%B3%95&amp;spm=1018.2226.3001.4187</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">工具语言</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MarkDown</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/26/Markdown%E8%AF%AD%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Git 学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/26/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Git学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2022/05/26/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-05-26T11:03:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Git-学习笔记"><a href="#Git-学习笔记" class="headerlink" title="Git 学习笔记"></a>Git 学习笔记</h1><h2 id="Git基本命令"><a href="#Git基本命令" class="headerlink" title="Git基本命令"></a>Git基本命令</h2><blockquote>
-<p><strong>git –version</strong> : 查看git的版本信息<br><strong>git config –global user.name 用户名</strong> : 设置用户签名<br><strong>git config –global user.email 用户邮箱</strong> : 设置用户邮箱</p>
-</blockquote>
-<h3 id="操作暂存区中的文件"><a href="#操作暂存区中的文件" class="headerlink" title="操作暂存区中的文件"></a>操作暂存区中的文件</h3><blockquote>
-<p><strong>git init</strong> : 初始化本地仓库</p>
-<p><strong>git status</strong> : 查看本地库的状态</p>
-<p><strong>git add 文件名</strong> : 添加到暂存区</p>
-<p><strong>git rm –cached 文件名</strong> : 删除暂存区中的文件</p>
-</blockquote>
-<h3 id="将暂存区中的文件提交到本地库"><a href="#将暂存区中的文件提交到本地库" class="headerlink" title="将暂存区中的文件提交到本地库"></a>将暂存区中的文件提交到本地库</h3><blockquote>
-<p><strong>git commit -m “版本名称” 文件名</strong> : 提交本地库</p>
-</blockquote>
-<h3 id="查看全部版本信息"><a href="#查看全部版本信息" class="headerlink" title="查看全部版本信息"></a>查看全部版本信息</h3><blockquote>
-<p><strong>git reflog</strong> : 查看版本信息的命令<br><strong>git log</strong> : 查看详细的版本信息</p>
-</blockquote>
-<h3 id="Linux中的命令在Git-Bash也能使用"><a href="#Linux中的命令在Git-Bash也能使用" class="headerlink" title="Linux中的命令在Git Bash也能使用"></a>Linux中的命令在Git Bash也能使用</h3><blockquote>
-<p><strong>ll</strong> : 查看当前目录下的文件</p>
-<p><strong>vim 文件名</strong> : 新建或编辑文件</p>
-<p><strong>cat 文件名</strong> ：查看文件</p>
-</blockquote>
-<h3 id="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"><a href="#版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里" class="headerlink" title="版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里"></a>版本穿梭语句：即HEAD指向，HEAD指向哪里当前就访问哪里</h3><blockquote>
-<p><strong>git reset –hard 版本号</strong> : 版本穿梭</p>
-</blockquote>
-<h3 id="分支操作：切换分支，创建分支等"><a href="#分支操作：切换分支，创建分支等" class="headerlink" title="分支操作：切换分支，创建分支等"></a>分支操作：切换分支，创建分支等</h3><blockquote>
-<p><strong>git branch -v</strong> : 查看分支<br><strong>git branch 分支名</strong> : 新建分支<br><strong>git checkout 分支名</strong> : 切换分支(可以根据版本号来切换，上下同，即分支名可以是查看分支中的唯一标识)<br><strong>git merge 分支名</strong> : 将指定分支合并到当前分支</p>
-</blockquote>
-<h3 id="操作远程仓库"><a href="#操作远程仓库" class="headerlink" title="操作远程仓库"></a>操作远程仓库</h3><blockquote>
-<p><strong>git remote -v</strong> : 查看当前所有远程地址别名<br><strong>git remote add 别名 远程地址</strong> : 新建远程地址别名</p>
-</blockquote>
-<h3 id="推送分支"><a href="#推送分支" class="headerlink" title="推送分支"></a>推送分支</h3><blockquote>
-<p> <strong>git push 别名&#x2F;远程仓库url地址 分支</strong> : 把本地的分支推送到远程仓库</p>
-</blockquote>
-<h3 id="从远程仓库拉取代码"><a href="#从远程仓库拉取代码" class="headerlink" title="从远程仓库拉取代码"></a>从远程仓库拉取代码</h3><blockquote>
-<p> <strong>git pull 别名&#x2F;远程仓库url地址 分支</strong> : 将远程库中的代码拉取到本地库中</p>
-</blockquote>
-<h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><blockquote>
-<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#x64;&#100;&#100;&#114;&#x65;&#101;&#x6d;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;">&#x64;&#x64;&#100;&#100;&#114;&#x65;&#101;&#x6d;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#x6d;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
-</blockquote>
-<h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
-
-
-
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/26/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-linuxstaticip" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/05/19/linuxstaticip/">Linux静态IP设置</a>
-    </h1>
-  
-
-        
-        <a href="/2022/05/19/linuxstaticip/" class="archive-article-date">
-  	<time datetime="2022-05-19T10:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Linux静态ip设置"><a href="#Linux静态ip设置" class="headerlink" title="Linux静态ip设置"></a>Linux静态ip设置</h1><p>找到安装时的ens33文件位置：相关命令<code>cd /etc/sysconfig/network-scripts</code></p>
-<p>这里注意登录的用户是否为root用户，修改ifcfg-ens33文件需要root用户，因为只有root用户有写权限</p>
-<p><img src="/2022/05/19/linuxstaticip/1664266461228.jpg" alt="image01"></p>
-<p>编辑ifcfg-ens33文件：<code>vim/vi ifcfg-ens33</code></p>
-<p><img src="/2022/05/19/linuxstaticip/1664266517317.jpg" alt="image02"></p>
-<p>使用DHCP的好处是不会发生ip冲突，但是这样的话，虚拟机每次登录的ip地址可能会变，所以静态ip就很有必要</p>
-<p>进入编辑页面：<strong>i</strong> 进入编辑模式，<strong>ESC</strong>退出编辑模式进入命令模式，在命令模式下输入**:wq** 以保存编辑的信息</p>
-<p><img src="/2022/05/19/linuxstaticip/1664266130579.jpg" alt="image03"></p>
-<p>ifcfg-ens33文件中：</p>
-<ul>
-<li>TYPE&#x3D;Ethernet      #网络类型（通常是Ethernet，万维网）</li>
-<li>HWADDR&#x3D;00:0C:29:76:75:F9       #MAC地址</li>
-<li>DEVICE&#x3D;ens33 	#接口名（设备，网卡）</li>
-<li>UUID&#x3D;”911d4460-38cc-4250-baea-321ca2ce195b”      #随机id</li>
-<li>ONBOOT&#x3D;yes        #系统启动的时候网络接口是否有效（yes&#x2F;no）</li>
-<li>BOOTPROTO&#x3D;”static”    #IP的配置方法[none|static|bootp|dhcp]（引导时不使用协议|静态分配IP|BOOTP协议|DHCP协议）</li>
-<li>IPADDR&#x3D;192.168.157.132     #IP地址</li>
-<li>GATEWAY&#x3D;192.168.157.2    #网关</li>
-<li>DNS1&#x3D;192.168.157.2     #域名解析器</li>
-</ul>
-<p>配置完成之后，需要重启网络服务或者重启系统才能生效<code>service network restart</code>或<code>reboot</code></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">linux静态IP设置</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/05/19/linuxstaticip/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SpringMVC学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/03/02/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SpringMvc学习笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2022/03/02/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
-  	<time datetime="2022-03-02T13:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-02</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h1><h2 id="一-SpringMVC简介"><a href="#一-SpringMVC简介" class="headerlink" title="一.SpringMVC简介"></a>一.SpringMVC简介</h2><h4 id="1-什么是SpringMVC："><a href="#1-什么是SpringMVC：" class="headerlink" title="1. 什么是SpringMVC："></a>1. 什么是SpringMVC：</h4><p>​	MVC是一种软件架构的思想，将软件按照模型、视图、控制器来划分</p>
-<p>​	M：Model，模型层，指工程中的JavaBean，作用是处理数据</p>
-<p>​		<strong>JavaBean分为两类</strong>：</p>
-<p>​		· 一类是实体类Bean：专门存储业务数据的，数据库表的映射Bean</p>
-<p>​		· 一类是业务处理Bean：指 Service 或 Dao 对象，专门用于处理业务逻辑和数据访问</p>
-<p>​	V：View，视图层，指工程中的 html 或 jsp 等页面，作用是与用户进行交互，展示数据</p>
-<p>​	C：Controller，控制层，指工程中的 Servlet，作用是接收页面请求和响应浏览器</p>
-<p>​	<strong>MVC的工作流程</strong>：用户通过视图层发送请求到服务器，在服务器中，请求被Controller接收，Controller调用相应的Model层处理请求，处理完毕将结果返回到Controller，Controller再根据请求处理的结果找到相应的View视图，渲染数据后最终响应给浏览器</p>
-<blockquote>
-<p>​	JavaEE项目一般分为三层架构：表述层（或是表示层），业务逻辑层、数据访问层，表述层表示前台页面和后台Servlet。</p>
-</blockquote>
-<h4 id="2-SpringMVC的主要特点"><a href="#2-SpringMVC的主要特点" class="headerlink" title="2. SpringMVC的主要特点"></a>2. SpringMVC的主要特点</h4><ul>
-<li>基于Spring，与IOC容器等基础设施无缝对接</li>
-<li>基于原生的Servlet，通过功能强大的前端控制器DispatcherServlet，对请求和响应进行统一处理</li>
-</ul>
-<h2 id="二-使用SpringMVC框架需要注意的点"><a href="#二-使用SpringMVC框架需要注意的点" class="headerlink" title="二.使用SpringMVC框架需要注意的点"></a>二.使用SpringMVC框架需要注意的点</h2><ol>
-<li><p>由于SpringMVC用于开发JavaEE项目，所以需要配置相应的web.xml文件</p>
-<ul>
-<li><p>创建maven工程，并在maven的配置文件中指定打包方式为war，war表示该项目为一个Web项目，并且在maven的配置文件中引入相关的依赖</p>
-<blockquote>
-<p>由于Maven的传递性，我们不必将所有需要的包全部配置依赖，而是配置最顶端的依赖，其他靠传递性导入</p>
-</blockquote>
-</li>
-<li><p><strong>配置web.xml</strong>：注册SpringMVC的前端控制器DispatcherServlet，有两种配置方式</p>
-</li>
-</ul>
-<ol>
-<li><p><strong>默认配置</strong>方式：如果用这种配置，SpringMVC的配置文件默认位于WEB-INFx下，默认名字为-servlet.xml，例如，以下配置所对应SpringMVC的配置文件位于WEB-INF下，文件名为springMVC-servlet.xml</p>
-<p><em><strong>eg：</strong></em>在web.xml配置文件中需要添加如下配置；</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p><strong>扩展配置</strong>方式（推荐）：可以通过&lt;init-param&gt;标签设置SpringMVC配置文件的位置和名称，通过&lt;load-on-startu&gt;标签设置SpringMVC前端控制器DispatcherServlet的初始化时间；使用&lt;init-param&gt;标签设置SpringMVC配置文件的位置和名称，这就是说明在扩展配置方式下，SpringMVC的配置文件可以在项目的任何位置；与默认配置方式相比，默认配置方式直接在WEB-INF下找指定文件名的文件，而扩展配置方式不需要</p>
-<p><em><strong>eg：</strong></em>在web.xml配置文件中需要添加如下配置；</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 配置SpringMVC的前端控制器，对浏览器发送的请求统一进行处理 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- 通过初始化参数指定SpringMVC配置文件的位置和名称 --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- contextConfigLocation为固定值 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 使用classpath:表示从类路径查找配置文件，例如maven工程中的src/main/resources --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:springMVC.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- </span></span><br><span class="line"><span class="comment">         作为框架的核心组件，在启动过程中有大量的初始化操作要做</span></span><br><span class="line"><span class="comment">        而这些操作放在第一次请求时才执行会严重影响访问速度</span></span><br><span class="line"><span class="comment">        因此需要通过此标签将启动控制DispatcherServlet的初始化时间提前到服务器启动时</span></span><br><span class="line"><span class="comment">    --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>springMVC<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p><strong>注：</strong>标签中使用&#x2F; 和 &#x2F;* 的区别</p>
-<p>在&lt;url-pattern&gt;中使用 &#x2F; ，&#x2F;表示所匹配的请求可以是&#x2F;login 或 .html 或  .js 或 .css 方式的请求路径，但是 &#x2F; 不能匹配 .jsp 请求路径的请求</p>
-<p>​	 因为如果jsp页面的请求被DispatcherServlet处理，有可能找不到相应的页面</p>
-<p> &#x2F;* 能匹配所有的请求，例如在使用过滤器时，若需要对所有请求进行过滤，就需要使用&#x2F;* 的写法</p>
-</blockquote>
-</li>
-</ol>
-</li>
-<li><p><strong>创建请求控制器</strong></p>
-</li>
-</ol>
-<p>由于前端控制器对浏览器发送的请求进行了统一的处理，但是具体的请求有不同的处理过程，因此需要创建处理具体请求的类，即请求控制器</p>
-<p>请求控制器中每一个处理请求的方法成为控制器方法</p>
-<p>因为SpringMVC的控制器由一个POJO（普通的Java类）担任，因此需要通过@Controller注解将其标识为一个控制层组件，交给Spring的IoC容器管理，此时SpringMVC才能够识别控制器的存在</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">HelloController</span> &#123;  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ol start="3">
-<li><strong>创建springMVC的配置文件</strong></li>
-</ol>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 开启扫描 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">&quot;com.dreem.springmvc.controller&quot;</span>/&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 配置Thymeleaf视图解析器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;viewResolver&quot;</span> <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring5.view.ThymeleafViewResolver&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;order&quot;</span> <span class="attr">value</span>=<span class="string">&quot;1&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;characterEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateEngine&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring5.SpringTemplateEngine&quot;</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateResolver&quot;</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">&quot;org.thymeleaf.spring5.templateresolver.SpringResourceTemplateResolver&quot;</span>&gt;</span></span><br><span class="line">                    <span class="comment">&lt;!-- 视图前缀 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;prefix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;/WEB-INF/templates/&quot;</span>/&gt;</span> </span><br><span class="line">                    <span class="comment">&lt;!-- 视图后缀 --&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;suffix&quot;</span> <span class="attr">value</span>=<span class="string">&quot;.html&quot;</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;templateMode&quot;</span> <span class="attr">value</span>=<span class="string">&quot;HTML5&quot;</span>/&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;characterEncoding&quot;</span> <span class="attr">value</span>=<span class="string">&quot;UTF-8&quot;</span> /&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="4">
-<li><strong>一个请求及其响应的过程</strong>：当页面发出请求，得到其请求地址，会被前端控制器DispatcherServlet进行处理（也就是说，只要有请求，就肯定会经过DispatcherServlet）。前端控制器DispatcherServlet会加载并读取SpringMVC的核心配置文件，即开启Spring的 IOC 容器，通过扫描组件，获得Controller控制器，将请求地址和相应的属性与所有的控制器中的@RequestMapping注解的属性值（value, method, params, headers）进行匹配，如果匹配成功，Controller会调用匹配的方法并返回一个字符串类型的视图名称，返回的视图名称会经过thymeleaf的视图解析器解析，加上配置的前缀和后缀组成视图的路径，通过Thymeleaf对视图进行渲染，最后请求转发到视图对应页面。如果匹配不成功则报404-错误。</li>
-</ol>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/03/02/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1528,6 +1369,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">进程管理</a>
               </li>
              
               <li class="article-tag-list-item">
