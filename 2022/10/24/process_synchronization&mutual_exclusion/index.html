@@ -16,7 +16,7 @@
 <meta property="og:description" content="进程同步、互斥进程同步  进程具有异步性的特征。异步性是指各并发执行的进程以各自独立的、不可预知的速度向前推进。  同步也叫做直接制约关系，它是指为完成某种任务而建立的两个或多个进程，这些进程因为需要在某些位置上协调他们的工作次序而产生的制约关系。进程间的直接制约关系&gt;就是源于它们之间的相互合作。    进程互斥进程的 “ 并发 ” 需要 “ 共享 ” 的支持。各个并发执行的进程不可避免的需">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2022-10-24T09:25:11.000Z">
-<meta property="article:modified_time" content="2022-10-24T10:35:10.711Z">
+<meta property="article:modified_time" content="2022-10-24T10:58:44.341Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="tech">
 <meta property="article:tag" content="os">
@@ -60,27 +60,31 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li> | <a href="/">主页</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/">主页</a> | </li>
 	        
-				<li> | <a href="/tags/tech/">随笔杂记</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/tech/">随笔杂记</a> | </li>
 	        
-				<li> | <a href="/tags/other/">其他</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/night_chat/">夜话</a> | </li>
 	        
-			<li>总笔记数 : 15</li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basic_four/">四大精钢</a> | </li>
+	        
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
+	        
+			<li><font size=2 color=green><b>总笔记数 : 17</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
+    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
+    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -123,6 +127,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -141,11 +149,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/tech/">随笔杂记</a></li>
+					<li style="width: 20%"><a href="/tags/tech/">随笔杂记</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/other/">其他</a></li>
+					<li style="width: 20%"><a href="/tags/night_chat/">夜话</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/basic_four/">四大精钢</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/other/">其他</a></li>
 		        
 				</ul>
 			</nav>
@@ -261,7 +273,7 @@
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">关中断; <span class="comment">// 关中断后即不允许当前进程被中断，也必然不会发生进程切换</span></span><br><span class="line">临界区;</span><br><span class="line">开中断; <span class="comment">// 直到当前进程访问完临界区，再执行开中断指令，才有可能有别的进程上处理机并访问临界区</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
 
 <p>缺点：<font color="red" size="3"><strong>不适用于多处理机；只适用于操作系统内核进程，不适用于用户进程（开&#x2F;关中断指令只能运行在内核态</strong></font>，这组指令如果能让用户随意使用会很危险）</p>
-<p>+++</p>
+<hr>
 <h3 id="TestAndSet（TS指令-x2F-TSL指令）"><a href="#TestAndSet（TS指令-x2F-TSL指令）" class="headerlink" title="TestAndSet（TS指令&#x2F;TSL指令）"></a>TestAndSet（TS指令&#x2F;TSL指令）</h3><blockquote>
 <p>old 记录是否已被上锁；</p>
 <p>再将 lock 设为 true；</p>
@@ -274,7 +286,7 @@
 <p><font color="red" size="3"><strong>以下代码只是用来理解实现的步骤，并不是 TS 指令，TS指令直接用硬件实现</strong></font></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 布尔型共享变量 lock 表示当前临界区是否被加锁</span></span><br><span class="line"><span class="comment">// true 表示已加锁，false 表示未加锁</span></span><br><span class="line"><span class="function"><span class="type">bool</span> <span class="title">TestAndSet</span> <span class="params">(<span class="type">bool</span>* lock)</span></span>&#123;</span><br><span class="line">    <span class="type">bool</span> old;</span><br><span class="line">    old = *lock; <span class="comment">// old 用来存放lock原来的值</span></span><br><span class="line">    *lock = <span class="literal">true</span>; <span class="comment">// 无论之前是否已加锁，都将 lock设为 true</span></span><br><span class="line">    <span class="keyword">return</span> old; <span class="comment">// 返回 lock原来的值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 以下是使用 TSL 指令实现互斥的算法逻辑</span></span><br><span class="line"><span class="keyword">while</span> (<span class="built_in">TestAndSet</span> (&amp;lock)); <span class="comment">// “上锁” 并“检查”</span></span><br><span class="line">临界区代码段...</span><br><span class="line">lock = <span class="literal">false</span>; <span class="comment">// 解锁</span></span><br><span class="line">剩余区代码段...</span><br></pre></td></tr></table></figure>
 
-<p>+++</p>
+<hr>
 <h3 id="Swap指令（Exchange指令-x2F-XCHG指令）"><a href="#Swap指令（Exchange指令-x2F-XCHG指令）" class="headerlink" title="Swap指令（Exchange指令 &#x2F; XCHG指令）"></a>Swap指令（Exchange指令 &#x2F; XCHG指令）</h3><blockquote>
 <p>Swap指令是用硬件实现的，执行的过程不允许被中断，只能一气呵成。</p>
 <p>优缺点同 TSL指令</p>
@@ -284,7 +296,7 @@
 
 <p>优点：实现简单，无需像<strong>软件实现方法那样严格检查是否会有逻辑漏洞；适用于多处理机环境；</strong></p>
 <p>缺点：不满足 “让权等待” 原则，暂时<strong>无法进入临界区的进程会占用CPU并循环执行TSL指令，从而导致忙等且一直占用处理机资源。</strong></p>
-<p>+++</p>
+<hr>
 <h1 id="补充"><a href="#补充" class="headerlink" title="补充"></a>补充</h1><h2 id="并发和并行的区别"><a href="#并发和并行的区别" class="headerlink" title="并发和并行的区别"></a>并发和并行的区别</h2><p><font color="red" size="3"><strong>并发</strong></font>：逻辑上很多个任务可以同时进行，但是物理上是多个任务互相切换以达到同时进行的效果</p>
 <p><font color="red" size="3"><strong>并行</strong></font>：在实际运行上是做到了多个任务同时进行</p>
 
@@ -546,6 +558,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">night_chat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
@@ -615,6 +635,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -690,7 +714,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
+              <a href="https://www.r2coding.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>程序羊参考网站</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://www.runoob.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>菜鸟</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.yuque.com/bithachi/study/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>关注的一个不知名大佬</a>
             </li>
           
         </ul>

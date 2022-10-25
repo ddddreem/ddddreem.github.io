@@ -59,27 +59,31 @@
 		<nav class="header-menu">
 			<ul>
 			
-				<li> | <a href="/">主页</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/">主页</a> | </li>
 	        
-				<li> | <a href="/tags/tech/">随笔杂记</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/tech/">随笔杂记</a> | </li>
 	        
-				<li> | <a href="/tags/other/">其他</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/night_chat/">夜话</a> | </li>
 	        
-			<li>总笔记数 : 15</li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basic_four/">四大精钢</a> | </li>
+	        
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
+	        
+			<li><font size=2 color=green><b>总笔记数 : 17</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
     		
     			
-    			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
+    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
+    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
-    			<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -122,6 +126,10 @@
 			
 				
 			
+				
+			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -140,11 +148,15 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 33.333333333333336%"><a href="/">主页</a></li>
+					<li style="width: 20%"><a href="/">主页</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/tech/">随笔杂记</a></li>
+					<li style="width: 20%"><a href="/tags/tech/">随笔杂记</a></li>
 		        
-					<li style="width: 33.333333333333336%"><a href="/tags/other/">其他</a></li>
+					<li style="width: 20%"><a href="/tags/night_chat/">夜话</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/basic_four/">四大精钢</a></li>
+		        
+					<li style="width: 20%"><a href="/tags/other/">其他</a></li>
 		        
 				</ul>
 			</nav>
@@ -218,7 +230,7 @@
 <p> <strong>git pull 别名&#x2F;远程仓库url地址 分支</strong> : 将远程库中的代码拉取到本地库中</p>
 </blockquote>
 <h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><blockquote>
-<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#100;&#x64;&#100;&#114;&#101;&#x65;&#x6d;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#111;&#109;">&#x64;&#100;&#x64;&#100;&#114;&#101;&#x65;&#x6d;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#111;&#109;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#100;&#100;&#x72;&#x65;&#101;&#109;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#111;&#109;">&#100;&#100;&#100;&#100;&#x72;&#x65;&#101;&#109;&#x40;&#49;&#x36;&#51;&#x2e;&#99;&#111;&#109;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 </blockquote>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
@@ -479,6 +491,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">night_chat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
@@ -548,6 +568,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -623,7 +647,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
             </li>
           
             <li class="search-li">
+              <a href="https://www.r2coding.com" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>程序羊参考网站</a>
+            </li>
+          
+            <li class="search-li">
               <a href="https://www.runoob.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>菜鸟</a>
+            </li>
+          
+            <li class="search-li">
+              <a href="https://www.yuque.com/bithachi/study/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>关注的一个不知名大佬</a>
             </li>
           
         </ul>
