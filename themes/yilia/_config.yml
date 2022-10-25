@@ -3,6 +3,8 @@
 menu:
   主页: /
   随笔杂记: /tags/tech/
+  夜话: /tags/night_chat/
+  四大精钢: /tags/basic_four/
   其他: /tags/other/
 
 # SubNav
@@ -125,6 +127,8 @@ friends:
   个人CSDN: https://blog.csdn.net/qq_53657988
   稚晖: http://www.pengzhihui.xyz
   程序羊: http://www.codesheep.cn
+  程序羊参考网站: https://www.r2coding.com
   菜鸟: https://www.runoob.com/
+  关注的一个不知名大佬: https://www.yuque.com/bithachi/study/
 
 aboutme: <br/>熟悉浏览器端技术栈Springboot等...<br/>熟悉os、数据结构、计算机网络和计算机组成原理<br/>熟悉C/C++，学习51单片机中<br/>痴迷技术，持续学习中<br/>保持饥饿，peace!<br/>
