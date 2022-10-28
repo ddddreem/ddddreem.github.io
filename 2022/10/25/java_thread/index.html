@@ -35,7 +35,7 @@
 <meta property="og:image" content="http://example.com/2022/10/25/java_thread/image-20221025191943407.png">
 <meta property="og:image" content="http://example.com/2022/10/25/java_thread/image-20221025192442219.png">
 <meta property="article:published_time" content="2022-10-25T07:00:11.000Z">
-<meta property="article:modified_time" content="2022-10-27T02:43:45.836Z">
+<meta property="article:modified_time" content="2022-10-28T07:38:19.564Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="java">
 <meta property="article:tag" content="Thread">
@@ -83,13 +83,13 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/tech/">随笔杂记</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/night_chat/">夜话</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/nightchat/">夜话</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basic_four/">四大精钢</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basicfour/">四大精钢</a> | </li>
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/java/">Java</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/c++/">C++</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/c/">C++</a> | </li>
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
@@ -180,13 +180,13 @@
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/tech/">随笔杂记</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/night_chat/">夜话</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/nightchat/">夜话</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/basic_four/">四大精钢</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/basicfour/">四大精钢</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/java/">Java</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/c++/">C++</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/c/">C++</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/other/">其他</a></li>
 		        
@@ -243,6 +243,8 @@
 <p><img src="/2022/10/25/java_thread/image-20221025153536821.png" alt="image-20221025153536821"></p>
 <p><font color="blue" size="3"><strong>注：</strong></font>当实现了Runnable接口的类对象直接在 main主线程中调用 run()方法时，这个时候会被当成是一个普通方法，并不会为他新开一个线程，相当于当前线程还是串行的、顺序的执行，在 run()方法后的 main主线程代码必须等待 run()方法执行结束之后才能执行。</p>
 <p><img src="/2022/10/25/java_thread/image-20221025155004002.png" alt="image-20221025155004002"></p>
+<span id="more"></span>
+
 <h2 id="新线程跟main线程是什么关系？"><a href="#新线程跟main线程是什么关系？" class="headerlink" title="新线程跟main线程是什么关系？"></a>新线程跟main线程是什么关系？</h2><p>首先，一个 Java程序，也就是一个 Java进程在运行时就会创建一个 main()进程，这个进程是 Java程序的入口线程，而在 main线程里又可以创建其他新线程，新创建出来的线程和 main线程是同等级的，也就是说，当 main线程结束之后，其他的新建线程可能还没结束，并不是说 main线程结束之后 Java进程就结束了。</p>
 <p><img src="/2022/10/25/java_thread/image-20221025154243135.png" alt="image-20221025154243135"></p>
 <h2 id="线程常用方法"><a href="#线程常用方法" class="headerlink" title="线程常用方法"></a>线程常用方法</h2><p><img src="/2022/10/25/java_thread/image-20221025163521021.png" alt="image-20221025163521021"></p>
@@ -548,6 +550,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
@@ -556,11 +566,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">basic_four</a>
+                <a href="javascript:void(0)" class="js-tag color5">basicfour</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">computer_network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -573,14 +583,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">night_chat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -648,7 +650,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">进程管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">

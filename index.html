@@ -59,13 +59,13 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/tech/">随笔杂记</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/night_chat/">夜话</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/nightchat/">夜话</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basic_four/">四大精钢</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basicfour/">四大精钢</a> | </li>
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/java/">Java</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/c++/">C++</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/c/">C++</a> | </li>
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
@@ -156,13 +156,13 @@
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/tech/">随笔杂记</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/night_chat/">夜话</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/nightchat/">夜话</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/basic_four/">四大精钢</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/basicfour/">四大精钢</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/java/">Java</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/c++/">C++</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/c/">C++</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/other/">其他</a></li>
 		        
@@ -217,7 +217,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -305,7 +305,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">night_chat</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">nightchat</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -428,7 +428,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -512,57 +516,7 @@
 <p><img src="/2022/10/25/java_thread/image-20221025153536821.png" alt="image-20221025153536821"></p>
 <p><font color="blue" size="3"><strong>注：</strong></font>当实现了Runnable接口的类对象直接在 main主线程中调用 run()方法时，这个时候会被当成是一个普通方法，并不会为他新开一个线程，相当于当前线程还是串行的、顺序的执行，在 run()方法后的 main主线程代码必须等待 run()方法执行结束之后才能执行。</p>
 <p><img src="/2022/10/25/java_thread/image-20221025155004002.png" alt="image-20221025155004002"></p>
-<h2 id="新线程跟main线程是什么关系？"><a href="#新线程跟main线程是什么关系？" class="headerlink" title="新线程跟main线程是什么关系？"></a>新线程跟main线程是什么关系？</h2><p>首先，一个 Java程序，也就是一个 Java进程在运行时就会创建一个 main()进程，这个进程是 Java程序的入口线程，而在 main线程里又可以创建其他新线程，新创建出来的线程和 main线程是同等级的，也就是说，当 main线程结束之后，其他的新建线程可能还没结束，并不是说 main线程结束之后 Java进程就结束了。</p>
-<p><img src="/2022/10/25/java_thread/image-20221025154243135.png" alt="image-20221025154243135"></p>
-<h2 id="线程常用方法"><a href="#线程常用方法" class="headerlink" title="线程常用方法"></a>线程常用方法</h2><p><img src="/2022/10/25/java_thread/image-20221025163521021.png" alt="image-20221025163521021"></p>
-<p><img src="/2022/10/25/java_thread/image-20221025163540796.png" alt="image-20221025163540796"></p>
-<p>interrupt：只是中断在休眠的线程，即立马唤醒正在休眠的线程，并不是直接结束这个线程。</p>
-<p><img src="/2022/10/25/java_thread/image-20221025164302355.png" alt="image-20221025164302355"></p>
-<p>join：调用 join的进程一定要执行完，一定会成功，yield方法不一定会礼让成功</p>
-<p><img src="/2022/10/25/java_thread/image-20221025165253684.png" alt="image-20221025165253684"></p>
-<p><img src="/2022/10/25/java_thread/image-20221025165315768.png" alt="image-20221025165315768"></p>
-<h2 id="用户线程和守护线程"><a href="#用户线程和守护线程" class="headerlink" title="用户线程和守护线程"></a>用户线程和守护线程</h2><p><img src="/2022/10/25/java_thread/image-20221025171111819.png" alt="image-20221025171111819"></p>
-<p><img src="/2022/10/25/java_thread/image-20221025171231393.png" alt="image-20221025171231393"></p>
-<h2 id="同步和互斥"><a href="#同步和互斥" class="headerlink" title="同步和互斥"></a>同步和互斥</h2><p><img src="/2022/10/25/java_thread/image-20221025175300939.png" alt="image-20221025175300939"></p>
-<p>线程生命周期：</p>
-<p><img src="/2022/10/25/java_thread/image-20221025185127609.png" alt="image-20221025185127609"></p>
-<h2 id="线程同步和互斥锁"><a href="#线程同步和互斥锁" class="headerlink" title="线程同步和互斥锁"></a>线程同步和互斥锁</h2><p>简介：互斥访问一个资源，在一个时间内只允许一个线程进入操作资源</p>
-<h3 id="线程同步机制"><a href="#线程同步机制" class="headerlink" title="线程同步机制"></a>线程同步机制</h3><ul>
-<li>在多线程编程时，一些敏感数据的操作顺序可能由于操作系统CPU调度的影响而不同，线程同步就是保证各个线程根据设计按步骤执行。</li>
-</ul>
-<h3 id="互斥锁"><a href="#互斥锁" class="headerlink" title="互斥锁"></a>互斥锁</h3><h4 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h4><ol>
-<li>JAVA语言中，引入了对象互斥锁的概念，来保证共享数据操作的完整性；</li>
-<li>每个对象都对应于一个可称为 “互斥锁”的标记，这个标记用来保证在任一时刻，只能有一个线程访问该对象；</li>
-<li>关键字 synchronized与对象的互斥锁联系；当某个对象用 synchronized修饰时，表明该对象在任一时刻只能由一个线程访问；</li>
-<li>同步的局限性：导致程序的执行效率要降低；</li>
-<li>同步方法（非静态）的锁可以是 this，也可以是其他对象（实现互斥访问要求这个锁是同一个对象）；</li>
-<li>同步方法（静态）的锁只能是当前类本身（即class对象）。</li>
-</ol>
-<h4 id="注意事项和细节"><a href="#注意事项和细节" class="headerlink" title="注意事项和细节"></a>注意事项和细节</h4><ol>
-<li>同步方法如果没有使用 static修饰；默认锁对象为 this</li>
-<li>如果方法使用 static修饰，默认锁对象：当前类.class</li>
-</ol>
-<h4 id="同步代码块和同步方法"><a href="#同步代码块和同步方法" class="headerlink" title="同步代码块和同步方法"></a>同步代码块和同步方法</h4><p>同步代码块的好处就是精确控制需要锁的地方，尽量不要损失太多效率</p>
-<p>例子：</p>
-<p><img src="/2022/10/25/java_thread/image-20221025191943407.png" alt="image-20221025191943407"></p>
-<p>没有获得当前锁对象的线程只能被阻塞在 <code>synchronized (this)</code>这句话之前</p>
-<p><img src="/2022/10/25/java_thread/image-20221025192442219.png" alt="image-20221025192442219"></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>同步代码块</span><br><span class="line"><span class="keyword">synchronized</span> (对象)&#123; <span class="comment">// 得到对象的锁，才能操作同步代码</span></span><br><span class="line">	<span class="comment">// 需要被同步的代码；</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span><span class="keyword">synchronized</span> 放在方法声明中，表示整个方法，即同步方法</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">method</span> <span class="params">(String name)</span>&#123;</span><br><span class="line">	<span class="comment">// 需要被同步的代码</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="锁的释放和不释放"><a href="#锁的释放和不释放" class="headerlink" title="锁的释放和不释放"></a>锁的释放和不释放</h3><h4 id="会释放锁的操作"><a href="#会释放锁的操作" class="headerlink" title="会释放锁的操作"></a>会释放锁的操作</h4><ol>
-<li>当前线程的同步方法、同步代码块执行结束；</li>
-<li>当前线程在同步代码块、同步方法中遇到 break、return；</li>
-<li>当前线程在同步代码块、同步方法中出现了未处理的 Error或 Exception，导致异常结束；</li>
-<li>当前线程在同步代码块、同步方法中执行了线程对象的 wait()方法，当前线程暂停，并释放锁。</li>
-</ol>
-<h4 id="不会释放锁的操作"><a href="#不会释放锁的操作" class="headerlink" title="不会释放锁的操作"></a>不会释放锁的操作</h4><ol>
-<li><p>线程执行同步代码块或同步方法时，程序调用 Thread.sleep()、Thread.yield()方法暂停当前线程的执行，不会释放锁；</p>
-</li>
-<li><p>线程执行同步代码块时，其他线程调用了该线程的 suspend()方法将该线程挂起，该线程不会释放锁。</p>
-<p><font color="red" size="3"><strong>注：</strong></font>应尽量避免使用suspend()和 resume()来控制线程，这两个方法已经过时，不推荐使用。</p>
-</li>
-</ol>
-
+        
       
 
       
@@ -679,7 +633,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -792,7 +750,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -878,7 +840,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1085,11 +1051,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">计算机网络</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">computer_network</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1188,7 +1154,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">basic_four</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -1333,6 +1299,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
@@ -1341,11 +1315,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">basic_four</a>
+                <a href="javascript:void(0)" class="js-tag color5">basicfour</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">计算机网络</a>
+                <a href="javascript:void(0)" class="js-tag color2">computer_network</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1358,14 +1332,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">linux权限介绍</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">night_chat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1433,7 +1399,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">os</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">进程管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">c</a>
               </li>
              
               <li class="article-tag-list-item">
