@@ -2,7 +2,7 @@
 title: IPv4地址概述
 date: 2022-09-30 11:25:11
 tags: 
-- tech
+- basic_four
 - 计算机网络
 - IPv4地址概述
 ---

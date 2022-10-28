@@ -3,7 +3,7 @@ title: Linux权限管理
 date: 2022-06-19 18:31:11
 tags: 
 - tech
-- os
+- linux
 - linux权限介绍
 ---
 # Linux权限

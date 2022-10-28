@@ -2,8 +2,7 @@
 title: Java多线程温习
 date: 2022-10-25 15:00:11
 tags: 
-- tech
-- Java
+- java
 - Thread
 ---
 

@@ -3,7 +3,7 @@ title: Linux静态IP设置
 date: 2022-05-19 18:31:11
 tags: 
 - tech
-- os
+- linux
 - linux静态IP设置
 ---
 # Linux静态ip设置
