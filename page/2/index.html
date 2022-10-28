@@ -61,7 +61,7 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/nightchat/">夜话</a> | </li>
 	        
-				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basicfour/">四大精钢</a> | </li>
+				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/basic_four/">四大精钢</a> | </li>
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/java/">Java</a> | </li>
 	        
@@ -69,7 +69,7 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
-			<li><font size=2 color=green><b>总笔记数 : 19</b></font></li>
+			<li><font size=2 color=green><b>总笔记数 : 20</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -158,7 +158,7 @@
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/nightchat/">夜话</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a href="/tags/basicfour/">四大精钢</a></li>
+					<li style="width: 14.285714285714286%"><a href="/tags/basic_four/">四大精钢</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/tags/java/">Java</a></li>
 		        
@@ -180,6 +180,109 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-btree&amp;b+tree" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/28/btree&b+tree/">B树、B+树</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/28/btree&b+tree/" class="archive-article-date">
+  	<time datetime="2022-09-28T15:35:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-28</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="B树和B-树"><a href="#B树和B-树" class="headerlink" title="B树和B+树"></a>B树和B+树</h1><h2 id="B树的特点（也称B-树）"><a href="#B树的特点（也称B-树）" class="headerlink" title="B树的特点（也称B-树）"></a>B树的特点（也称B-树）</h2><p><strong>B树</strong>：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为<strong>B树的阶</strong>，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：</p>
+<ul>
+<li><p>树中每个结点至多有 <strong>m棵子树</strong>，即至多含有 <strong>m - 1个关键字</strong>。（关键字即查找的元素值）；</p>
+</li>
+<li><p>若根结点不是终端结点，则至少有两棵子树；</p>
+</li>
+<li><p>策略：m叉查找树中，规定对于<strong>任何一个结点</strong>，其<strong>所有子树的高度都要相等</strong>，以用来<strong>保证B树的查找效率</strong>；</p>
+<p><strong>除根节点外</strong>的所有非叶结点<strong>至少有⌈m&#x2F;2⌉ 棵子树</strong>，即至少含有<strong>⌈m&#x2F;2⌉ - 1 个关键字</strong>；</p>
+</li>
+<li><p>所有非叶结点的结构如下：</p>
+<p><img src="/2022/09/28/btree&b+tree/image-20221008212646349.png" alt="image-20221008212646349"></p>
+<p>​	其中，Ki（i&#x3D; 1,2,3…,n）为结点的关键字，且满足<strong>K1 &lt; K2 &lt; … &lt; Kn（关键字大小从左到右依次递增）</strong>；Pi（i&#x3D; 1,2,3…,n）为指向</p>
+<p>子树根结点的指针，且指针<strong>Pi-1所指子树中所有结点的关键字均小于Ki</strong>，<strong>Pi所指子树中所有结点的关键字均大于Ki</strong>，n（⌈m&#x2F;2⌉ - 1 ≤ n ≤ m - 1）为结点中关键字的个数。</p>
+</li>
+<li><p>所有的叶结点都出现在同一层次上，并且不带信息（可以视为外部结点或类似于折半查找判定树的查找失败结点，实际上这些结点不存在，指向这些结点的指针为空）。</p>
+</li>
+</ul>
+<p><strong>图示：</strong></p>
+<p><img src="/2022/09/28/btree&b+tree/image-20220929000502291.png" alt="image-20220929000502291"></p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">BTree&B+Tree</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/28/btree&b+tree/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-shellsort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -937,7 +1040,7 @@
 <p> <strong>git pull 别名&#x2F;远程仓库url地址 分支</strong> : 将远程库中的代码拉取到本地库中</p>
 </blockquote>
 <h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><blockquote>
-<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#100;&#100;&#x64;&#x64;&#x72;&#x65;&#101;&#109;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;">&#100;&#100;&#x64;&#x64;&#x72;&#x65;&#101;&#109;&#64;&#x31;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#100;&#x64;&#x64;&#x72;&#x65;&#x65;&#x6d;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;">&#x64;&#100;&#x64;&#x64;&#x72;&#x65;&#x65;&#x6d;&#x40;&#49;&#54;&#51;&#x2e;&#x63;&#x6f;&#109;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 </blockquote>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
@@ -1574,6 +1677,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插入排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">problems</a>
               </li>
             
             <div class="clearfix"></div>
