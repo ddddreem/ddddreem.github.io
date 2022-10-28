@@ -2,7 +2,8 @@
 title: 操作系统进程管理
 date: 2022-10-23 15:25:11
 tags: 
-- basic_four
+- basicfour
+- os
 - 进程管理
 ---
 
@@ -18,5 +19,4 @@ tags:
 
 
 ## 进程通信
-
 

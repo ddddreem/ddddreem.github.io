@@ -2,7 +2,8 @@
 title: 操作系统进程同步、互斥
 date: 2022-10-24 17:25:11
 tags: 
-- basic_four
+- basicfour
+- os
 - 进程管理
 ---
 

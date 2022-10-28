@@ -2,7 +2,7 @@
 title: B树、B+树
 date: 2022-09-28 23:35:11
 tags: 
-- basic_four
+- basicfour
 - data_structure
 - BTree&B+Tree
 ---

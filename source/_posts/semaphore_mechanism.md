@@ -2,7 +2,8 @@
 title: 操作系统信号量机制
 date: 2022-10-25 15:25:11
 tags: 
-- basic_four
+- basicfour
+- os
 - 进程管理
 ---
 

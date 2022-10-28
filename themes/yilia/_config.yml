@@ -3,10 +3,10 @@
 menu:
   主页: /
   随笔杂记: /tags/tech/
-  夜话: /tags/night_chat/
-  四大精钢: /tags/basic_four/
-  Java: /tags/java/
-  C++: /tags/c++/
+  夜话: /tags/nightchat/
+  四大精钢: /tags/basicfour/
+  Java: /tags/zava/
+  C++: /tags/c/
   其他: /tags/other/
 
 # SubNav

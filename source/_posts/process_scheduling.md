@@ -2,7 +2,8 @@
 title: 操作系统处理机调度
 date: 2022-10-23 17:25:11
 tags: 
-- basic_four
+- basicfour
+- os
 - 进程管理
 ---
 
