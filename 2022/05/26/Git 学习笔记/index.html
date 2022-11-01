@@ -79,15 +79,15 @@
 		<nav class="header-smart-menu">
     		
     			
-    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
+    			<a style="font-size:13px; font-weight:bold;" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有笔记</a>
     			
             
     			
-    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
+    			<a style="font-size:13px; font-weight:bold;" q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友情链接</a>
     			
             
     			
-    			<a style="font-size:13px; font-weight:bold; q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			<a style="font-size:13px; font-weight:bold;" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
     			
             
 		</nav>
@@ -242,7 +242,7 @@
 <p> <strong>git pull 别名&#x2F;远程仓库url地址 分支</strong> : 将远程库中的代码拉取到本地库中</p>
 </blockquote>
 <h3 id="生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息"><a href="#生成免密登录公钥-SSH免密登录GitHub-amp-Gitee，用于不用登录然后直接根据ssh拉取或推送代码-建议在user用户目录下创建-ssh文件保存密钥信息" class="headerlink" title="生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)"></a>生成免密登录公钥(SSH免密登录GitHub&amp;Gitee，用于不用登录然后直接根据ssh拉取或推送代码)(建议在user用户目录下创建.ssh文件保存密钥信息)</h3><blockquote>
-<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#100;&#x64;&#100;&#114;&#x65;&#101;&#x6d;&#x40;&#x31;&#54;&#51;&#x2e;&#99;&#111;&#x6d;">&#x64;&#100;&#x64;&#100;&#114;&#x65;&#101;&#x6d;&#x40;&#x31;&#54;&#51;&#x2e;&#99;&#111;&#x6d;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
+<p> <strong>ssh-keygen -t rsa -C <a href="mailto:&#x64;&#x64;&#x64;&#100;&#114;&#x65;&#x65;&#x6d;&#x40;&#x31;&#54;&#x33;&#x2e;&#x63;&#x6f;&#x6d;">&#x64;&#x64;&#x64;&#100;&#114;&#x65;&#x65;&#x6d;&#x40;&#x31;&#54;&#x33;&#x2e;&#x63;&#x6f;&#x6d;</a></strong>  (-t : 指定使用哪种加密算法生成密钥, rsa : 非对称加密协议, -C : 描述(即后面跟着的就是描述))</p>
 </blockquote>
 <h3 id="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"><a href="#token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上" class="headerlink" title="token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上"></a>token令牌：用于在idea中登录github账户，由于网速问题，GitHub很难登录上去，因此使用token能快速登录上</h3><figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gitee token : dd1747b69b6cae131628c848df8b9c9d // gitee网站上生成的token</span><br><span class="line">github token : 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 // GitHub网站生成的token</span><br></pre></td></tr></table></figure>
 
@@ -306,57 +306,6 @@
 
       
 
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
-        </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2022/05/26/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
