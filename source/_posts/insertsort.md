@@ -4,7 +4,7 @@ date: 2022-10-27 10:48:11
 tags: 
 - basicfour
 - data_structure
-- c++
+- cpp
 - 直接插入排序
 ---
 
