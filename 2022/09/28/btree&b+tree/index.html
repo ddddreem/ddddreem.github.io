@@ -8,22 +8,25 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>B树、B+树 | 吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="B树和B+树B树的特点（也称B-树）B树：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为B树的阶，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：  树中每个结点至多有 m棵子树，即至多含有 m - 1个关键字。（关键字即查找的元素值）；  若根结点不是终端结点，则至少有两棵子树；  策略：m叉查找树中，规定对于任何一个结点，其所有子树的高度都">
+  <meta name="description" content="B树和B+树B树的特点（也称B-树）B树：又称多路平衡查找树（与平衡二叉树区分开，B树是绝对平衡且不允许有高度差，平衡二叉树允许左右子树高度差为 0 或 1 ），B树中所有节点的孩子个数的最大值称为B树的阶，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：  树中每个结点至多有 m棵子树，即至多含有 m - 1个关键字。（关键字即查找的元素值）；  若根结点不是终端结点，则至">
 <meta property="og:type" content="article">
 <meta property="og:title" content="B树、B+树">
 <meta property="og:url" content="http://example.com/2022/09/28/btree&b+tree/index.html">
 <meta property="og:site_name" content="吉姆的个人站">
-<meta property="og:description" content="B树和B+树B树的特点（也称B-树）B树：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为B树的阶，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：  树中每个结点至多有 m棵子树，即至多含有 m - 1个关键字。（关键字即查找的元素值）；  若根结点不是终端结点，则至少有两棵子树；  策略：m叉查找树中，规定对于任何一个结点，其所有子树的高度都">
+<meta property="og:description" content="B树和B+树B树的特点（也称B-树）B树：又称多路平衡查找树（与平衡二叉树区分开，B树是绝对平衡且不允许有高度差，平衡二叉树允许左右子树高度差为 0 或 1 ），B树中所有节点的孩子个数的最大值称为B树的阶，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：  树中每个结点至多有 m棵子树，即至多含有 m - 1个关键字。（关键字即查找的元素值）；  若根结点不是终端结点，则至">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221008212646349.png">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20220929000502291.png">
+<meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221105094704711.png">
+<meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221105095810252.png">
+<meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221105095705295.png">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221008220205166.png">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221008220325017.png">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221008220917232.png">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221008223350200.png">
 <meta property="og:image" content="http://example.com/2022/09/28/btree&b+tree/image-20221008234738642.png">
 <meta property="article:published_time" content="2022-09-28T15:35:11.000Z">
-<meta property="article:modified_time" content="2022-10-28T07:49:29.965Z">
+<meta property="article:modified_time" content="2022-11-05T01:58:23.961Z">
 <meta property="article:author" content="dreem">
 <meta property="article:tag" content="basicfour">
 <meta property="article:tag" content="data_structure">
@@ -82,7 +85,7 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
-			<li><font size=2 color=green><b>总笔记数 : 20</b></font></li>
+			<li><font size=2 color=green><b>总笔记数 : 26</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -215,7 +218,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="B树和B-树"><a href="#B树和B-树" class="headerlink" title="B树和B+树"></a>B树和B+树</h1><h2 id="B树的特点（也称B-树）"><a href="#B树的特点（也称B-树）" class="headerlink" title="B树的特点（也称B-树）"></a>B树的特点（也称B-树）</h2><p><strong>B树</strong>：又称多路平衡查找树（与平衡二叉树区分开），B树中所有节点的孩子个数的最大值称为<strong>B树的阶</strong>，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：</p>
+        <h1 id="B树和B-树"><a href="#B树和B-树" class="headerlink" title="B树和B+树"></a>B树和B+树</h1><h2 id="B树的特点（也称B-树）"><a href="#B树的特点（也称B-树）" class="headerlink" title="B树的特点（也称B-树）"></a>B树的特点（也称B-树）</h2><p><strong>B树</strong>：又称<strong>多路平衡查找树（与平衡二叉树区分开，B树是绝对平衡且不允许有高度差，平衡二叉树允许左右子树高度差为 0 或 1 ）</strong>，B树中所有节点的孩子个数的最大值称为<strong>B树的阶</strong>，通常用 m 表示，一棵 m阶B树或为空树，或为满足一下特性的 m叉树：</p>
 <ul>
 <li><p>树中每个结点至多有 <strong>m棵子树</strong>，即至多含有 <strong>m - 1个关键字</strong>。（关键字即查找的元素值）；</p>
 </li>
@@ -238,8 +241,15 @@
 
 <p><strong>平衡二叉树的左右子树高度只能是-1，0，1，但是B树的左右子树高度差只能为0（即左右子树高度都要相等）</strong>，也可以结合二叉排序树来记忆，即<strong>左子树</strong>的元素值 &lt; <strong>根节点</strong>的元素值 &lt; <strong>右子树</strong>的元素值。</p>
 <p><strong>注：</strong></p>
-<p>​	+  <strong>根结点的子树数∈[2，m]，关键字数∈[1，m - 1]</strong></p>
-<p>​	+  <strong>其他结点的子树数∈[⌈m&#x2F;2⌉，m]，关键字数∈[⌈m&#x2F;2⌉ - 1，m - 1]</strong></p>
+<p>​	+ <strong>根结点的子树数∈[2，m]，关键字数∈[1，m - 1]</strong></p>
+<p>​    + <strong>其他结点的子树数∈[⌈m&#x2F;2⌉，m]，关键字数∈[⌈m&#x2F;2⌉ - 1，m - 1]</strong></p>
+<h2 id="B树的高度"><a href="#B树的高度" class="headerlink" title="B树的高度"></a>B树的高度</h2><h3 id="最小高度"><a href="#最小高度" class="headerlink" title="最小高度"></a>最小高度</h3><p><img src="/2022/09/28/btree&b+tree/image-20221105094704711.png" alt="image-20221105094704711"></p>
+<h3 id="最大高度"><a href="#最大高度" class="headerlink" title="最大高度"></a>最大高度</h3><p><img src="/2022/09/28/btree&b+tree/image-20221105095810252.png" alt="image-20221105095810252"></p>
+<p><img src="/2022/09/28/btree&b+tree/image-20221105095705295.png" alt="image-20221105095705295"></p>
+<h2 id="B树的C-实现"><a href="#B树的C-实现" class="headerlink" title="B树的C++实现"></a>B树的C++实现</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">struct</span> <span class="title class_">Bnode</span>&#123;</span><br><span class="line">	ElemType key; <span class="comment">// 一个B树结点中有多少个关键字</span></span><br><span class="line">	<span class="keyword">struct</span> <span class="title class_">Bnode</span>* child[n]; <span class="comment">// B树最多有几个孩子</span></span><br><span class="line">	<span class="type">int</span> num; <span class="comment">// 结点中关键字的个数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
 <h3 id="B树的插入和删除（插入只能在最底层的终端结点中）"><a href="#B树的插入和删除（插入只能在最底层的终端结点中）" class="headerlink" title="B树的插入和删除（插入只能在最底层的终端结点中）"></a>B树的插入和删除（插入只能在最底层的终端结点中）</h3><p><strong>① 对 m阶B树—除根节点外，结点关键字个数 ⌈m&#x2F;2⌉ - 1 ≤ n ≤ m - 1</strong></p>
 <p><strong>② 要永远保证 子树0 &lt; 关键字1 &lt; 子树1 &lt; 关键字2 &lt; 子树2 &lt; …</strong></p>
 <p><strong>参考：</strong><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1b7411N798?p=73&amp;spm_id_from=pageDriver&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693">https://www.bilibili.com/video/BV1b7411N798?p=73&amp;spm_id_from=pageDriver&amp;vd_source=e8dabb7e7d08d095b938c58a3b51a693</a></p>
@@ -361,18 +371,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2022/09/30/IPv4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2022/09/28/UFSet/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          IPv4地址概述
+          并查集
         
       </div>
     </a>
   
   
-    <a href="/2022/09/27/shellsort/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">插入排序思想和实现</div>
+    <a href="/2022/09/28/hash_table/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">哈希表/散列表</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -498,19 +508,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -554,6 +564,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Disjoint Sets（并查集）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
               </li>
              
@@ -567,6 +585,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">交换排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash Table（哈希表/散列表）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -598,11 +624,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pointer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">进程管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">选择排序</a>
               </li>
              
               <li class="article-tag-list-item">

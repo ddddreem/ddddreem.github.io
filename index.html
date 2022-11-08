@@ -69,7 +69,7 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
-			<li><font size=2 color=green><b>总笔记数 : 20</b></font></li>
+			<li><font size=2 color=green><b>总笔记数 : 26</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -180,6 +180,351 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-pointer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/09/pointer/">指针和双指针</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/09/pointer/" class="archive-article-date">
+  	<time datetime="2022-11-08T16:24:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-09</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="对指针和双重指针甚至多重的一些愚见"><a href="#对指针和双重指针甚至多重的一些愚见" class="headerlink" title="对指针和双重指针甚至多重的一些愚见"></a>对指针和双重指针甚至多重的一些愚见</h1><p><font size="4" color="green"><strong>写在前面：</strong></font>指针是一个概念而不是一种具体的东西，计算机就是套娃，多重指针和双重指针的思想一样，就是不停的一层套一层。</p>
+<h2 id="指针"><a href="#指针" class="headerlink" title="指针"></a>指针</h2><p>指针也可以称为单指针、一级指针，这里我举个例子帮助理解。</p>
+<p><font size="4" color="red"><strong>小红：</strong></font>小蓝，你知道<strong>小黑</strong>在哪里吗？</p>
+<p><font size="4" color="blue"><strong>小蓝：</strong></font><strong>小黑</strong>他现在在教室的第一组第一排最左边的位置上。</p>
+<p>这里的（小黑他现在在教室的第一组第一排最左边的位置上）指出小黑现在的位置，此时小黑并不在小红和小蓝的身边，只知道小黑在教室的座位上，而<strong>小蓝说的小黑的位置</strong>就可以<strong>理解为指向小黑目前所在位置的指针</strong>。</p>
+<p>用C++来描述就是：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> black = <span class="number">10</span>;</span><br><span class="line">    <span class="type">int</span>* blue = &amp;black;<span class="comment">// *写在变量名前面表示该变量是指针变量，表示一个地址</span></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/09/pointer/image-20221109001444348.png" alt="image-20221109001444348"></p>
+<hr>
+<h2 id="双重指针"><a href="#双重指针" class="headerlink" title="双重指针"></a>双重指针</h2><p>双重指针可以理解是指针的指针，指向一个指针变量的指针，也就是指向一个地址的地址。这里我接着上面的例子来帮助你理解。</p>
+<blockquote>
+<p><font size="4" color="red"><strong>小红：</strong></font>小蓝，你知道<font size="4" color="black"><strong>小黑</strong></font>在哪里吗？</p>
+<p><font size="4" color="blue"><strong>小蓝：</strong></font>我不知道小黑在哪，但是小绿应该知道小黑在哪，<font size="4" color="green"><strong>小绿</strong></font>他现在在教室的第一组第一排最左边的位置上。</p>
+<p>这时，小红去教室找到小绿…</p>
+<p><font size="4" color="red"><strong>小红：</strong></font>小绿，你知道小黑在哪里吗？</p>
+<p><font size="4" color="green"><strong>小绿：</strong></font><font size="4" color="black"><strong>小黑</strong></font>他在篮球场的第二号场地。</p>
+</blockquote>
+<p>这里小红找到小黑的过程就是：先找到小蓝知道了小绿的位置，通过去小绿的位置上问小绿得知小黑的位置。即<strong>双指针本质还是指针，只不过这个指针指向的是一个指针变量。</strong></p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">int</span> <span class="title">main</span>()</span>&#123;</span><br><span class="line">	<span class="built_in">int</span> **black;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="/2022/11/09/pointer/image-20221109002117082.png" alt="image-20221109002117082"></p>
+<hr>
+<h2 id="如果现在的你有计算机组成原理的相关基础"><a href="#如果现在的你有计算机组成原理的相关基础" class="headerlink" title="如果现在的你有计算机组成原理的相关基础"></a>如果现在的你有计算机组成原理的相关基础</h2><p>如果你现在有计组的基础知识，则指针的概念不难想到指令的寻址方式。</p>
+<p>即<font size="3" color="black"><strong>不用指针（即在变量名之前不加 * 号）就相当于直接寻址，指针就相当于一次间接寻址（当前指令的操作数字段表示的是操作数的地址），双重指针就相当于两次间接寻址（指令中的操作数字段保存的是操作数的地址的地址）</strong></font>，可能会不太好理解，下面我画个图帮助理解。</p>
+<p><strong>普通变量：</strong></p>
+<p><img src="/2022/11/09/pointer/image-20221108235928176.png" alt="image-20221108235928176"></p>
+<p><strong>指针变量：</strong></p>
+<p><img src="/2022/11/09/pointer/image-20221108234901357.png" alt="image-20221108234901357"></p>
+<p><strong>双重指针变量：</strong></p>
+<p><img src="/2022/11/09/pointer/image-20221109000517170.png" alt="image-20221109000517170"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cpp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">pointer</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/09/pointer/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-encoding&amp;modulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/2022/11/07/encoding&modulation/image-20221107154617147.png" alt="image-20221107154617147"></p>
+<p><img src="/2022/11/07/encoding&modulation/image-20221107155751224.png" alt="image-20221107155751224"></p>
+<p><img src="/2022/11/07/encoding&modulation/image-20221107155025042.png" alt="image-20221107155025042"></p>
+<p><img src="/2022/11/07/encoding&modulation/image-20221107155235370.png" alt="image-20221107155235370"></p>
+<p><img src="/2022/11/07/encoding&modulation/image-20221107160601093.png" alt="image-20221107160601093"></p>
+<p><img src="/2022/11/07/encoding&modulation/image-20221107160727587.png" alt="image-20221107160727587"></p>
+<p><img src="/2022/11/07/encoding&modulation/image-20221107160802471.png" alt="image-20221107160802471"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/07/encoding&modulation/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-exchange_sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/01/exchange_sort/">交换排序思想和实现</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/01/exchange_sort/" class="archive-article-date">
+  	<time datetime="2022-11-01T13:17:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-01</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h1><h2 id="冒泡排序（简单交换排序）"><a href="#冒泡排序（简单交换排序）" class="headerlink" title="冒泡排序（简单交换排序）"></a>冒泡排序（简单交换排序）</h2><h2 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cpp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">交换排序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/01/exchange_sort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-select_sort" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/11/01/select_sort/">选择排序思想和实现</a>
+    </h1>
+  
+
+        
+        <a href="/2022/11/01/select_sort/" class="archive-article-date">
+  	<time datetime="2022-11-01T13:17:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-01</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><h2 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h2><h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cpp</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">选择排序</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/11/01/select_sort/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-tags404" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -772,427 +1117,9 @@
 
 
   
-    <article id="post-process_scheduling" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/23/process_scheduling/">操作系统处理机调度</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/23/process_scheduling/" class="archive-article-date">
-  	<time datetime="2022-10-23T09:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="处理机调度"><a href="#处理机调度" class="headerlink" title="处理机调度"></a>处理机调度</h1><blockquote>
-<ul>
-<li>三个层次的调度<ul>
-<li>高级调度（作业调度）</li>
-<li>中级调度（内存调度）</li>
-<li>低级调度（进程调度）：发生的最频繁的调度，也是系统最基本的调度</li>
-</ul>
-</li>
-</ul>
-</blockquote>
-<h3 id="调度算法"><a href="#调度算法" class="headerlink" title="调度算法"></a>调度算法</h3><h4 id="调度算法的评价指标"><a href="#调度算法的评价指标" class="headerlink" title="调度算法的评价指标"></a>调度算法的评价指标</h4><ul>
-<li><font color="green" face="宋体" size="4">CPU利用率</font> ：<strong>利用率 &#x3D; CPU 忙碌时间 &#x2F; 进程工作的总时间</strong></li>
-<li><font color="green" face="宋体" size="4">系统吞吐量</font> ： <strong>系统吞吐量  &#x3D; 总共完成了多少道作业 &#x2F; 总共花了多少时间</strong></li>
-<li><font color="green" face="宋体" size="4">周转时间</font> ： <ul>
-<li><strong>周转时间 &#x3D; 作业完成时间 - 作业提交时间</strong></li>
-<li><strong>平均周转时间 &#x3D; 各作业周转时间之和 &#x2F; 作业数</strong></li>
-<li><strong>带权周转时间 &#x3D; 作业周转时间 &#x2F; 作业实际运行的时间</strong></li>
-<li><strong>平均带权周转时间 &#x3D; 各作业带权周转时间之和 &#x2F; 作业数</strong></li>
-</ul>
-</li>
-<li><font color="green" face="宋体" size="4">等待时间</font> ：<ul>
-<li><strong>进程 &#x2F; 作业等待被服务的时间之和</strong></li>
-<li><strong>平均等待时间即各个 进程 &#x2F; 作业 等待时间的平均值</strong></li>
-</ul>
-</li>
-<li><font color="green" face="宋体" size="4">响应时间</font> ：<strong>作业提交请求到首次产生响应所用的时间</strong></li>
-</ul>
-<hr>
-<h4 id="FCFS算法（先来先服务）"><a href="#FCFS算法（先来先服务）" class="headerlink" title="FCFS算法（先来先服务）"></a>FCFS算法（先来先服务）</h4><h4 id="SJF算法（短作业优先）"><a href="#SJF算法（短作业优先）" class="headerlink" title="SJF算法（短作业优先）"></a>SJF算法（短作业优先）</h4><blockquote>
-<p>SJF 算法是对于作业调度来说的，SPF 算法则是对于进程调度来说的</p>
-<p>只是简单的根据用户提供的运行时间安排调度顺序，<strong>不一定能真正做到短作业优先调度</strong></p>
-<p>注：SJF 调度算法的<strong>平均等待时间、平均周转时间最小</strong></p>
-</blockquote>
-<h4 id="HRRN算法（高响应比优先）"><a href="#HRRN算法（高响应比优先）" class="headerlink" title="HRRN算法（高响应比优先）"></a>HRRN算法（高响应比优先）</h4><h4 id="RR算法（时间片轮转）"><a href="#RR算法（时间片轮转）" class="headerlink" title="RR算法（时间片轮转）"></a>RR算法（时间片轮转）</h4><h4 id="优先级调度算法"><a href="#优先级调度算法" class="headerlink" title="优先级调度算法"></a>优先级调度算法</h4><h4 id="多级反馈队列调度算法"><a href="#多级反馈队列调度算法" class="headerlink" title="多级反馈队列调度算法"></a>多级反馈队列调度算法</h4>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/23/process_scheduling/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-process_manage" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/23/process_manage/">操作系统进程管理</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/23/process_manage/" class="archive-article-date">
-  	<time datetime="2022-10-23T07:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-23</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程"><a href="#进程" class="headerlink" title="进程"></a>进程</h1><h2 id="进程、线程概念"><a href="#进程、线程概念" class="headerlink" title="进程、线程概念"></a>进程、线程概念</h2><blockquote>
-<ul>
-<li><strong>进程是分配系统资源的单位</strong>（包括内存地址空间），各进程拥有的内存地址空间相互独立</li>
-<li><strong>引入线程之前</strong>，进程是程序执行流的最小单位；<strong>引入线程概念之后</strong>，<strong>线程</strong>是程序执行流的<strong>最小单位</strong></li>
-</ul>
-</blockquote>
-<h2 id="进程控制"><a href="#进程控制" class="headerlink" title="进程控制"></a>进程控制</h2><h2 id="进程通信"><a href="#进程通信" class="headerlink" title="进程通信"></a>进程通信</h2>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/23/process_manage/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-e_note" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/09/e_note/">英语日常写作_note</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/09/e_note/" class="archive-article-date">
-  	<time datetime="2022-10-09T11:30:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-09</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="英语日常写作"><a href="#英语日常写作" class="headerlink" title="英语日常写作"></a>英语日常写作</h1><h2 id="便贴：note"><a href="#便贴：note" class="headerlink" title="便贴：note"></a>便贴：note</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Dear Sir or Madam,</span><br><span class="line">	I am Li Ming,a college student majoring in Chinese.I am writing this note to reply to your hiring request on the message board.My qualifications are completely in line with your demands.</span><br><span class="line">	Since I am a native speaker of Mandarin,I have been studying Chinese for more than 22 years.I am patient with the students as I had the experience as a tutor in primary school for 1 year when I was a sophomore.Besides,I am familiar with the Chinese exam,so it must be helpful for your daughter to improve her grades.I am free every morning from Monday to Friday.</span><br><span class="line">	If you are interested in hiring me,don&#x27;t hesitate to dial my number or send me a message in reply.</span><br><span class="line">																						Respectfully</span><br><span class="line">																							Li Ming</span><br></pre></td></tr></table></figure>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">other</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">writing</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/09/e_note/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IPv4" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/09/30/IPv4/">IPv4地址概述</a>
-    </h1>
-  
-
-        
-        <a href="/2022/09/30/IPv4/" class="archive-article-date">
-  	<time datetime="2022-09-30T03:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-30</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="IPv4概述"><a href="#IPv4概述" class="headerlink" title="IPv4概述"></a>IPv4概述</h1><h2 id="分类编址"><a href="#分类编址" class="headerlink" title="分类编址"></a>分类编址</h2><p>分类编址的IPv4地址分为五类：A类、B类、C类、D类和E类</p>
-<p><img src="/2022/09/30/IPv4/image-20220930145432959.png" alt="image-20220930145432959"></p>
-<p><strong>注：</strong></p>
-<ul>
-<li>只有A类、B类和C类地址可分配给网络中的主机或路由器的各接口</li>
-<li>主机号为 <strong>”全0“</strong> 的地址是网络地址，不能分配给主机或路由器的各接口</li>
-<li>主机号为 <strong>“全1”</strong> 的地址是广播地址，不能分配给主机或路由器的各接口</li>
-</ul>
-<hr>
-<h3 id="A类地址："><a href="#A类地址：" class="headerlink" title="A类地址："></a>A类地址：</h3><p><strong>前8位为网络号，且第一位为0</strong></p>
-<p><img src="/2022/09/30/IPv4/image-20220930150151133.png" alt="image-20220930150151133"></p>
-<p><strong>注意：</strong></p>
-<ul>
-<li><strong>最小网络号0</strong>，<strong>保留不指派</strong></li>
-<li>地址 <strong>0.0.0.0</strong> 是一个<strong>特殊的IPv4地址</strong>，<strong>只能作为源地址</strong>使用，表示 <strong>“在本网络上的本主机”</strong>。封装有DHCP Discovery 报文的IP分组的源地址使用 0.0.0.0</li>
-<li>第一个可指派的网络号为1，网络地址为1.0.0.0</li>
-<li>最大网络号127，作为<strong>本地软件环回测试地址</strong>，不指派<ul>
-<li>最小的本地软件环回测试地址为127.0.0.1</li>
-<li>最大的本地软件环回测试地址为127.255.255.254</li>
-</ul>
-</li>
-<li><strong>最后一个可指派的网络号</strong>为<strong>126</strong>，网络号为126.0.0.0</li>
-<li>可<strong>指派的网络数量</strong>为2^(8-1) - 2 &#x3D; 126（<strong>减2的原因是出去最小网络号和最大网络号127</strong>）</li>
-<li>每个网络中<strong>可分配的IP地址数量</strong>为 2^24 - 2 &#x3D; 16777214（<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
-</ul>
-<hr>
-<h3 id="B类地址："><a href="#B类地址：" class="headerlink" title="B类地址："></a>B类地址：</h3><p><strong>前16位作为网络号，且第一、第二位为 10</strong></p>
-<p><img src="/2022/09/30/IPv4/image-20220930151302292.png" alt="image-20220930151302292"></p>
-<p><strong>注意：</strong></p>
-<ul>
-<li>最小网络号也是第一个可指派的网络号 <strong>128.0</strong>，网络地址为<strong>128.0</strong>.0.0</li>
-<li>最大网络号也是最后一个可指派的网络号<strong>191.255</strong>，网络地址为<strong>191.255</strong>.0.0</li>
-<li><strong>可指派的网络数量</strong>为 2^(16-2) &#x3D; 16384</li>
-<li>每个<strong>网络中可分配的IP地址数量</strong>为 2^16 - 2 &#x3D; 65534 （<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
-</ul>
-<hr>
-<h3 id="C类地址："><a href="#C类地址：" class="headerlink" title="C类地址："></a>C类地址：</h3><p><strong>前24位作为网络号，且第一、二、三位为 110</strong></p>
-<p><img src="/2022/09/30/IPv4/image-20220930151937374.png" alt="image-20220930151937374"></p>
-<p><strong>注意：</strong></p>
-<ul>
-<li>最小网络号也是第一个可指派的网络号 <strong>192.0.0</strong>，网络地址为<strong>192.0.0</strong>.0</li>
-<li>最大网络号也是最后一个可指派的网络号 <strong>223.255.255</strong>，网络地址为 <strong>223.255.255</strong>.0</li>
-<li><strong>可指派的网络数量</strong>为 2^(24 - 3) &#x3D; 2097152</li>
-<li><strong>每个网络中可分配的IP地址数量</strong>为 2^8 - 2 &#x3D; 254（<strong>减2的原因是除去主机号为全0的网络地址和全1的广播地址</strong>）</li>
-</ul>
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">computer_network</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IPv4地址概述</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/09/30/IPv4/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
     </nav>
   
 
@@ -1287,19 +1214,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1343,6 +1270,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Disjoint Sets（并查集）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
               </li>
              
@@ -1356,6 +1291,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">交换排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash Table（哈希表/散列表）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1387,11 +1330,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pointer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">进程管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">选择排序</a>
               </li>
              
               <li class="article-tag-list-item">

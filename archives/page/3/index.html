@@ -6,31 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>插入排序思想和实现 | 吉姆的个人站</title>
+  <title>Archives | 吉姆的个人站</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="写在前面：插入排序的思想就是在一个已经排好序的序列中找当前插入元素的位置，从序列的第二个元素依次插入即可完成整个序列的排序（每个序列的第一个元素只有本身，所以即为有序），每次完成一个元素的插入，相应的其后面的元素都需要往后移动一个位置。 直接插入排序和希尔排序的元素移动时机是没比较一次都有可能移动元素；折半插入排序则是通过二分查找找出当前元素在已排序序列中的位置，随后，在已排序序列的末尾到这个位置">
-<meta property="og:type" content="article">
-<meta property="og:title" content="插入排序思想和实现">
-<meta property="og:url" content="http://example.com/2022/09/27/shellsort/index.html">
+  <meta name="description" content="涉猎广泛，想学什么学什么">
+<meta property="og:type" content="website">
+<meta property="og:title" content="吉姆的个人站">
+<meta property="og:url" content="http://example.com/archives/page/3/index.html">
 <meta property="og:site_name" content="吉姆的个人站">
-<meta property="og:description" content="写在前面：插入排序的思想就是在一个已经排好序的序列中找当前插入元素的位置，从序列的第二个元素依次插入即可完成整个序列的排序（每个序列的第一个元素只有本身，所以即为有序），每次完成一个元素的插入，相应的其后面的元素都需要往后移动一个位置。 直接插入排序和希尔排序的元素移动时机是没比较一次都有可能移动元素；折半插入排序则是通过二分查找找出当前元素在已排序序列中的位置，随后，在已排序序列的末尾到这个位置">
+<meta property="og:description" content="涉猎广泛，想学什么学什么">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20221027125404120.png">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927115831072.png">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927122439367.png">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927122737873.png">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927124121257.png">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927124522670.png">
-<meta property="og:image" content="http://example.com/2022/09/27/shellsort/image-20220927144605396.png">
-<meta property="article:published_time" content="2022-09-27T06:53:11.000Z">
-<meta property="article:modified_time" content="2022-11-01T12:49:20.511Z">
 <meta property="article:author" content="dreem">
-<meta property="article:tag" content="basicfour">
-<meta property="article:tag" content="data_structure">
-<meta property="article:tag" content="cpp">
-<meta property="article:tag" content="插入排序">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/2022/09/27/shellsort/image-20221027125404120.png">
   
     <link rel="alternative" href="/atom.xml" title="吉姆的个人站" type="application/atom+xml">
   
@@ -83,7 +69,7 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
-			<li><font size=2 color=green><b>总笔记数 : 20</b></font></li>
+			<li><font size=2 color=green><b>总笔记数 : 26</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -193,245 +179,289 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-shellsort" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      插入排序思想和实现
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2022" class="archive-year">2022</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/06/19/Linux%E6%9D%83%E9%99%90/" class="archive-article-date">
+  	<time datetime="2022-06-19T10:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-06-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/06/19/Linux%E6%9D%83%E9%99%90/">Linux权限管理</a>
     </h1>
   
 
-        
-        <a href="/2022/09/27/shellsort/" class="archive-article-date">
-  	<time datetime="2022-09-27T06:53:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-27</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><font color="blue" size="4"><strong>写在前面：</strong></font><strong>插入排序的思想</strong>就是<strong>在一个已经排好序的序列中找当前插入元素的位置</strong>，从序列的第二个元素依次插入即可完成整个序列的排序（每个序列的第一个元素只有本身，所以即为有序），每次完成一个元素的插入，相应的其后面的元素都需要往后移动一个位置。</p>
-<p><strong>直接插入排序和希尔排序</strong>的元素移动时机是没比较一次都有可能移动元素；<strong>折半插入排序</strong>则是通过二分查找找出当前元素在已排序序列中的位置，随后，在已排序序列的末尾到这个位置的已排序元素依次向后移动一个位置（即统一移动元素，空出插入位置）。</p>
-<p><img src="/2022/09/27/shellsort/image-20221027125404120.png" alt="image-20221027125404120"></p>
-<table>
-        <tr>
-            <td rowspan="2">插入排序算法</td>
-            <td colspan="3">时间复杂度</td>
-            <td rowspan="2">空间复杂度</td>
-            <td rowspan="2">稳定性</td>
-        </tr>
-        <tr>
-            <td>最好情况</td>
-            <td>最坏情况</td>
-            <td>平均情况</td>
-        </tr>
-        <tr>
-            <td>直接插入排序</td>
-            <td>O(n)</td>
-            <td>O(n²)</td>
-            <td>O(n²)</td>
-            <td>O(1)</td>
-            <td>稳定</td>
-        </tr>
-        <tr>
-            <td>折半插入排序</td>
-            <td>O(n)</td>
-            <td>O(n²)</td>
-            <td>O(n²)</td>
-            <td>O(1)</td>
-            <td>稳定</td>
-        </tr>
-        <tr>
-            <td>希尔排序</td>
-            <td>O(n)</td>
-            <td>O(n²)</td>
-            <td>O(n²)</td>
-            <td>O(1)</td>
-            <td>不稳定</td>
-        </tr>
-    </table>
-
-<p><font color="red" size="4"><strong>注：</strong></font>每次在已排好序的序列后的第一个位置选择排序元素；如果当前的元素 &gt;&#x3D; 已排序序列的最后一个元素，则直接插入，不需要移动之前的元素，否则，在该元素位置之后的所有已排好序的元素都需要往后移动一个位置。</p>
-<h1 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待排序序列</span></span><br><span class="line"><span class="type">int</span> arr[] = &#123; <span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">23</span>,<span class="number">76</span> &#125;; <span class="comment">// 建立数组</span></span><br><span class="line"><span class="type">int</span> size = <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 直接插入排序 为元素确定插入位置</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">InsertSort</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> size)</span> </span>&#123; <span class="comment">// 升序排列</span></span><br><span class="line">	<span class="type">int</span> temp, i, j; <span class="comment">// temp临时变量存储当前需要找位置的元素</span></span><br><span class="line">	<span class="keyword">for</span> (i = <span class="number">1</span>; i &lt; size; ++i) &#123;</span><br><span class="line">		<span class="keyword">if</span> (arr[i] &lt; arr[i - <span class="number">1</span>]) &#123; <span class="comment">// 如果当前的元素比前一个元素还小，说明这个元素要排在前一个元素之前</span></span><br><span class="line">			temp = arr[i];</span><br><span class="line">			<span class="keyword">for</span> (j = i - <span class="number">1</span>; temp &lt; arr[j]; --j) &#123; <span class="comment">// 查找是否还有比当前元素大的元素 </span></span><br><span class="line">					arr[j + <span class="number">1</span>] = arr[j];<span class="comment">// 如果有则往后移</span></span><br><span class="line">			&#125;</span><br><span class="line">			arr[j + <span class="number">1</span>] = temp;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="折半插入排序"><a href="#折半插入排序" class="headerlink" title="折半插入排序"></a>折半插入排序</h1><p>减少了比较次数</p>
-<h1 id="希尔排序"><a href="#希尔排序" class="headerlink" title="希尔排序"></a>希尔排序</h1><p>目的：用这篇文章来记录和巩固希尔排序的思想和实现步骤</p>
-<h2 id="基本思想："><a href="#基本思想：" class="headerlink" title="基本思想："></a>基本思想：</h2><p>​	先将整个待排序列分割成<strong>若干子序列</strong>，分别进行直接插入排序，代整个序列中的记录”<strong>基本有序</strong>“时，再对全体记录进行一次<strong>直接插入排序</strong>。</p>
-<h3 id="希尔排序算法的特点"><a href="#希尔排序算法的特点" class="headerlink" title="希尔排序算法的特点"></a>希尔排序算法的特点</h3><ul>
-<li>缩小增量</li>
-<li>多遍插入排序</li>
-</ul>
-<h2 id="希尔排序特点"><a href="#希尔排序特点" class="headerlink" title="希尔排序特点"></a>希尔排序特点</h2><ul>
-<li>一次移动，移动位置较大，跳跃式地接近排序后的最终位置</li>
-<li>最后一次只需要少量移动</li>
-<li>增量序列必须是递减的，最后一个必须是1</li>
-<li>增量序列应该是互质的(不能互相整除)</li>
-</ul>
-<hr>
-<h2 id="算法实现"><a href="#算法实现" class="headerlink" title="算法实现"></a>算法实现</h2><h3 id="主程："><a href="#主程：" class="headerlink" title="主程："></a>主程：</h3><p>用来给定需要进行希尔排序的序列、增量序列和进行排序的次数</p>
-<p><strong>王卓老师</strong>的示例代码如下：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">define</span> MAXSIZE 20</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> InfoType;</span><br><span class="line"><span class="comment">// 数据结构</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123; <span class="comment">// 每个记录的数据结构</span></span><br><span class="line">    <span class="type">int</span> key; <span class="comment">// 关键字</span></span><br><span class="line">    InfoType otherInfo;</span><br><span class="line">&#125;RedType； <span class="comment">// Record Type</span></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span>&#123; <span class="comment">// 顺序表的数据结构</span></span><br><span class="line">    RedType r[MAXSIZE + <span class="number">1</span>]; <span class="comment">// r[0] 通常用来作为哨兵，数据存储的位置从下标为 1的位置开始开始</span></span><br><span class="line">    <span class="type">int</span> length; <span class="comment">// 保存顺序表的长度</span></span><br><span class="line">&#125;Sqlist;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellSort</span><span class="params">(Sqlist &amp;L, <span class="type">int</span> dlta[], <span class="type">int</span> t)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 按增量序列dlta[0...t-1]对顺序表L做希尔排序</span></span><br><span class="line">	<span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span>; i &lt; t; ++i)</span><br><span class="line">		<span class="built_in">ShellInsert</span>(L, dlta[i]); <span class="comment">// 一趟增量为dlta[i]的插入排序</span></span><br><span class="line">&#125; <span class="comment">// ShellSort</span></span><br></pre></td></tr></table></figure>
-
-<p><strong>更便于理解</strong>的示例代码：</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 待排序序列</span></span><br><span class="line"><span class="type">int</span> arr[] = &#123; <span class="number">8</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">7</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">9</span>,<span class="number">10</span>,<span class="number">23</span>,<span class="number">76</span> &#125;; <span class="comment">// 建立数组</span></span><br><span class="line"><span class="type">int</span> size = <span class="built_in">sizeof</span>(arr) / <span class="built_in">sizeof</span>(<span class="type">int</span>);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">// 希尔排序</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellSort</span><span class="params">(<span class="type">int</span>* arr, <span class="type">int</span> size)</span> </span>&#123;</span><br><span class="line">	<span class="type">int</span> i, j, dk, temp;</span><br><span class="line">	<span class="keyword">for</span> (dk = size / <span class="number">2</span>; dk &gt;= <span class="number">1</span>; dk /= <span class="number">2</span>) &#123;</span><br><span class="line">        <span class="comment">// 控制每次排序的步长,即在直接插入排序的基础上，使部分有序，减少移动、比较次数</span></span><br><span class="line">		<span class="keyword">for</span> (i = dk; i &lt; size; ++i) &#123;</span><br><span class="line">			<span class="keyword">if</span> (arr[i] &lt; arr[i - dk]) &#123;</span><br><span class="line">				temp = arr[i];</span><br><span class="line">				<span class="keyword">for</span> (j = i - dk; temp &lt; arr[j] &amp;&amp; j &gt;= <span class="number">0</span>; j -= dk) &#123;</span><br><span class="line">					arr[j + dk] = arr[j];</span><br><span class="line">				&#125;</span><br><span class="line">				arr[j + dk] = temp;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>增量的意思是每次执行排序的两个数之间的距离。</p>
-<p><img src="/2022/09/27/shellsort/image-20220927115831072.png" alt="image-20220927115831072"></p>
-<p>数据为0的位置为哨兵的位置，这里的哨兵并不是直接插入排序中的哨兵，这里的哨兵来进行辅助交换操作。</p>
-<span id="more"></span>
-
-<h3 id="增量排序："><a href="#增量排序：" class="headerlink" title="增量排序："></a>增量排序：</h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">void</span> <span class="title">ShellInsert</span><span class="params">(Sqlist &amp;L, <span class="type">int</span> dk)</span></span>&#123;</span><br><span class="line">	<span class="comment">// 对顺序表进行一趟增量为dk的Shell排序，dk为这次增量排序的步长</span></span><br><span class="line">    <span class="type">int</span> i, j;</span><br><span class="line">	<span class="keyword">for</span>(i = dk + <span class="number">1</span>; i &lt;= L.length; ++i)&#123;</span><br><span class="line">        <span class="keyword">if</span>(L.r[i].key &lt; L.r[i - dk].key)&#123;</span><br><span class="line">            L.r[<span class="number">0</span>] = L.r[i]; <span class="comment">// 用哨兵暂存扫描到且还没加到有序表的元素</span></span><br><span class="line">            <span class="comment">// j = j -dk用来判断之前是否有元素，如果有，之前的元素也需要跟交换后的位置比较，以保持有序性质</span></span><br><span class="line">            <span class="keyword">for</span>(j = i - dk; j &gt; <span class="number">0</span> &amp;&amp; (L.r[<span class="number">0</span>].key &lt; L.r[j].key); j = j - dk)</span><br><span class="line">                L.r[j + dk] = L.r[j];</span><br><span class="line">            L.r[j + dk] = L.r[<span class="number">0</span>];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>没有什么比举例子更容易理解的东西</p>
-<p><img src="/2022/09/27/shellsort/image-20220927122439367.png" alt="image-20220927122439367"></p>
-<p>eg：</p>
-<ul>
-<li><strong>第一轮循环</strong>：当dk为5时，希尔排序从dk + 1的位置开始开始比较第 dk + 1 和dk + 1 - dk的大小，第一轮循环，比较下图中的两个位置的大小并交换。</li>
-</ul>
-<p>开始状态：</p>
-<p><img src="/2022/09/27/shellsort/image-20220927122737873.png" alt="image-20220927122737873"></p>
-<p>执行完第一轮循环之后的状态：</p>
-<p>​		此时 <strong>j &#x3D; i - dk，也就是说 j 也指向 i - dk的位置，执行完 交换之后需要 减去一个dk（也就是减去一个步长），再看看前面是否还有需要交换的元素，以来保证每次循环后，i之前的相距 dk的位置是相对有序的</strong></p>
-<p><img src="/2022/09/27/shellsort/image-20220927124121257.png" alt="image-20220927124121257"></p>
-<p><img src="/2022/09/27/shellsort/image-20220927124522670.png" alt="image-20220927124522670"></p>
-<ul>
-<li><p>当 <strong>i - dk****的值小于</strong>0<strong>时，表明前面没有需要比较的元素，只需要对比两元素之后，</strong>i**跳转到下一个暂未排序的增量步长</p>
-</li>
-<li><p>当 <strong>i - dk****的值大于</strong>0**时，表明前面还有需要比较的元素，如下图</p>
-<p>当 <strong>i</strong>的位置在下午所示的位置时候。</p>
-</li>
-</ul>
-<p><img src="/2022/09/27/shellsort/image-20220927144605396.png" alt="image-20220927144605396"></p>
-<ul>
-<li>由于此时在 <strong>j</strong>之前的元素都已排好序，则不需要进行位置交换，即跳出循环，完成排序；其他位置的比较和交换类似。自己模拟一下就知道了。</li>
-</ul>
-<h3 id="注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能"><a href="#注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能" class="headerlink" title="注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能"></a>注：增量序列可能有很多个，所以每次的增量排序都跟上诉过程类似，要注意的是，之后一次的排序一定是直接插入排序，但是因为这时整个表相对有序，所以有更好的性能</h3><h2 id="参考：青岛大学–王卓，地址：https-space-bilibili-com-40323036"><a href="#参考：青岛大学–王卓，地址：https-space-bilibili-com-40323036" class="headerlink" title="参考：青岛大学–王卓，地址：https://space.bilibili.com/40323036"></a>参考：青岛大学–王卓，地址：<a target="_blank" rel="noopener" href="https://space.bilibili.com/40323036">https://space.bilibili.com/40323036</a></h2>
-      
-
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>感谢支持<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/alipay.jpg">
-                      <span class="reward-type">支付宝</span>
-                    </div>
-                    
-                    
-                    <div class="reward-box-item">
-                      <img class="reward-img" src="/img/vxpay.jpg">
-                      <span class="reward-type">微信</span>
-                    </div>
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">data_structure</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">cpp</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">插入排序</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">linux权限介绍</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
   
-<nav id="article-nav">
-  
-    <a href="/2022/09/28/btree&b+tree/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          B树、B+树
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2022/09/18/nginx/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Nginx操作手册</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/05/26/Markdown%E8%AF%AD%E6%B3%95/" class="archive-article-date">
+  	<time datetime="2022-05-26T11:51:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
+</a>
         </div>
-        
-        
-    </div>
-</aside>
-
-
-
+    	 
   
-  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/05/26/Markdown%E8%AF%AD%E6%B3%95/">Markdown学习笔记</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">MarkDown</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/05/26/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2022-05-26T11:03:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-26</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/05/26/Git%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Git学习笔记</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">git</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/05/19/linuxstaticip/" class="archive-article-date">
+  	<time datetime="2022-05-19T10:31:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-05-19</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/05/19/linuxstaticip/">Linux静态IP设置</a>
+    </h1>
   
 
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">linux静态IP设置</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/03/02/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2022-03-02T13:11:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-03-02</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/03/02/SpringMVC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">SpringMvc学习笔记</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">springmvc</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+    
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2022/02/23/mybatis/" class="archive-article-date">
+  	<time datetime="2022-02-23T11:51:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-02-23</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2022/02/23/mybatis/">Mybatis学习笔记</a>
+    </h1>
+  
+
+        <div class="article-info info-on-right">
+          
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">tech</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">dao</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">mybatis</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+          
+
+        </div>
+        <div class="clearfix"></div>
+    </header>
+  </div>
+</article>
+  
+  
+    </div></section>
+  
+
+    
+    <nav id="page-nav">
+      <a class="extend prev" rel="prev" href="/archives/page/2/">上一页</a><a class="page-number" href="/archives/">1</a><a class="page-number" href="/archives/page/2/">2</a><span class="page-number current">3</span>
+    </nav>
   
 
 
@@ -455,8 +485,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
-		isArchive: false,
+		isPost: false,
+		isArchive: true,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
@@ -525,19 +555,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">tech</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">git</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">nightchat</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">夜话</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -581,6 +611,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Disjoint Sets（并查集）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
               </li>
              
@@ -594,6 +632,14 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">cpp</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">交换排序</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hash Table（哈希表/散列表）</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -625,11 +671,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">pointer</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">os</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">进程管理</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">选择排序</a>
               </li>
              
               <li class="article-tag-list-item">
