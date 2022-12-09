@@ -69,7 +69,7 @@
 	        
 				<li style="color:blue; font-size:15px; font-weight:bold;"> | <a style="color:blue;font-size:15px;font-weight:bold;" href="/tags/other/">其他</a> | </li>
 	        
-			<li><font size=2 color=green><b>总笔记数 : 26</b></font></li>
+			<li><font size=2 color=green><b>总笔记数 : 27</b></font></li>
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -180,6 +180,114 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-java_collection" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/12/09/java_collection/">Java集合</a>
+    </h1>
+  
+
+        
+        <a href="/2022/12/09/java_collection/" class="archive-article-date">
+  	<time datetime="2022-12-09T08:51:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-12-09</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Java集合"><a href="#Java集合" class="headerlink" title="Java集合"></a>Java集合</h1><h2 id="Collection-接口"><a href="#Collection-接口" class="headerlink" title="Collection 接口"></a>Collection 接口</h2><p>Collection 是单列集合，即每次添加的元素时单个的元素，Collection接口继承了 <font color="green" size="4"><strong>Iterable接口</strong></font> ，实现了Iterable的集合可以使用迭代器来遍历集合</p>
+<p>基本用法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">List</span> <span class="variable">list</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ArrayList</span>();</span><br><span class="line">list.add(<span class="string">&quot;01&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;02&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;04&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;03&quot;</span>);</span><br><span class="line">list.add(<span class="string">&quot;05&quot;</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(list.hasNext())&#123;</span><br><span class="line">    <span class="type">Object</span> <span class="variable">object</span> <span class="operator">=</span> list.next();</span><br><span class="line">    system.out.println(object);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 补充：加强 for, for(元素类型 暂存遍历元素的变量 ：遍历的集合)</span></span><br><span class="line"><span class="keyword">for</span>(Object o : list)&#123;</span><br><span class="line">    system.out.printf(o);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><font color="green" size="4"><strong>Collection注意事项：</strong></font></p>
+<ul>
+<li>Collection 的实现子类都可以存放多个元素，每个元素可以是 Object</li>
+<li>有些Collection 的实现类，可以存放重复的元素，有些不可以</li>
+<li>有些Collection 的实现类，有些是有序的（List），有些不是有序的（Set）</li>
+<li>Collection 接口没有直接的实现子类，是通过她的子接口 Set 和 List 来实现的</li>
+</ul>
+<p><img src="/2022/12/09/java_collection/image-20221208091753534.png"></p>
+<p><font color="green" size="4"><strong>Collection 的接口方法：</strong></font></p>
+<p>Collection接口的实现类实现了Collection的方法，Collection定义了实现Collection接口集合基本的方法</p>
+<blockquote>
+<ul>
+<li>add(Object o) : 添加单个元素</li>
+<li>remove(Object o) : 删除指定下标的元素</li>
+<li>contains(Object o) : 查询元素是否存在集合中</li>
+<li>size() : 获取集合的长度，即集合中元素个数</li>
+<li>isEmpty() : 判断集合是否为空</li>
+<li>clear() : 清空集合中的所有元素</li>
+<li>addAll(Collection c) : 添加多个元素</li>
+<li>containsAll(Collection c) : 查询多个元素是否都存在</li>
+<li>removeAll(Collection c) : 删除多个元素</li>
+<li>iterator() : 获取集合的迭代器，用于遍历集合</li>
+</ul>
+</blockquote>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Collection&Map</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/12/09/java_collection/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-pointer" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -1009,114 +1117,6 @@
 
 
   
-    <article id="post-process_synchronization&amp;mutual_exclusion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/24/process_synchronization&mutual_exclusion/">操作系统进程同步、互斥</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/24/process_synchronization&mutual_exclusion/" class="archive-article-date">
-  	<time datetime="2022-10-24T09:25:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-24</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="进程同步、互斥"><a href="#进程同步、互斥" class="headerlink" title="进程同步、互斥"></a>进程同步、互斥</h1><h2 id="进程同步"><a href="#进程同步" class="headerlink" title="进程同步"></a>进程同步</h2><blockquote>
-<ul>
-<li><p>进程具有<font color="red" size="3"><strong>异步性</strong></font>的特征。异步性是指各并发执行的进程以各自独立的、不可预知的速度向前推进。</p>
-</li>
-<li><p><font color="red" size="3"><strong>同步</strong></font>也叫做<font color="red" size="3"><strong>直接制约关系</strong></font>，它是指为完成某种任务而建立的两个或多个进程，这些进程因为需要在<font color="red" size="3"><strong>某些位置上协调他们的工作次序而产生的制约关系。进程间的直接制约关系</strong></font>&gt;就是源于它们之间的相互合作。</p>
-</li>
-</ul>
-</blockquote>
-<h2 id="进程互斥"><a href="#进程互斥" class="headerlink" title="进程互斥"></a>进程互斥</h2><p>进程的 “ 并发 ” 需要 “ 共享 ” 的支持。各个并发执行的进程不可避免的需要共享一些系统资源（比如内存，打印机、摄像头这样的 I&#x2F;O设备）。</p>
-<h3 id="资源共享方式"><a href="#资源共享方式" class="headerlink" title="资源共享方式"></a>资源共享方式</h3><ul>
-<li><font color="red" size="3"><strong>互斥共享方式</strong></font> ：系统中的某些资源，虽然可以提供给多个进程使用，但<strong>一个时间段内只允许一个进程访问该资源</strong></li>
-<li><font color="red" size="3"><strong>同时共享方式</strong></font> ： 系统中的某些资源，<strong>允许一个时间段内由多个进程 “同时” 对他们进行访问</strong></li>
-</ul>
-<h3 id="互斥"><a href="#互斥" class="headerlink" title="互斥"></a>互斥</h3><p>我们把<strong>一个时间段内只允许一个进程使用的资源称为临界资源</strong>。许多物理设备（比如摄像头、打印机）都属于临界资源。此外还有很多变量、数据、内存缓冲区等都属于临界资源。</p>
-<p>对临界资源的访问，必须互斥的进行。<font color="red" size="3"><strong>互斥</strong></font>，也叫做<font color="red" size="3"><strong>间接制约关系</strong></font>。进程互斥指<font color="red" size="3"><strong>当一个进程访问某临界资源时，另一个想要访问该资源的进程必须等待。当前访问临界资源的进程访问结束，释放该资源之后，另一个进程才能去访问临界资源</strong></font>。</p>
-<h3 id="实现临界资源互斥访问的四大原则"><a href="#实现临界资源互斥访问的四大原则" class="headerlink" title="实现临界资源互斥访问的四大原则"></a>实现临界资源互斥访问的四大原则</h3><ol>
-<li><strong>空闲让进</strong>。临界区空闲时，可以允许一个请求进入临界区的进程立即进入临界区；</li>
-<li><strong>忙则等待</strong>。当已有进程进入临界区时，其他试图进入临界区的进程必须等待；</li>
-<li><strong>有限等待</strong>。对请求访问的进程，应保证能在有限时间内进入临界区（保证不会饥饿）；</li>
-<li><strong>让权等待</strong>。当进程不能进入临界区时，应立即释放处理机，防止进程忙等待。</li>
-</ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">do</span>&#123;</span><br><span class="line">	entry section; <span class="comment">// 进入区</span></span><br><span class="line">    critical section; <span class="comment">// 临界区</span></span><br><span class="line">    exit section; <span class="comment">// 退出区</span></span><br><span class="line">    remainder section; <span class="comment">// 剩余区</span></span><br><span class="line">&#125;<span class="keyword">while</span>(<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
-
-<hr>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">os</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">进程管理</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/24/process_synchronization&mutual_exclusion/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
@@ -1266,6 +1266,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">data_structure</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">search</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Disjoint Sets（并查集）</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">other</a>
               </li>
              
@@ -1274,23 +1290,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">data_structure</a>
+                <a href="javascript:void(0)" class="js-tag color4">cpp</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">BTree&B+Tree</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">search</a>
+                <a href="javascript:void(0)" class="js-tag color5">交换排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">Hash Table（哈希表/散列表）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">cpp</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1302,19 +1310,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Collection&Map</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Thread</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Disjoint Sets（并查集）</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">linux静态IP设置</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1323,6 +1327,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">mybatis</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">nginx</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1338,15 +1346,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">交换排序</a>
+                <a href="javascript:void(0)" class="js-tag color5">选择排序</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">插入排序</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">选择排序</a>
               </li>
              
               <li class="article-tag-list-item">
