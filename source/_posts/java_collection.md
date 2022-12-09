@@ -61,7 +61,7 @@ Collection接口的实现类实现了Collection的方法，Collection定义了�
 
 <!-- more --> 
 
-+++
+---
 
 ### List集合及其实现子类
 
@@ -99,7 +99,7 @@ List 集合是 Collection 接口的子接口
 > + Object set(int index, Object ele) : 设置指定 index 位置的元素为 ele，相当于是替换
 > + List subList(int formIndex, int toIndex) : 返回从 fromIndex到 toIndex位置的子集合，注意截取的子集合为下表的左闭右开，即 **[fromIndex, toIndex)** 
 
-+++
+---
 
 #### <font color=red size=5>ArrayList</font>
 
@@ -112,8 +112,6 @@ List 集合是 Collection 接口的子接口
 + ArrayList 基本等同于 Vector，但是由于 ArrayList 没有增加进程同步机制，所以执行效率高；Vector 有进程同步机制，所以多进程下数据是安全的（即 synchronized）
 
 ![image-20221208094349977](./img/image-20221208094349977.png)
-
-
 
 ##### <font color=green size=4>ArrayList 扩容机制：</font>
 
@@ -150,13 +148,12 @@ List 集合是 Collection 接口的子接口
 
   ![image-20221209131259241](./img/image-20221209131259241.png)
   
-  
 
 ##### <font color=green size=4>扩容步骤（无参构造）：</font>
 
 **<font color=green size=3>使用无参构造方法构造 ArrayList对象后，第一次添加元素时：</font>**
 
-1. 由于无参构造`new ArrayList()` 初始化的底层数组为空数组，即 **`{}`**；因此第一次添加的时候会自动扩容到 **`10`**；
+1. 由于无参构造`new ArrayList()` 初始化的底层数组为空数组，即 `{}`；因此第一次添加的时候会自动扩容到 `10`；
 
    ![](./img/image-20221209120053779.png)
 
@@ -187,21 +184,21 @@ List 集合是 Collection 接口的子接口
 
 <font color=green size=3>**使用无参构造方法构造的ArrayList对象在第一次扩容后再发生容量不够的情况：**</font>
 
-1. 第一步还是先判断当前**`elementData`**中是否有足够容量可以新增一个元素；
+1. 第一步还是先判断当前`elementData`中是否有足够容量可以新增一个元素；
 
 ![image-20221209160317527](./img/image-20221209160317527.png)
 
-2. 先调用**`calculateCapacity(Object[], int)`**方法来计算所需容量大小；
+2. 先调用`calculateCapacity(Object[], int)`方法来计算所需容量大小；
 
    ![image-20221209160531487](./img/image-20221209160531487.png)
 
    ![image-20221209160705036](./img/image-20221209160705036.png)
 
-3. 根据**`calculateCapacity(Object[], int)`**方法计算出来的 **`minCapacity`**值来确定是否要扩容；（`minCapacity`表示此次添加的新元素需要**`elementData`**数组的最小大小，**当此时的`elementData`数组的大小 小于 所需最小的大小时，调用扩容方法`grow(int minCapacity)`**）
+3. 根据`calculateCapacity(Object[], int)`方法计算出来的 `minCapacity`值来确定是否要扩容；（`minCapacity`表示此次添加的新元素需要`elementData`数组的最小大小，当此时的`elementData`数组的大小 小于 所需最小的大小时，调用扩容方法`grow(int minCapacity)`）
 
    ![image-20221209161135402](./img/image-20221209161135402.png)
 
-4. **`grow(int)`**方法，根据`ensureExplicitCapacity(int)`方法传来的 `minCapacity`来判断是否是无参 ArrayList对象的第一次扩容，如果是，则`if(newCapacity - minCapacity < 0)`里的`newCapacity = minCapacity`才会执行；否则直接将新数组容量直接变为原先数组容量的 **`1.5`**倍（由于此时已经进入到 `grow(int)` 方法了，所以此时的 `elementData` 数组的大小已经不能再添加元素了，因此在原先数组的长度基础上变为原来的 **`1.5`**倍）
+4. `grow(int)`方法，根据`ensureExplicitCapacity(int)`方法传来的 `minCapacity`来判断是否是无参 ArrayList对象的第一次扩容，如果是，则`if(newCapacity - minCapacity < 0)`里的`newCapacity = minCapacity`才会执行；否则直接将新数组容量直接变为原先数组容量的 `1.5`倍（由于此时已经进入到 `grow(int)` 方法了，所以此时的 `elementData` 数组的大小已经不能再添加元素了，因此在原先数组的长度基础上变为原来的 `1.5`倍）
 
    ![image-20221209161604486](./img/image-20221209161604486.png)
 
@@ -211,9 +208,9 @@ List 集合是 Collection 接口的子接口
 
 ##### <font color=green size=4>扩容步骤（有参构造）：</font>
 
-+ 在调用有参构造 `ArrayList(int initialCapacity)` 后，当容量达到规定大小的时候，则开始使用扩容机制，将容量扩容到当前`elementData`数组大小的 **`1.5`**倍，其具体操作与无参构造完成第一次扩容后再次容量不足是的操作是一样的。
++ 在调用有参构造 `ArrayList(int initialCapacity)` 后，当容量达到规定大小的时候，则开始使用扩容机制，将容量扩容到当前`elementData`数组大小的 `1.5`倍，其具体操作与无参构造完成第一次扩容后再次容量不足是的操作是一样的。
 
-+++
+---
 
 #### <font color=red size=5>Vector</font>
 
@@ -229,7 +226,7 @@ List 集合是 Collection 接口的子接口
 
 ##### <font color=green size=4>Vector 扩容机制：</font>
 
-+++
+---
 
 #### <font color=red size=5>LinkedList</font>
 
