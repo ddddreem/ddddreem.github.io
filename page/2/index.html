@@ -185,103 +185,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-java_thread" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2022/10/25/java_thread/">Java多线程温习</a>
-    </h1>
-  
-
-        
-        <a href="/2022/10/25/java_thread/" class="archive-article-date">
-  	<time datetime="2022-10-25T07:00:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-10-25</time>
-</a>
-        
-		<!-- 开始添加字数统计-->
-		
-		<!-- 添加完成 -->
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Java多线程"><a href="#Java多线程" class="headerlink" title="Java多线程"></a>Java多线程</h1><h2 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h2><p>通过<font color="blue"><strong>继承Thread类和实现Runnable接口来创建线程本质上是没有区别的</strong></font>，从源码上看，我们可以很清晰的看到，实现Runnable的类不能自己创建一个线程，只能通过Thread构造器来创建一个线程。</p>
-<p>实现Runnable接口方式更加适合多个线程共享一个资源的情况，并且避免了单继承的限制。</p>
-<p><img src="/2022/10/25/java_thread/image-20221025151607054.png" alt="image-20221025151607054"></p>
-<p><font color="blue" size="3"><strong>注：</strong></font>用关键字native修饰的方法为底层调用方法，一般是当前操作系统提供给应用程序的程序接口，应用程序请求操作系统为其提供服务，由于某些服务必须工作在内核态，即操作CPU、内存和 I&#x2F;O设备；因此必须由用户态切换到内核态，这就涉及到系统调用。</p>
-<p>这里Thread类的start()方法是创建一个线程的入口，但是真正创建线程的方法是本地方法 start0()。</p>
-<p><img src="/2022/10/25/java_thread/image-20221025151853380.png" alt="image-20221025151853380"></p>
-<p>调用 start0()方法后，操作系统为当前进程创建一个新的线程，这个线程由操作系统来决定执行的时间。由操作系统来统一调度。</p>
-<p>线程执行时，调用的业务逻辑即是重写的 run()方法中的业务逻辑。</p>
-<p><img src="/2022/10/25/java_thread/image-20221025152711777.png" alt="image-20221025152711777"></p>
-<h2 id="为什么实现Runnable接口的类也必须通过Thread类来创建一个线程呢？"><a href="#为什么实现Runnable接口的类也必须通过Thread类来创建一个线程呢？" class="headerlink" title="为什么实现Runnable接口的类也必须通过Thread类来创建一个线程呢？"></a>为什么实现Runnable接口的类也必须通过Thread类来创建一个线程呢？</h2><p>根据继承关系，Thread类是继承Runnable接口的，Thread类中的 run()方法其实是实现了Runnable接口中的 run()方法。</p>
-<p>如果一个类仅仅是实现了Runnable接口，这个类自身是没有创建一个线程的方法的，Java中的Thread类为我们提供了创建一个新线程的方法，也不用我们自己写创建线程的方法，只需要通过传参的方式调用 Thread类中的构造方法，由于Thread类中有一个</p>
-<p><img src="/2022/10/25/java_thread/image-20221025153014448.png" alt="image-20221025153014448"></p>
-<p><img src="/2022/10/25/java_thread/image-20221025153449308.png" alt="image-20221025153449308"></p>
-<p>传入实现Runnable接口的类对象即可生成一个Thread类，这个线程调用的 run()即是这个类对象重写的 run()方法</p>
-<p><img src="/2022/10/25/java_thread/image-20221025153536821.png" alt="image-20221025153536821"></p>
-<p><font color="blue" size="3"><strong>注：</strong></font>当实现了Runnable接口的类对象直接在 main主线程中调用 run()方法时，这个时候会被当成是一个普通方法，并不会为他新开一个线程，相当于当前线程还是串行的、顺序的执行，在 run()方法后的 main主线程代码必须等待 run()方法执行结束之后才能执行。</p>
-<p><img src="/2022/10/25/java_thread/image-20221025155004002.png" alt="image-20221025155004002"></p>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Thread</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2022/10/25/java_thread/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-process_synchronization&amp;mutual_exclusion" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -649,6 +552,93 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2022/10/09/e_note/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-encoding&amp;modulation" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2022/09/30/encoding&modulation/">编码&amp;调制</a>
+    </h1>
+  
+
+        
+        <a href="/2022/09/30/encoding&modulation/" class="archive-article-date">
+  	<time datetime="2022-09-30T13:03:11.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-30</time>
+</a>
+        
+		<!-- 开始添加字数统计-->
+		
+		<!-- 添加完成 -->
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><img src="/2022/09/30/encoding&modulation/image-20221107154617147.png" alt="image-20221107154617147"></p>
+<p><img src="/2022/09/30/encoding&modulation/image-20221107155751224.png" alt="image-20221107155751224"></p>
+<p><img src="/2022/09/30/encoding&modulation/image-20221107155025042.png" alt="image-20221107155025042"></p>
+<p><img src="/2022/09/30/encoding&modulation/image-20221107155235370.png" alt="image-20221107155235370"></p>
+<p><img src="/2022/09/30/encoding&modulation/image-20221107160601093.png" alt="image-20221107160601093"></p>
+<p><img src="/2022/09/30/encoding&modulation/image-20221107160727587.png" alt="image-20221107160727587"></p>
+<p><img src="/2022/09/30/encoding&modulation/image-20221107160802471.png" alt="image-20221107160802471"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">basicfour</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">computer_network</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2022/09/30/encoding&modulation/">展开全文 >></a>
         </p>
       
 
